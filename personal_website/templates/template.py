@@ -54,7 +54,6 @@ def menu_button() -> rx.Component:
                     for page in get_decorated_pages()
                 ],
                 rx.menu.separator(),
-                menu_item_link("About", "https://github.com/reflex-dev"),
                 menu_item_link("Contact", "mailto:founders@=reflex.dev"),
             ),
         ),
@@ -68,7 +67,7 @@ def menu_button() -> rx.Component:
 class ThemeState(rx.State):
     """The state for the theme of the app."""
 
-    accent_color: str = "crimson"
+    accent_color: str = "orange"
 
     gray_color: str = "gray"
 
@@ -113,7 +112,7 @@ def template(
                 rx.box(
                     rx.vstack(
                         page_content(),
-                        rx.spacer(),
+                        rx.text(""),
                         rx.logo(),
                         **styles.template_content_style,
                     ),

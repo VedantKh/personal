@@ -125,11 +125,10 @@ def sidebar() -> rx.Component:
     )
 
 def navbar_icons_item(
-    text: str, icon: str, url: str
+    text: str, url: str
 ) -> rx.Component:
     return rx.link(
         rx.hstack(
-            rx.icon(icon),
             rx.text(text, size="4", weight="medium"),
         ),
         href=url,
@@ -137,11 +136,10 @@ def navbar_icons_item(
 
 
 def navbar_icons_menu_item(
-    text: str, icon: str, url: str
+    text: str, url: str
 ) -> rx.Component:
     return rx.link(
         rx.hstack(
-            rx.icon(icon, size=16),
             rx.text(text, size="3", weight="medium"),
         ),
         href=url,
@@ -159,7 +157,7 @@ def navbar_icons() -> rx.Component:
                     rx.image(src="/Vedant_Khanna_white_font.svg", height="2em"),
                 ),
                 rx.hstack(
-                    *[navbar_icons_item(page.get("title", page["route"].strip("/").capitalize()), "home", page["route"]) for page in pages],
+                    *[navbar_icons_item(page.get("title", page["route"].strip("/").capitalize()), page["route"]) for page in pages],
                     spacing="6",
                 ),
                 justify="between",
@@ -168,24 +166,16 @@ def navbar_icons() -> rx.Component:
         ),
         rx.mobile_and_tablet(
             rx.hstack(
-                rx.hstack(
-                    rx.image(
-                        src="/logo.jpg",
-                        width="2em",
-                        height="auto",
-                        border_radius="25%",
-                    ),
-                    rx.heading(
-                        "Reflex", size="6", weight="bold"
-                    ),
-                    align_items="center",
+                rx.color_mode_cond(
+                    rx.image(src="/Vedant_Khanna_black_font.svg", height="2em"),
+                    rx.image(src="/Vedant_Khanna_white_font.svg", height="2em"),
                 ),
                 rx.menu.root(
                     rx.menu.trigger(
                         rx.icon("menu", size=30)
                     ),
                     rx.menu.content(
-                        *[navbar_icons_menu_item(page.get("title", page["route"].strip("/").capitalize()), "home", page["route"]) for page in pages],
+                        *[navbar_icons_menu_item(page.get("title", page["route"].strip("/").capitalize()), page["route"]) for page in pages],
                     ),
                     justify="end",
                 ),
