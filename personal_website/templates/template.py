@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from personal_website import styles
 from personal_website.components.navbar import navbar_icons
+from personal_website.components.sidebar import sidebar
 from typing import Callable
 
 import reflex as rx
@@ -54,6 +55,7 @@ def menu_button() -> rx.Component:
                     for page in get_decorated_pages()
                 ],
                 rx.menu.separator(),
+                menu_item_link("About", "https://github.com/reflex-dev"),
                 menu_item_link("Contact", "mailto:founders@=reflex.dev"),
             ),
         ),
@@ -67,7 +69,7 @@ def menu_button() -> rx.Component:
 class ThemeState(rx.State):
     """The state for the theme of the app."""
 
-    accent_color: str = "orange"
+    accent_color: str = "crimson"
 
     gray_color: str = "gray"
 
@@ -107,18 +109,19 @@ def template(
         all_meta = [*default_meta, *(meta or [])]
 
         def templated_page():
-            return rx.vstack(
-                navbar_icons(),
+            return rx.hstack(
+                sidebar(),
                 rx.box(
                     rx.vstack(
                         page_content(),
-                        rx.text(""),
+                        rx.spacer(),
                         rx.logo(),
                         **styles.template_content_style,
                     ),
                     **styles.template_page_style,
                 ),
-                align="center",
+                menu_button(),
+                align="start",
                 background=f"radial-gradient(circle at top right, {rx.color('accent', 2)}, {rx.color('mauve', 1)});",
                 position="relative",
             )
