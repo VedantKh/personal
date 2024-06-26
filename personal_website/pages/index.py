@@ -6,6 +6,44 @@ from personal_website.templates import template
 import reflex as rx
 
 
+def vedant_intro_component() -> rx.Component:
+    return rx.vstack(
+        rx.text("I'm Vedant, currently figuring out my life at Stanford.", size="7"),
+        rx.text(""),
+        rx.text("I like exploring contradictions. I'm a Hindu and a physicist. I don't like small talk but I love swapping stories."),
+        rx.text("I get a lot of gut feelings, and I enjoy testing them out. \
+                Talking to folks & shipping experiments usually works a lot better than in depth research and analysis."),
+        rx.text("I actively dislike social media, but need an outlet for my thoughts, so I'll be posting them here. This website will have a bit of everything."),
+        rx.spacer(),
+        rx.text(""),
+        rx.text("I'm figuring out how unfiltered I want to be here, so I'll tune it as I go."),
+        rx.text(""),
+    )
+
+def beliefs_accordion() -> rx.Component:
+    return rx.accordion.root(
+        rx.accordion.item(
+            header="First Item",
+            content="The first accordion item's content",
+        ),
+        rx.accordion.item(
+            header="Second Item",
+            content="The second accordion item's content",
+        ),
+        rx.accordion.item(
+            header="Third item",
+            content="The third accordion item's content",
+        ),
+        collapsible=True,
+        width="100%",
+        type="multiple",
+        variant="outline"
+    ),
+#rx.vstack (# rx.spacer(),
+                    # rx.text("Things I believe", size="6"),)
+                    
+             
+
 @template(route="/", title="Me")
 def index() -> rx.Component:
     """About me, intro page.
@@ -18,41 +56,11 @@ def index() -> rx.Component:
             rx.container(
                 rx.vstack(
                     rx.hstack(
-                        rx.vstack(
-                            rx.text("I'm Vedant, currently figuring out my life at Stanford.", size="7"),
-                            rx.text(""),
-                            rx.text("I like exploring contradictions. I'm a Hindu and a physicist. I don't like small talk but I love telling stories."),
-                            rx.text("I get a lot of gut feelings, and I enjoy testing them out. \
-                                    I prefer to learn through talking to folks & shipping experiments over in depth research and analysis."),
-                            rx.text("I actively dislike social media, but need an outlet for my thoughts, so I'll be posting them here. I end up musing about a lot of things, so this website will have a bit of everything."),
-                            rx.spacer(),
-                            rx.text(""),
-                            rx.text("I'm figuring out how unfiltered I want to be here, so I'll tune it as I go."),
-                            rx.text(""),
-                            rx.spacer(),
-                            rx.text("Beliefs", size="6"),
-                        ),
+                        vedant_intro_component(),
                         rx.spacer(),
                         rx.image(src="https://avatars.githubusercontent.com/u/77445964?v=4", height="10em"),                
                     ),
-                    rx.accordion.root(
-                            rx.accordion.item(
-                                header="First Item",
-                                content="The first accordion item's content",
-                            ),
-                            rx.accordion.item(
-                                header="Second Item",
-                                content="The second accordion item's content",
-                            ),
-                            rx.accordion.item(
-                                header="Third item",
-                                content="The third accordion item's content",
-                            ),
-                            collapsible=True,
-                            width="100%",
-                            type="multiple",
-                            variant="outline"
-                    ),
+                    # beliefs_accordion(),
                 ),
             ),
         ),
@@ -60,34 +68,8 @@ def index() -> rx.Component:
             rx.container(
                 rx.vstack(
                     rx.image(src="https://avatars.githubusercontent.com/u/77445964?v=4", height="10em", ),
-                    rx.text("I'm Vedant, currently figuring out my life at Stanford.", size="7"),
-                    rx.text(""),
-                    rx.text("I like exploring contradictions. I'm a Hindu and a physicist. I don't like small talk but I love telling stories."),
-                    rx.text("I get a lot of gut feelings, and I enjoy testing them out. \
-                            I prefer to learn through talking to folks & shipping experiments over in depth research and analysis."),
-                    rx.text("I actively dislike social media, but need an outlet for my thoughts, so I'll be posting them here. I end up musing about a lot of things, so this website will have a bit of everything."),
-                    rx.text(""),
-                    rx.text("I'm figuring out how unfiltered I want to be here, so I'll tune it as I go."),
-                    rx.text(""),
-                    rx.text("Beliefs", size="6"),
-                    rx.accordion.root(
-                            rx.accordion.item(
-                                header="First Item",
-                                content="The first accordion item's content",
-                            ),
-                            rx.accordion.item(
-                                header="Second Item",
-                                content="The second accordion item's content",
-                            ),
-                            rx.accordion.item(
-                                header="Third item",
-                                content="The third accordion item's content",
-                            ),
-                            collapsible=True,
-                            width="100%",
-                            type="multiple",
-                            variant="outline"
-                    ),
+                    vedant_intro_component(),
+                    # beliefs_accordion(),
                 ),
             ),
         ),
