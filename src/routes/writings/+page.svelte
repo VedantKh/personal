@@ -5,17 +5,15 @@
 	const { posts } = data;
 </script>
 
-<h1>Blogs</h1>
+<h1>writings</h1>
 
 <ul>
 	{#each posts as post}
-		<li>
-			<h2>
-				<a href={post.path}>
-					{post.meta.title}
-				</a>
-			</h2>
-			Published {post.meta.date}
-		</li>
+		<h2>
+			<a href={post.path}>
+				{post.meta.title}
+			</a>
+		</h2>
+		Published {post.meta.date}
 	{/each}
 </ul>

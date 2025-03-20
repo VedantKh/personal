@@ -6,13 +6,13 @@
 	<nav>
 		<ul>
 			<li>
-				<a href="/blog">Blog</a>
+				<a href="/experience">experience</a>
 			</li>
 			<li>
-				<a href="/experience">Experience</a>
+				<a href="/projects">projects</a>
 			</li>
 			<li>
-				<a href="/contact">Contact</a>
+				<a href="/writings">writings</a>
 			</li>
 		</ul>
 	</nav>

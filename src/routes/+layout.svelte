@@ -5,6 +5,7 @@
 	import '$lib/styles/style.scss';
 	import 'prismjs/themes/prism.css';
 	let { children } = $props();
+	export const prerender = true;
 </script>
 
 <div class="layout">
