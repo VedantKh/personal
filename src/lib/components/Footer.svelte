@@ -21,7 +21,7 @@
 </footer>
 
 <!-- ... The rest of the file's contents here -->
-<style>
+<style lang="scss">
 	footer {
 		padding: 1rem;
 		background: lightgrey;

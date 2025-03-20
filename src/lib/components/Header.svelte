@@ -19,7 +19,7 @@
 </header>
 
 <!-- ... The rest of the file's contents here -->
-<style>
+<style lang="scss">
 	header {
 		padding: 1rem;
 		background: lightgrey;
