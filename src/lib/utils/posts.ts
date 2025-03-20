@@ -2,6 +2,17 @@
  * Utility functions for fetching posts data
  */
 
+export type Post = {
+	path: string;
+	meta: {
+		title: string;
+		date: string;
+		[key: string]: unknown; // For additional metadata properties
+	};
+};
+
+export type Posts = Post[];
+
 /**
  * Fetches posts from the API
  */
