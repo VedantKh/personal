@@ -7,6 +7,6 @@
 
 <article>
 	<h1>{data.title}</h1>
-	<p>Published: {data.date}</p>
+	<p>Written on {data.date}</p>
 	<Content />
 </article>

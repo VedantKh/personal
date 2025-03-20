@@ -33,4 +33,4 @@ about what we want to do with our lives.
 Built an underground community of builders at Stanford and raised $200k to give out in grants. Here are my [thoughts](https://friendsandfam.xyz/builder-fellowships) about why this is important.
 
 # Martian
-Spent a few weeks learning about AI Infra, helped Martian close a [channel partnership](https://blog.withmartian.com/post/martian-partners-with-accenture-launches-airlock-compliance-for-enterprises) with Accenture.
+Spent a few weeks at Martian on growth and product. Helped close a [channel partnership](https://newsroom.accenture.com/news/2024/accenture-invests-in-martian-to-bring-dynamic-routing-of-large-language-queries-and-more-effective-ai-systems-to-clients) with Accenture.
