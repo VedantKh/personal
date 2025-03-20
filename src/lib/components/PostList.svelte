@@ -15,10 +15,10 @@
 {/if}
 
 {#each posts as post}
-    <h2>
-        <a href={post.path}>
-            {post.meta.title}
-        </a>
-    </h2>
-    Written on {post.meta.date}
+	<h2>
+		<a href={post.path}>
+			{post.meta.title}
+		</a>
+	</h2>
+	Written on {post.meta.date}
 {/each}

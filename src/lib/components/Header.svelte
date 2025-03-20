@@ -1,7 +1,7 @@
 <!-- Header.svelte -->
 
 <header>
-	<a href="/">Home</a>
+	<a href="/">Vedant Khanna</a>
 
 	<nav>
 		<ul>
