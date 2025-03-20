@@ -1,3 +1,4 @@
+// src/routes/+page.ts
 import type { PageLoad } from './$types';
 import { loadPosts } from '$lib/utils/posts';
 
