@@ -1,4 +1,9 @@
 <style>
+
+  h1 {
+    font-size: 2rem;
+    color: blue
+  }
   ul {
     list-style-type: square; /* Changes bullets to squares */
     margin-left: 1.5rem;
@@ -17,6 +22,7 @@
     color: #ff3e00; /* Svelte orange */
   }
 </style>
+
 
 # Uses
 

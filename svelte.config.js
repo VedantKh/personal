@@ -20,7 +20,13 @@ const config = {
 	preprocess: [
 		sveltePreprocess(),
 		mdsvex({
-			extensions: ['.md']
+			extensions: ['.md'],
+
+			// mdsvex magic: blog key means that layout will only be
+			// used on Markdown files inside our /blog path
+			layout: {
+				blog: 'src/routes/blog/post.svelte'
+			}
 		})
 	]
 };
