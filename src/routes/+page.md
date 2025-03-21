@@ -8,7 +8,7 @@ There's nothing more intoxicating than working with your favourite people on cha
 
 The [Hamming questions](https://www.lesswrong.com/w/hamming-questions#:~:text=Mathematician%20Richard%20Hamming%20used%20to,people's%20attention%20on%20what%20matters.) have been a powerful way to structure this thinking, and I'm actively working on my answer to them.
 
-I've shared my honest thoughts here on various subjects, let me know what you think. You can reach me at vedantk@stanford.edu
+I'll be sharing my honest thoughts here on various subjects, let me know what you think. You can reach me at vedantk@stanford.edu
 
 
 ## Recent writings
