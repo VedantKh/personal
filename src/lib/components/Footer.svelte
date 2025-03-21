@@ -69,7 +69,7 @@
 			</ul>
 		</nav>
 		
-		<p>License</p>
+		<a href="https://github.com/VedantKh/personal">Source code</a>
 	</div>
 </footer>
 
