@@ -13,6 +13,7 @@ export const fetchMarkdownPosts = async () => {
 				metadata: {
 					title: string;
 					date: string;
+					hidden?: string;
 					[key: string]: unknown;
 				};
 			}
@@ -31,5 +32,6 @@ export const fetchMarkdownPosts = async () => {
 		})
 	);
 
-	return allPosts;
+	// Filter out any posts that have a truthy hidden property
+	return allPosts.filter((post) => !post.meta.hidden);
 };

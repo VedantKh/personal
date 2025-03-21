@@ -17,6 +17,8 @@ By cutting off social media, doing hard cognitive work like reading math textboo
 
 I finally weaned off everything in September 2024. I satisfy my need to scroll through content by reading books on my phone. In 2022 I read 3 books, in 2024 I read 35. 
 
-Since my baseline moved from brainrot to books, work doesn't feel as tiring. I cannot stress how cool that feels. 
-
 I am also surprised by how little value social media actually added to my life. My close friends will always be close, and I hear about others through them. I am out of the loop on some culture, but I'm ok not knowing what Skibidi Toilet is. My friends just fill me in.
+
+Since my baseline moved from brainrot to books, work doesn't feel as tiring. I cannot stress how cool that feels. Learning is easier today than it has ever been, and it continues to get easier. At the same time, taking shortcuts (at school, college, work) has also never been easier. Just ask Chat. 
+
+Social media usage will play a big role in growing the knowledge gap over the next decade. Since the knowledge gap is quite closely linked with the wealth gap, this doesn't bode well.  

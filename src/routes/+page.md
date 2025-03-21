@@ -14,7 +14,8 @@ I've shared my honest thoughts here on various subjects, and I'd love to hear yo
 	import type { PageData } from './$types';
 	export let data: PageData;
 	const { posts } = data;
+	const recentPosts = posts.slice(0, 3);
 	import PostList from '$lib/components/PostList.svelte';
 </script>
 
-<PostList posts="{posts}" />
+<PostList posts="{recentPosts}" />

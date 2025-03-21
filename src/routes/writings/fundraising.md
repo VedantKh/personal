@@ -1,6 +1,7 @@
 ---
 title: Fundraising guide
 date: '2024-07-19'
+hidden: ye
 ---
 <aside>
 💡 After raising a seed round and talking to about a 100 VCs, I compiled some of my learnings below.
