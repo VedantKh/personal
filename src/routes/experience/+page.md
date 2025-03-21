@@ -1,3 +1,4 @@
+
 # Hazel
 
 I was cofounder and CEO of Hazel. Raised $2M when I was 19, and hired
@@ -20,17 +21,29 @@ Stanford.
 Internalized that the pain of entrepreneurship is only worth it for
 the right problems.
 
-Proudest moment: 
-When a design partner of ours at Berkshire Hathaway's real estate
-brokerage (the largest in America) loved our product vision so much he
-became an angel investor. After months of pivot hell, this felt good.
+#### Highlights
 
-Favourite moment:
-A chat I had with my cofounder Mason on a rooftop at 2 am, thinking
-about what we want to do with our lives.
+> When the SVP at Berkshire Hathaway's real estate
+> brokerage in Silicon Valley loved our product so much he
+> became an angel investor. After months of pivot hell, this felt good.
+
+> A chat I had with my cofounder Mason on a rooftop at 2 am, thinking
+> about what we want to do with our lives.
+
+
 
 # Friends and Family
 Built an underground community of builders at Stanford and raised $200k to give out in grants. Here are my [thoughts](https://friendsandfam.xyz/builder-fellowships) about why this is important.
 
+#### Highlights
+
+> Moving people away from quant and towards building.
+
+
+
 # Martian
 Spent a few weeks at Martian on growth and product. Helped close a [channel partnership](https://newsroom.accenture.com/news/2024/accenture-invests-in-martian-to-bring-dynamic-routing-of-large-language-queries-and-more-effective-ai-systems-to-clients) with Accenture.
+
+#### Highlights
+
+> Meeting Ben K., who became one of my best friends and changed the way I think.
