@@ -1,3 +1,5 @@
+<img src="me.png" style="float: left; border-radius: 60px; width: 120px; margin: 1rem;"/>
+
 Hey, I'm Vedant, I'm currently finishing up my undergrad at Stanford in Math.
 
 I arrived at Stanford determined to be a physicist after I fell in love with the subject as a kid, excited to dive into the big questions and learn from legends like Susskind.
@@ -10,8 +12,8 @@ The [Hamming questions](https://www.lesswrong.com/w/hamming-questions#:~:text=Ma
 
 I'll be sharing my honest thoughts here on various subjects, let me know what you think. You can reach me at vedantk@stanford.edu
 
-
 ## Recent writings
+
 <script lang="ts">
 	import type { PageData } from './$types';
 	export let data: PageData;
