@@ -6,5 +6,6 @@
 	const { posts } = data;
 </script>
 
+<p>These are all rough drafts, would love thoughts/edits</p>
 
 <PostList {posts} />
