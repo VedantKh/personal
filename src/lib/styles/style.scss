@@ -14,9 +14,11 @@ body {
 }
 
 main {
+	display: flex;
 	padding: 1rem;
 	margin: 1rem auto;
-	width: 40rem;
+	width: 100%; /* Take full width of parent */
+	max-width: 40rem; /* Cap the maximum width */
 	margin-bottom: 0;
 }
 
