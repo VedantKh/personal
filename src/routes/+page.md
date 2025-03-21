@@ -6,7 +6,7 @@ I arrived here determined to be a physicist after I fell in love with the subjec
 
 Serendipity is powerful in the Bay though. Through a series of fortunate events, I ended starting a company with my closest friends when I was 19.
 
-There's nothing more intoxicating than working with your favourite people on changing the status quo. However, it requires serious sacrifice, so I realized I need equally serious reasoning about why the status quo is worth changing.
+There's nothing more intoxicating than working with your favourite people on changing the status quo. However, it requires serious sacrifice, so I realized I need equally serious reasoning about where the status quo is worth changing and why.
 
 The [Hamming questions](https://www.lesswrong.com/w/hamming-questions#:~:text=Mathematician%20Richard%20Hamming%20used%20to,people's%20attention%20on%20what%20matters.) have been a powerful way to structure this thinking, and I'm actively working on my answer to them.
 
