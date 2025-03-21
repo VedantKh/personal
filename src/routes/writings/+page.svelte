@@ -6,4 +6,5 @@
 	const { posts } = data;
 </script>
 
+
 <PostList {posts} />

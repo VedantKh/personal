@@ -28,28 +28,56 @@
 <style>
 	.post-preview {
 		display: block;
-		padding: 1rem;
-		margin-bottom: 1.5rem;
-		border-radius: 0.5rem;
-		background-color: #f9f9f9;
+		padding: 0.75rem 0;
+		margin-bottom: 1rem;
 		text-decoration: none;
+		border-bottom: 1px solid #eaeaea;
+		opacity: 0.9;
 		transition:
-			transform 0.2s,
-			box-shadow 0.2s;
+			opacity 0.2s ease,
+			transform 0.3s ease,
+			padding-left 0.3s ease;
+		position: relative;
 	}
 
 	.post-preview:hover {
-		transform: translateY(-3px);
-		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+		opacity: 1;
+	}
+
+	.post-preview::after {
+		content: '';
+		position: absolute;
+		bottom: -1px;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background-color: var(--text-color, #eaeaea);
+		transition: width 0.3s ease;
+	}
+
+	.post-preview:hover::after {
+		width: 100%;
 	}
 
 	.post-title {
-		margin: 0 0 0.5rem 0;
-		color: #333;
+		margin: 0 0 0.25rem 0;
+		color: var(--text-color, #eaeaea);
+		font-size: 1.2rem;
+		transition: color 0.3s ease;
 	}
 
 	.post-date {
-		font-size: 0.9rem;
-		color: #666;
+		font-size: 0.85rem;
+		color: var(--text-muted, #eaeaea);
+		font-weight: 300;
+		transition: color 0.3s ease;
+	}
+
+	.post-preview:hover .post-title {
+		color: var(--accent-color, #ffffff);
+	}
+
+	.post-preview:hover .post-date {
+		color: var(--accent-muted, #cccccc);
 	}
 </style>

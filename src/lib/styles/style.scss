@@ -15,6 +15,7 @@ body {
 
 main {
 	display: flex;
+	flex-direction: column;
 	padding: 1rem;
 	margin: 1rem auto;
 	width: 100%; /* Take full width of parent */
@@ -57,9 +58,25 @@ p {
 a {
 	color: rgba(110, 209, 255, 0.891);
 	text-decoration: none;
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		width: 0;
+		height: 1px;
+		bottom: 0;
+		left: 0;
+		background-color: rgba(110, 209, 255, 0.891);
+		transition: width 0.3s ease-in-out;
+	}
 
 	&:hover {
-		text-decoration: underline;
+		text-decoration: none;
+
+		&::after {
+			width: 100%;
+		}
 	}
 }
 
