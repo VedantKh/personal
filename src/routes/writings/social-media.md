@@ -5,7 +5,7 @@ date: '2025-03-19'
 
 I’m not on twitter, or any social media. I’ve cut off Netflix completely. I just keep a linkedin as a resume. This always surprises a lot of people.
 
-Social media is a net negative for me. We’re all fundamentally addicted to information. This is especially true for me, boredom feels like knives in the brain. 
+I am addicted to information, boredom has always felt like knives in the brain. At the same time, I think the need for information is fundamentally built into all humans, just like the need for respect and love.
 
 Math and science used to be a lordly pastime. Lords inherited their wealth, so knowledge had a much looser correlation with wealth back then. There was a prominent minority that did it for fun. Newton, Boyle, and Brahe dedicated vast amounts of time and money to learning, and a large part of this was because they enjoyed it.
 
