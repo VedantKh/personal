@@ -13,8 +13,8 @@ axiomatically about new UIs unlocked by LLMs, pricing models for
 enterprise, and finding PMF.
 
 Learned the hard way that SaaS isn't venture scale in residential real
-estate, a better way to capture value is by building a brokerage and
-automating the backend tasks. Decided I didn't want to start a
+estate. A better way to capture value is to build a brokerage and
+automate the backend tasks. Decided I didn't want to start a
 brokerage at 20, so retreated to the comfort of a Math major at
 Stanford.
 
