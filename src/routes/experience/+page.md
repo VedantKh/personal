@@ -24,7 +24,7 @@ the right problems.
 
 
 # Friends and Family
-Built an underground community of builders at Stanford and raised $200k to give out in grants. Here are my [thoughts](https://friendsandfam.xyz/builder-fellowships) about why this is important.
+Built a strong community of builders at Stanford and raised $200k to give out in grants. Here are my [thoughts](https://friendsandfam.xyz/builder-fellowships) about why this is important.
 
 
 

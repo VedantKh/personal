@@ -1,4 +1,4 @@
-Hi! I'm Vedant, I'm currently finishing up my undergrad at Stanford in Math.
+Hey, I'm Vedant, I'm currently finishing up my undergrad at Stanford in Math.
 
 I arrived at Stanford determined to be a physicist after I fell in love with the subject as a kid, excited to dive into the big questions and learn from legends like Susskind.
 
