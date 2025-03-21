@@ -164,8 +164,8 @@
 		z-index: -8;
 		pointer-events: none;
 		background-image:
-			linear-gradient(rgba(64, 196, 255, 0.2) 1px, transparent 1px),
-			linear-gradient(90deg, rgba(64, 196, 255, 0.2) 1px, transparent 1px);
+			linear-gradient(rgba(64, 195, 255, 0.25) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(64, 196, 255, 0.25) 1px, transparent 1px);
 		background-size: 20px 20px;
 		-webkit-mask-image: radial-gradient(
 			circle 100px at var(--mouse-x) var(--mouse-y),
