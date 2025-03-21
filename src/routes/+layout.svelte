@@ -2,28 +2,15 @@
 	import '../app.css';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import DynamicBackground from '$lib/components/DynamicBackground.svelte';
 	import '$lib/styles/style.scss';
 	import 'prismjs/themes/prism.css';
 	import { onMount } from 'svelte';
 	let { children } = $props();
 
-	// Track mouse position with signals
-	let mouseX = $state(0);
-	let mouseY = $state(0);
-
 	// Default values for server rendering
 	let width = $state(1);
 	let height = $state(1);
-
-	// Calculate background color based on mouse position
-	let hue = $derived(Math.floor((mouseX / width) * 360));
-	let lightness = $derived(60 + Math.floor((mouseY / height) * 35));
-	let backgroundColor = $derived(`hsl(${hue}, 70%, ${lightness}%)`);
-
-	function handleMouseMove(event: MouseEvent) {
-		mouseX = event.clientX;
-		mouseY = event.clientY;
-	}
 
 	onMount(() => {
 		// window code here safely
@@ -38,29 +25,31 @@
 	});
 </script>
 
-<!-- <div
-	class="layout"
-	role="presentation"
-	style:background-color={backgroundColor}
-	style:transition="background-color 0.2s ease"
-	onmousemove={handleMouseMove}
-> -->
-<div>
-	<Header />
-	<main>
-		{@render children()}
-	</main>
-	<Footer />
-</div>
+<DynamicBackground>
+	<div class="site-wrapper">
+		<Header />
 
-<style>
-	.layout {
-		min-height: 100vh;
+		<main class="site-content">
+			{@render children()}
+		</main>
+
+		<Footer />
+	</div>
+</DynamicBackground>
+
+<style lang="scss">
+	.site-wrapper {
 		display: flex;
 		flex-direction: column;
+		max-height: 100vh;
+		min-height: 100vh;
+		z-index: 1;
+		position: relative;
+		overflow-y: auto;
 	}
 
-	main {
+	.site-content {
 		flex: 1;
+		overflow-y: auto;
 	}
 </style>

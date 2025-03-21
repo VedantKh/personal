@@ -76,10 +76,14 @@
 <style lang="scss">
 	footer {
 		padding: 1rem;
-		background: lightgrey;
 		display: flex;
+		margin-bottom: 0;
 		flex-wrap: wrap;
+		position: sticky;
 		justify-content: space-between;
+		background: transparent !important; /* Force transparency with !important */
+		backdrop-filter: none; /* Remove any backdrop filters */
+		box-shadow: none; /* Remove any shadows */
 	}
 
 	ul {
@@ -93,7 +97,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		color: var(--text-color, #333);
+		color: var(--text-color, #e2e2e2);
 		transition: color 0.2s;
 	}
 

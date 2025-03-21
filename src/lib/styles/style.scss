@@ -1,15 +1,23 @@
 /* style.css */
 body {
 	margin: 0;
-	background: #eee;
-	color: #333;
+	color: #e2e2e2;
 	font-family: sans-serif;
+	/* Remove scrollbars */
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* IE and Edge */
+}
+
+/* WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+	display: none;
 }
 
 main {
 	padding: 1rem;
-	margin: 2rem auto;
+	margin: 1rem auto;
 	max-width: 40rem;
+	margin-bottom: 0;
 }
 
 h1,
@@ -26,14 +34,12 @@ h6 {
 
 h1 {
 	font-size: 2em;
-	color: #1a202c;
-	border-bottom: 1px solid #e2e8f0;
+	border-bottom: 1px solid #4a4a4a;
 	padding-bottom: 0.3em;
 }
 
 h2 {
 	font-size: 1.5em;
-	color: #2d3748;
 }
 
 h3 {
@@ -47,7 +53,7 @@ p {
 }
 
 a {
-	color: #3182ce;
+	color: rgba(110, 209, 255, 0.891);
 	text-decoration: none;
 
 	&:hover {
