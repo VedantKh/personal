@@ -2,7 +2,7 @@
 
 Hey, I'm Vedant, I'm currently finishing up my undergrad at Stanford in Math.
 
-I arrived at Stanford determined to be a physicist after I fell in love with the subject as a kid, excited to dive into the big questions and learn from legends like Susskind.
+I arrived here determined to be a physicist after I fell in love with the subject as a kid, excited to dive into the big questions and learn from legends like Susskind.
 
 Serendipity is powerful in the Bay though. Through a series of fortunate events, I ended starting a company with my closest friends when I was 19.
 
