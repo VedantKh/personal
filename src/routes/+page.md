@@ -10,6 +10,8 @@ The [Hamming questions](https://www.lesswrong.com/w/hamming-questions#:~:text=Ma
 
 I've shared my honest thoughts here on various subjects, let me know what you think. You can reach me at vedantk@stanford.edu
 
+
+## Recent writings
 <script lang="ts">
 	import type { PageData } from './$types';
 	export let data: PageData;
@@ -18,4 +20,4 @@ I've shared my honest thoughts here on various subjects, let me know what you th
 	import PostList from '$lib/components/PostList.svelte';
 </script>
 
-<PostList posts="{recentPosts}" />
+<PostList posts="{recentPosts}" showHeading="{false}" />

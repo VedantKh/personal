@@ -1,6 +1,7 @@
 ---
 title: Mentors and Patrons
-date: '2024-03-20'
+date: '2025-03-20'
+hidden: ye
 ---
 
 The right mentor can unlock multiple orders of magnitude of potential in a person. If the right mentor puts their entire weight behind you, you can move mountains. 
