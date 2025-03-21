@@ -27,7 +27,7 @@ the right problems.
 > brokerage in Silicon Valley loved our product so much he
 > became an angel investor. After months of pivot hell, this felt good.
 
-> A chat I had with my cofounder Mason on a rooftop at 2 am, thinking
+> A conversation with my cofounder Mason on a rooftop at 2 am, thinking
 > about what we want to do with our lives.
 
 
@@ -46,4 +46,4 @@ Spent a few weeks at Martian on growth and product. Helped close a [channel part
 
 #### Highlights
 
-> Meeting Ben K., who became one of my best friends and changed the way I think.
+> Meeting Ben, who became one of my best friends and changed the way I think.

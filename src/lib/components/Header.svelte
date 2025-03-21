@@ -3,7 +3,7 @@
 <header>
 	<div class="container">
 		<div class="logo">
-			<a href="/">Vedant Khanna</a>
+			<a href="/">home</a>
 		</div>
 
 		<nav>
