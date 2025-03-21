@@ -33,7 +33,7 @@
 
 	export function ripple(node: HTMLElement, options: RippleOptions = {}) {
 		const duration = options.duration || 800;
-		const defaultColor = 'rgba(255, 255, 255, 0.5)';
+		const defaultColor = 'rgba(0, 100, 255, 0.8)';
 
 		// Create a container for positioning context if it doesn't exist
 		if (getComputedStyle(node).position === 'static') {
@@ -181,7 +181,7 @@
 
 	.ripple {
 		position: absolute;
-		border: 1px solid rgba(120, 120, 120, 0.5);
+		border: 1px solid rgba(64, 195, 255, 0.7);
 		border-radius: 50%;
 		transform: translate(-50%, -50%);
 		pointer-events: none;
@@ -196,8 +196,8 @@
 			border-width: 1px;
 		}
 		100% {
-			width: 500px;
-			height: 500px;
+			width: 250px;
+			height: 250px;
 			opacity: 0;
 			border-width: 0;
 		}
