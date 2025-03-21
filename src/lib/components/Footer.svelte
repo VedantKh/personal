@@ -102,7 +102,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		color: var(--text-color, #e2e2e2);
+		color: var(--text-color, #b8b8b8);
 		transition: color 0.2s;
 	}
 
