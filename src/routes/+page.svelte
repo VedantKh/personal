@@ -7,7 +7,6 @@
 	let showMore = $state(false);
 
 	function showMoreInfoToggle() {
-		// TODO implement
 		showMore = !showMore;
 	}
 </script>

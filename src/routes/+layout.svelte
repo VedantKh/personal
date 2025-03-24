@@ -28,15 +28,15 @@
 <div class="page-container">
 	<DynamicBackground />
 
-	<div class="site-wrapper">
-		<Header />
+	<Header />
 
+	<div class="site-wrapper">
 		<main class="site-content">
 			{@render children()}
 		</main>
-
-		<Footer />
 	</div>
+
+	<Footer />
 </div>
 
 <style lang="scss">
@@ -51,22 +51,40 @@
 		position: relative;
 		width: 100%;
 		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
 	.site-wrapper {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
+		flex: 1;
 		position: relative;
 		z-index: 1;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
 	}
 
 	.site-content {
-		flex: 1;
 		width: 100%;
 		display: flex;
 		flex-direction: column;
 		align-self: center;
-		padding: 1rem;
+		padding: 0 1rem;
+	}
+
+	:global(header) {
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		backdrop-filter: blur(5px);
+		background-color: rgba(26, 26, 26, 0.5);
+	}
+
+	:global(footer) {
+		position: sticky;
+		bottom: 0;
+		z-index: 10;
+		backdrop-filter: blur(5px);
+		background-color: rgba(26, 26, 26, 0.5);
 	}
 </style>
