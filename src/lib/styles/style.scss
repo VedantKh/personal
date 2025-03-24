@@ -64,24 +64,15 @@ a {
 	color: rgba(110, 209, 255, 0.891);
 	text-decoration: none;
 	position: relative;
-
-	&::after {
-		content: '';
-		position: absolute;
-		width: 0;
-		height: 1px;
-		bottom: 0;
-		left: 0;
-		background-color: rgba(110, 209, 255, 0.891);
-		transition: width 0.3s ease-in-out;
-	}
+	background-image: linear-gradient(currentColor, currentColor);
+	background-position: 0% 100%;
+	background-repeat: no-repeat;
+	background-size: 0% 1px;
+	transition: background-size 0.3s ease-in-out;
 
 	&:hover {
 		text-decoration: none;
-
-		&::after {
-			width: 100%;
-		}
+		background-size: 100% 1px;
 	}
 }
 
