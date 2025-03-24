@@ -38,6 +38,7 @@
 		max-width: 40rem; /* Adjust to match main content width */
 		margin: 0 auto;
 		box-sizing: border-box;
+		font-weight: 600;
 	}
 
 	.logo {
@@ -49,18 +50,21 @@
 	nav {
 		flex-shrink: 0;
 		display: flex;
-		align-items: center;
+		justify-content: center;
 	}
 
 	ul {
 		margin: 0;
 		padding: 0;
-		list-style-type: none;
 		display: flex;
+		list-style-type: none;
 		gap: 1.5rem;
+		align-items: center;
 	}
 
 	li {
+		align-self: center;
+		justify-self: center;
 		white-space: nowrap;
 	}
 
