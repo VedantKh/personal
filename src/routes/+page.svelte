@@ -57,7 +57,7 @@
 	</p>
 {/snippet}
 
-<div class="bio-container">
+<div class="bio-container mt-8">
 	<img
 		src="me.png"
 		style="float: left; border-radius: 85px; width: 170px; margin: 0 1rem 0.5rem 0;"
