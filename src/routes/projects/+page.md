@@ -1,34 +1,35 @@
 # Projects
 
-## AI teacher <span class="links"><a href="https://youtu.be/SY-RqmK3bHY?si=-0m-ieHjA8QBtHwa&t=36">demo</a></span>
+### AI teacher <span class="coming-soon">coming soon</span><span class="links"><a href="https://youtu.be/SY-RqmK3bHY?si=-0m-ieHjA8QBtHwa&t=36">demo</a></span>
 
-An AI-powered teaching assistant that helps students understand complex concepts through interactive learning.
-
----
-
-## Co-scientist in your discord <span class="links"><a href="https://youtu.be/h4_JFms3kIc?si=EQQzfFpUWeooGuux&t=43">demo</a></span>
-
-A discord bot that assists with scientific research, analysis, and collaboration directly in your Discord server.
+Talk to any document or link. Think NotebookLM but conversational.
 
 ---
 
-## AI medical scribe <span class="links"><a href="https://www.youtube.com/watch?v=KQSOck-XG5k">demo</a></span>
+### Co-scientist <span class="links"><a href="https://youtu.be/h4_JFms3kIc?si=EQQzfFpUWeooGuux&t=43">demo</a></span>
 
-Automated medical transcription system built specifically for a clinic in Abu Dhabi to improve doctor-patient interactions.
+Get recommended novel research directions instead of spending time on literature review.
 
 ---
 
-## Voice-based CRM for realtors <span class="links"><a href="https://youtu.be/CKjFMmc5wi8?si=sfs4W27oi-hlZ9Yt&t=14">demo</a></span>
+### Multilingual AI medical scribe <span class="links"><a href="https://www.youtube.com/watch?v=KQSOck-XG5k">demo</a></span>
 
-A hands-free customer relationship management system that allows realtors to update client information using voice commands.
+Automated medical transcription system built specifically for a clinic in Abu Dhabi to eliminate the pain of notetaking.
+
+---
+
+### Voice-based CRM for realtors <span class="links"><a href="https://youtu.be/CKjFMmc5wi8?si=sfs4W27oi-hlZ9Yt&t=14">demo</a></span>
+
+Making data entry feel like a conversation.
 
 <style>
-  h2 {
+  h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.5rem;
     border-bottom: none;
+    font-color: 
   }
   
   .links {
@@ -39,6 +40,15 @@ A hands-free customer relationship management system that allows realtors to upd
   
   .links a {
     margin-left: 1rem;
+  }
+  
+  .coming-soon {
+    margin-left: 1rem;
+    padding: 0.2rem 0.5rem;
+    background-color: rgba(110, 209, 255, 0.15);
+    border-radius: 4px;
+    color: rgba(110, 209, 255, 0.891);
+    font-size: 0.8rem;
   }
   
   p {
