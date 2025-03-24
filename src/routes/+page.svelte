@@ -48,12 +48,12 @@
 
 	<p>
 		I read a lot across the board, from books like <a
-			href="https://www.goodreads.com/book/show/13586932-the-outsiders"
-			target="_blank">The Outsiders</a
+			href="https://www.goodreads.com/en/book/show/18667988-the-fourth-revolution"
+			target="_blank">The Fourth Revolution</a
 		>
 		to
-		<a href="https://www.goodreads.com/book/show/13496.A_Game_of_Thrones" target="_blank"
-			>Game of Thrones</a
+		<a href="https://www.goodreads.com/book/show/30013.Prelude_to_Foundation" target="_blank"
+			>Prelude to Foundation</a
 		>. I get my energy from talking to people who love what they do.
 	</p>
 {/snippet}
