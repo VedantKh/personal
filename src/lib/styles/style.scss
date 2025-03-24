@@ -4,21 +4,14 @@ body {
 	color: #b8b8b8;
 	font-family: sans-serif;
 	min-height: 100%;
-	/* Override scrollbar removal for now */
-	scrollbar-width: auto;
-	-ms-overflow-style: auto;
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* IE and Edge */
 	overflow-y: auto;
 }
 
-/* WebKit browsers (Chrome, Safari) - re-enabling scrollbars */
+/* WebKit browsers (Chrome, Safari) - hiding scrollbars */
 ::-webkit-scrollbar {
-	display: block;
-	width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-	background-color: #555;
-	border-radius: 4px;
+	display: none;
 }
 
 main {
