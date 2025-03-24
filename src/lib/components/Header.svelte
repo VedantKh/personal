@@ -59,7 +59,6 @@
 		display: flex;
 		list-style-type: none;
 		gap: 1.5rem;
-		align-items: center;
 	}
 
 	li {
