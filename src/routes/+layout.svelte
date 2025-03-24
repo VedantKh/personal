@@ -62,13 +62,17 @@
 		z-index: 1;
 		padding-top: 1rem;
 		padding-bottom: 1rem;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
 	.site-content {
 		width: 100%;
+		max-width: 40rem;
 		display: flex;
 		flex-direction: column;
-		align-self: center;
 		padding: 0 1rem;
 	}
 
