@@ -25,7 +25,9 @@
 	});
 </script>
 
-<DynamicBackground>
+<div class="page-container">
+	<DynamicBackground />
+
 	<div class="site-wrapper">
 		<Header />
 
@@ -35,21 +37,36 @@
 
 		<Footer />
 	</div>
-</DynamicBackground>
+</div>
 
 <style lang="scss">
+	:global(html, body) {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		overflow-x: hidden;
+	}
+
+	.page-container {
+		position: relative;
+		width: 100%;
+		min-height: 100vh;
+	}
+
 	.site-wrapper {
 		display: flex;
 		flex-direction: column;
-		max-height: 100vh;
 		min-height: 100vh;
-		z-index: 1;
 		position: relative;
-		overflow-y: auto;
+		z-index: 1;
 	}
 
 	.site-content {
 		flex: 1;
-		overflow-y: auto;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-self: center;
+		padding: 1rem;
 	}
 </style>

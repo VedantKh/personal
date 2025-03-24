@@ -3,24 +3,29 @@ body {
 	margin: 0;
 	color: #b8b8b8;
 	font-family: sans-serif;
-	/* Remove scrollbars */
-	scrollbar-width: none; /* Firefox */
-	-ms-overflow-style: none; /* IE and Edge */
+	min-height: 100%;
+	/* Override scrollbar removal for now */
+	scrollbar-width: auto;
+	-ms-overflow-style: auto;
+	overflow-y: auto;
 }
 
-/* WebKit browsers (Chrome, Safari) */
+/* WebKit browsers (Chrome, Safari) - re-enabling scrollbars */
 ::-webkit-scrollbar {
-	display: none;
+	display: block;
+	width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #555;
+	border-radius: 4px;
 }
 
 main {
 	display: flex;
 	flex-direction: column;
-	padding: 1rem;
-	margin: 1rem auto;
 	width: 100%; /* Take full width of parent */
 	max-width: 40rem; /* Cap the maximum width */
-	margin-bottom: 0;
 }
 
 h1,

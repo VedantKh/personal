@@ -125,7 +125,6 @@
 	{#each ripples as ripple (ripple.timestamp)}
 		<div class="ripple" style:left="{ripple.x}px" style:top="{ripple.y}px"></div>
 	{/each}
-	<slot />
 </div>
 
 <style>
@@ -133,8 +132,8 @@
 		position: fixed;
 		top: 0;
 		left: 0;
-		width: 100vw;
-		height: 100vh;
+		width: 100%;
+		height: 100%;
 		overflow: hidden;
 		/* Create grid using background image */
 		background-image:
@@ -142,6 +141,7 @@
 			linear-gradient(90deg, rgba(120, 120, 120, 0.1) 1px, transparent 1px);
 		background-size: 20px 20px;
 		z-index: -10;
+		pointer-events: none;
 	}
 
 	.cursor-effect {
