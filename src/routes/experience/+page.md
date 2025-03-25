@@ -1,4 +1,3 @@
-
 # Hazel
 
 I was cofounder and CEO of Hazel. Raised $2M when I was 19, and hired
@@ -21,13 +20,10 @@ Stanford.
 Internalized that the pain of entrepreneurship is only worth it for
 the right problems.
 
-
-
 # Friends and Family
+
 Built a strong community of builders at Stanford and raised $200k to give out in grants. Here are my [thoughts](https://friendsandfam.xyz/builder-fellowships) about why this is important.
 
-
-
-
 # Martian
+
 Spent a few weeks at Martian on growth and product. Helped close a [channel partnership](https://newsroom.accenture.com/news/2024/accenture-invests-in-martian-to-bring-dynamic-routing-of-large-language-queries-and-more-effective-ai-systems-to-clients) with Accenture.

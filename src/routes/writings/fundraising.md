@@ -3,6 +3,7 @@ title: Fundraising guide
 date: '2024-07-19'
 hidden: ye
 ---
+
 <aside>
 💡 After raising a seed round and talking to about a 100 VCs, I compiled some of my learnings below.
 
@@ -42,8 +43,8 @@ TL;DR, the structure of a pitch looks like:
   2. How does your investment process work? Can you make solo decisions to fund or do you need to go through an approval process?
   3. How many investments do you make per year?
   4. What is your fund size?
-  It’s critical to ask these questions early in the process so you can determine if the investor is worth spending time with. You can also ask other questions that are more
-  specific to your company, if you have any.
+     It’s critical to ask these questions early in the process so you can determine if the investor is worth spending time with. You can also ask other questions that are more
+     specific to your company, if you have any.
 - **Who else has invested? What’s the status on your round / fundraise?**
   This is one of those answers where the delivery is more important than the content. If you already have closed investors as part of this round, you should name them proudly (emphasize their credibility if they are domain experts or notable funds), and you can say “We have already closed $x of the $y we are raising.”
   However, it’s understandable if you are in a position where you haven’t closed anything yet or fundraising isn’t going well. In that case, remember that investors are going to be watching your body language and tone of voice to see if you sound like things are actually going well or if you’re just saying that. An investor said that when he’d ask founders this, he’d look at their eyes to see if there was a flash of panic. In the situation where you no one else has invested yet, you can answer with something like: "We only just started fundraising a few days ago. I'm swamped with meetings and everyone’s asking very smart questions," or “We're taking lots of meetings and working through them," or “I have final partner meetings with 3 firms next week”. Of course, if you’re farther along with your raise, you can say “We have half of the round filled and anticipate the rest to move quickly.”

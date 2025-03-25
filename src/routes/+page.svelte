@@ -40,9 +40,10 @@
 {/snippet}
 
 {#snippet DefaultContent()}
+	<h1 class="!mt-0 !border-b-0 !pb-0 !text-xl">Vedant Khanna</h1>
 	<p>
-		Hey, I'm Vedant, I'm currently finishing up my undergrad at Stanford in Math. I think a lot
-		about applications of AI beyond the Silicon Valley bubble.
+		I'm currently finishing my undergrad at Stanford in Math. I think a lot about applications of AI
+		beyond the Silicon Valley bubble.
 	</p>
 
 	<p>
@@ -60,6 +61,7 @@
 <div class="bio-container mt-8">
 	<img
 		src="me.png"
+		alt="Vedant Khanna smiling"
 		style="float: left; border-radius: 85px; width: 170px; margin: 0 1rem 0.5rem 0;"
 	/>
 
@@ -83,6 +85,9 @@
 <PostList {posts} showHeading={false} />
 
 <style lang="scss">
+	p {
+		font-size: 0.95rem;
+	}
 	.more-button {
 		position: relative;
 		color: rgba(110, 209, 255, 0.891);
