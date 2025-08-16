@@ -1,8 +1,11 @@
 ---
 title: Fundraising guide
 date: '2024-07-19'
-hidden: ye
 ---
+
+<script>
+  import Toggle from '$lib/components/Toggle.svelte';
+</script>
 
 <aside>
 💡 After raising a seed round and talking to about a 100 VCs, I compiled some of my learnings below.
@@ -26,8 +29,11 @@ TL;DR, the structure of a pitch looks like:
 
 [Example Seed Decks - Google Drive](https://drive.google.com/drive/folders/150-zTmeTMNh8jaSANPkJBRePnsH6vH-G)
 
-- **How much are you raising?**
-  In most cases, you should give the number that is your ideal amount. And if you have a meaningful amount closed, you can also mention that (to drive FOMO). For example, if your ideal is $1.5M, say: “I’m raising $1.5M, and have already closed half of that”.
+<Toggle question="How much are you raising?">
+
+In most cases, you should give the number that is your ideal amount. And if you have a meaningful amount closed, you can also mention that (to drive FOMO). For example, if your ideal is $1.5M, say: "I'm raising $1.5M, and have already closed half of that".
+
+</Toggle>
 - **You’re raising at an $xx cap? How did you come up with that number?**
   There are a few possible approaches. Usually this is an investor who feels like your cap is too high and wants you to justify it. The fact is, there is no logical basis for the valuations of early stage companies, so there isn’t really a literal answer to this question. Nonetheless, investors ask it anyway.
   Here are some possible good answers.

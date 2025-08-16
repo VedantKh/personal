@@ -1,8 +1,8 @@
 # Projects
 
-### AI teacher <span class="coming-soon">coming soon</span><span class="links"><a href="https://youtu.be/SY-RqmK3bHY?si=-0m-ieHjA8QBtHwa&t=36">demo</a></span>
+### Vmail <span class="coming-soon">coming soon</span><span class="links"><a href="https://www.youtube.com/watch?v=3ePO_Qi2jCg">demo</a></span>
 
-Talk to any document or link. Think NotebookLM but conversational.
+Talk to your email. Built with <a href="https://www.goodhart.ai/">Ethan</a>.
 
 ---
 
