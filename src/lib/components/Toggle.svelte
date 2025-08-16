@@ -21,7 +21,7 @@
 
 <style lang="scss">
 	.toggle-container {
-		margin-bottom: 1rem;
+		margin-bottom: 0.25rem;
 	}
 
 	.toggle-button {
@@ -36,7 +36,7 @@
 		gap: 0.5rem;
 
 		&:hover {
-			background-color: rgba(0, 0, 0, 0.02);
+			color: var(--text-color, #e7e4e4);
 		}
 	}
 
@@ -52,9 +52,5 @@
 	.question-text {
 		font-weight: 600;
 		font-size: 1rem;
-	}
-
-	.toggle-content {
-		padding: 0 1.5rem 1rem 1.5rem;
 	}
 </style>
