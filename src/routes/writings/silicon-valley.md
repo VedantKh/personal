@@ -1,6 +1,7 @@
 ---
 title: A new silicon valley
 date: '2025-03-20'
+highlight: yes
 ---
 
 People in Silicon Valley think big because they have trillion-dollar tech companies that grew from scratch in their backyard. It makes those immense goals feel possible. It adds a whole new dimension to what kinds of problems are worth working on.

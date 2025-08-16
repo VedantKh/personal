@@ -1,6 +1,7 @@
 ---
 title: Leaving social media
 date: '2025-03-19'
+highlight: yes
 ---
 
 I’m not on twitter, or any social media. I’ve cut off Netflix completely. I just keep a linkedin as a resume. This always surprises a lot of people.

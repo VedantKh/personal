@@ -1,8 +1,14 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import PostList from '$lib/components/PostList.svelte';
+	import type { Post } from '$lib/utils/posts';
 	const { data } = $props<{ data: PageData }>();
 	const { posts } = data;
+
+	// Filter posts to only show highlighted ones
+	const highlightedPosts = posts.filter(
+		(post: Post) => post.meta.highlight === 'yes' || post.meta.highlight === true
+	);
 
 	let showMore = $state(false);
 
@@ -80,9 +86,9 @@
 	{@render MoreInfo()}
 {/if}
 
-<h2>Recent writings</h2>
+<h2>Highlighted writings</h2>
 
-<PostList {posts} showHeading={false} />
+<PostList posts={highlightedPosts} showHeading={false} />
 
 <style lang="scss">
 	p {
