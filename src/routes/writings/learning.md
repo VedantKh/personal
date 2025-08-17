@@ -20,7 +20,7 @@ These people usually enact change. This is probably because there are a lot of i
 
 As a result, they usually end up in places that enable change, or create those places for themselves. This can be within art, research, sports, finance, or business.
 
-The only difference between a startup and a company is the potential for growth. PG has a great essay on this. Since I'm in the Bay, I've been exposed mostly to the subset of the people trying to enact change through software.
+Since I'm in the Bay, I've been exposed mostly to the subset of the people trying to enact change through software.
 
 For this subset of people, growth comes when that change hits a nerve with a group of people and solves something they've really wanted solved at a price they're happy to pay. If you find repeatable patterns, things move very quickly. The concise but somewhat confusing term for this is PMF.
 
