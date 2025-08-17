@@ -1,40 +1,10 @@
-<script>
-  import SEO from '$lib/components/SEO.svelte';
-  import StructuredData from '$lib/components/StructuredData.svelte';
-  import DemoLink from '$lib/components/DemoLink.svelte';
-  import { onMount } from 'svelte';
-  import { initScrollTracking, analytics } from '$lib/utils/analytics';
-  
-  // Track page view and scroll depth
-  onMount(() => {
-    analytics.trackSectionEngagement('experience', 'view');
-    const cleanup = initScrollTracking('/experience');
-    
-    // Add click tracking to external links
-    const links = document.querySelectorAll('a[href^="http"]');
-    links.forEach(link => {
-      link.addEventListener('click', (e) => {
-        const target = e.target as HTMLAnchorElement;
-        const label = target.textContent || 'Unknown';
-        analytics.trackExternalLink(target.href, label, 'resource');
-      });
-    });
-    
-    return cleanup;
-  });
+<script context="module">
+  export const metadata = {
+    title: "Experience",
+    description: "My entrepreneurial journey - From founding Hazel and raising $2M at 19 to building voice-first AI applications for real estate.",
+    keywords: "Vedant Khanna experience, Hazel, startup founder, entrepreneur, AI applications, real estate tech, Stanford"
+  };
 </script>
-
-<SEO 
-  title="Experience"
-  description="My entrepreneurial journey - From founding Hazel and raising $2M at 19 to building voice-first AI applications for real estate."
-  keywords="Vedant Khanna experience, Hazel, startup founder, entrepreneur, AI applications, real estate tech, Stanford"
-/>
-
-<StructuredData 
-  type="WebPage"
-  title="Experience - Vedant Khanna"
-  description="My entrepreneurial journey - From founding Hazel and raising $2M at 19 to building voice-first AI applications for real estate."
-/>
 
 # Friends and Family
 
@@ -46,7 +16,7 @@ I was cofounder and CEO of Hazel. Raised $2M when I was 19, and hired
 3 friends to build an entirely voice-first CRM for real estate agents
 to use on the go.
 
-Here's a <DemoLink href="https://youtu.be/CKjFMmc5wi8?si=sfs4W27oi-hlZ9Yt&t=14" projectName="Hazel">demo</DemoLink>.
+Here's a <a href="https://youtu.be/CKjFMmc5wi8?si=sfs4W27oi-hlZ9Yt&t=14" data-project="Hazel">demo</a>.
 
 Did hundreds of sales calls with 50 year old realtors in states like
 Arkansas, which definitively popped my tech bubble. Thought

@@ -1,51 +1,32 @@
-<script>
-  import SEO from '$lib/components/SEO.svelte';
-  import StructuredData from '$lib/components/StructuredData.svelte';
-  import DemoLink from '$lib/components/DemoLink.svelte';
-  import { onMount } from 'svelte';
-  import { initScrollTracking, analytics } from '$lib/utils/analytics';
-  
-  // Track page view and scroll depth
-  onMount(() => {
-    analytics.trackSectionEngagement('projects', 'view');
-    const cleanup = initScrollTracking('/projects');
-    return cleanup;
-  });
+<script context="module">
+  export const metadata = {
+    title: "Projects",
+    description: "My portfolio of AI projects including Vmail (talk to your email), Co-scientist (AI research assistant), multilingual medical scribe, and more innovative applications.",
+    keywords: "Vedant Khanna projects, AI projects, portfolio, Vmail, Co-scientist, medical AI, startup projects, Stanford projects"
+  };
 </script>
-
-<SEO 
-  title="Projects"
-  description="My portfolio of AI projects including Vmail (talk to your email), Co-scientist (AI research assistant), multilingual medical scribe, and more innovative applications."
-  keywords="Vedant Khanna projects, AI projects, portfolio, Vmail, Co-scientist, medical AI, startup projects, Stanford projects"
-/>
-
-<StructuredData 
-  type="WebPage"
-  title="Projects - Vedant Khanna"
-  description="My portfolio of AI projects including Vmail (talk to your email), Co-scientist (AI research assistant), multilingual medical scribe, and more innovative applications."
-/>
 
 # Projects
 
-### Vmail <span class="links"><DemoLink href="https://www.youtube.com/watch?v=3ePO_Qi2jCg" projectName="Vmail" /></span>
+### Vmail <span class="links"><a href="https://www.youtube.com/watch?v=3ePO_Qi2jCg" data-project="Vmail">demo</a></span>
 
 Talk to your email. Built with <a href="https://www.goodhart.ai/">Ethan</a>.
 
 ---
 
-### Co-scientist <span class="links"><DemoLink href="https://youtu.be/h4_JFms3kIc?si=EQQzfFpUWeooGuux&t=43" projectName="Co-scientist" /></span>
+### Co-scientist <span class="links"><a href="https://youtu.be/h4_JFms3kIc?si=EQQzfFpUWeooGuux&t=43" data-project="Co-scientist">demo</a></span>
 
 Get recommended novel research directions instead of spending time on literature review. Built with <a href="https://www.igor.fyi/">Igor</a>.
 
 ---
 
-### Multilingual AI medical scribe <span class="links"><DemoLink href="https://www.youtube.com/watch?v=KQSOck-XG5k" projectName="Multilingual AI medical scribe" /></span>
+### Multilingual AI medical scribe <span class="links"><a href="https://www.youtube.com/watch?v=KQSOck-XG5k" data-project="Multilingual AI medical scribe">demo</a></span>
 
 Automated medical transcription system built specifically for a clinic in Abu Dhabi to eliminate the pain of notetaking.
 
 ---
 
-### Voice-based CRM for realtors <span class="links"><DemoLink href="https://youtu.be/CKjFMmc5wi8?si=sfs4W27oi-hlZ9Yt&t=14" projectName="Voice-based CRM for realtors" /></span>
+### Voice-based CRM for realtors <span class="links"><a href="https://youtu.be/CKjFMmc5wi8?si=sfs4W27oi-hlZ9Yt&t=14" data-project="Voice-based CRM for realtors">demo</a></span>
 
 Making data entry feel like a conversation. Built with <a href="https://www.masonjwang.com/">Mason</a>.
 
