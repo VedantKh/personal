@@ -3,6 +3,8 @@
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import DynamicBackground from '$lib/components/DynamicBackground.svelte';
+	import SEO from '$lib/components/SEO.svelte';
+	import StructuredData from '$lib/components/StructuredData.svelte';
 	import '$lib/styles/style.scss';
 	import 'prismjs/themes/prism.css';
 	import { onMount } from 'svelte';
@@ -26,33 +28,9 @@
 	});
 </script>
 
-<svelte:head>
-	<title>Vedant Khanna | About, contact, and portfolio</title>
-	<meta
-		name="description"
-		content="Building AI applications for legacy industries, currently studying Math at Stanford."
-	/>
-	<meta
-		name="keywords"
-		content="Vedant Khanna, Vedant, Stanford, Mathematics, AI, Silicon Valley"
-	/>
-
-	<!-- Open Graph / Social Media -->
-	<meta property="og:title" content="Vedant Khanna | Stanford Mathematics Student" />
-	<meta
-		property="og:description"
-		content="Personal website of Vedant Khanna, Stanford Mathematics undergraduate student working on AI applications beyond Silicon Valley."
-	/>
-	<meta property="og:url" content="https://www.vedant.space/" />
-
-	<!-- Twitter -->
-	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:title" content="Vedant Khanna | Stanford Mathematics Student" />
-	<meta
-		name="twitter:description"
-		content="Personal website of Vedant Khanna, Stanford Mathematics undergraduate student working on AI applications beyond Silicon Valley."
-	/>
-</svelte:head>
+<!-- Default SEO for all pages - can be overridden by child pages -->
+<SEO />
+<StructuredData type="WebSite" />
 
 <div class="page-container">
 	<DynamicBackground />

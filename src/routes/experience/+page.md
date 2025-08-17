@@ -1,3 +1,20 @@
+<script>
+  import SEO from '$lib/components/SEO.svelte';
+  import StructuredData from '$lib/components/StructuredData.svelte';
+</script>
+
+<SEO 
+  title="Experience"
+  description="My entrepreneurial journey - From founding Hazel and raising $2M at 19 to building voice-first AI applications for real estate."
+  keywords="Vedant Khanna experience, Hazel, startup founder, entrepreneur, AI applications, real estate tech, Stanford"
+/>
+
+<StructuredData 
+  type="WebPage"
+  title="Experience - Vedant Khanna"
+  description="My entrepreneurial journey - From founding Hazel and raising $2M at 19 to building voice-first AI applications for real estate."
+/>
+
 # Hazel
 
 I was cofounder and CEO of Hazel. Raised $2M when I was 19, and hired

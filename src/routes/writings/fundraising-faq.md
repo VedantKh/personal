@@ -18,6 +18,7 @@ In most cases, you should give the number that is your ideal amount. And if you 
 There are a few possible approaches. Usually this is an investor who feels like your cap is too high and wants you to justify it. The fact is, there is no logical basis for the valuations of early stage companies, so there isn't really a literal answer to this question. Nonetheless, investors ask it anyway.
 
 Here are some possible good answers:
+
 1. If you already have investors committed on that cap, say "Well, we've already raised $xx on that cap from investors including x, y and z."
 2. You can basically repeat your main points. Something like, "Well, we think a $30M cap is justified because we have a stellar team, $30K / month in revenue, growing 25% / month and this is a $4B market." Did that answer the question? No, not really, but if delivered convincingly investors will nod and say something like "ok, sounds reasonable".
 3. Explain it from a dilution standpoint. Something like "We need to raise $4M to hit our next milestone and we only want to sell max 10% of the company in this round, so we're raising at a $40M cap".
@@ -74,6 +75,7 @@ If you're an early stage company and an investor is asking for this, it may be a
 So in most cases you can just say you don't have detailed projections you can share but you do have future milestones (like hitting $100k MRR and raising a Series A). Explain your thinking around when you think that could happen and what you think needs to happen along the way.
 
 If you do want to put together financial projections, the standard protocol is something like:
+
 - Make a monthly projection for the next roughly 12 months. That means a spreadsheet with one column per month.
 - Break your expenses down into a few major categories: people, equipment, etc. Don't try to account for the small stuff.
 - If you have multiple lines of revenue / potential revenue, break them out

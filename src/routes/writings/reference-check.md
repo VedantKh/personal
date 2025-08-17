@@ -55,4 +55,3 @@ Some questions you can use in reference checks:
 - What are specific examples of how this investor leveraged their network to open doors for your company?
 - When was the last time xyz made an intro for you?
 - How highly do the people you've been introduced to by xyz typically regard them?
-

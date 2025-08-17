@@ -18,7 +18,7 @@ Quality of people can be broken down into two dimensions:
 
 These people usually enact change. This is probably because there are a lot of issues in the world and they want to nudge the future into a path they prefer. Although my guess is even in a world without serious problems, these people would still be drawn to enacting change. Regardless, they are stifled by places that don't let them make change.
 
-As a result, they usually end up in places that encourage change, or create those places for themselves. This can be within art, research, sports, finance, or business. 
+As a result, they usually end up in places that encourage change, or create those places for themselves. This can be within art, research, sports, finance, or business.
 
 Since I'm in the Bay, I've been exposed mostly to the subset of the people trying to enact change through software.
 

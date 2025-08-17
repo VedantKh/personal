@@ -1,3 +1,20 @@
+<script>
+  import SEO from '$lib/components/SEO.svelte';
+  import StructuredData from '$lib/components/StructuredData.svelte';
+</script>
+
+<SEO 
+  title="Projects"
+  description="My portfolio of AI projects including Vmail (talk to your email), Co-scientist (AI research assistant), multilingual medical scribe, and more innovative applications."
+  keywords="Vedant Khanna projects, AI projects, portfolio, Vmail, Co-scientist, medical AI, startup projects, Stanford projects"
+/>
+
+<StructuredData 
+  type="WebPage"
+  title="Projects - Vedant Khanna"
+  description="My portfolio of AI projects including Vmail (talk to your email), Co-scientist (AI research assistant), multilingual medical scribe, and more innovative applications."
+/>
+
 # Projects
 
 ### Vmail <span class="coming-soon">coming soon</span><span class="links"><a href="https://www.youtube.com/watch?v=3ePO_Qi2jCg">demo</a></span>

@@ -50,7 +50,7 @@ For example, the question “what do you want to do with your life” is a very 
 1. Constrain the question’s scope. Make it more specific.
 2. Make it measurable (if possible).
 
-💡 TODO: Try and come up with a better question for this. Come up with 3 *different* questions, write them down, and then pick the best one. Then answer it. Writing is a very good way to structure thoughts for this. Do this for small questions and large.
+💡 TODO: Try and come up with a better question for this. Come up with 3 _different_ questions, write them down, and then pick the best one. Then answer it. Writing is a very good way to structure thoughts for this. Do this for small questions and large.
 
 Within a company, there are a series of important questions to ask on a big picture level, and on a day to day execution level. Try and come up with another good question, in the direction of “what is the single most important thing for us to focus on and why?”, then try and answer it. For example, a better question is “What are the hypotheses we have right now, and which one is the most important one to test?”
 
