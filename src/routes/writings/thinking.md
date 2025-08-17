@@ -2,7 +2,7 @@
 title: Framework for thinking
 date: '2024-06-20'
 highlight: yes
-description: There is no school that truly prepares you for starting something new.
+description: Trying to apply techniques to come up with better thoughts.
 ---
 
 <script>
