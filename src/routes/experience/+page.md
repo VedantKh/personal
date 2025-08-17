@@ -15,6 +15,12 @@
   description="My entrepreneurial journey - From founding Hazel and raising $2M at 19 to building voice-first AI applications for real estate."
 />
 
+
+# Friends and Family
+
+Built a community of builders at Stanford and raised $200k to give out in grants. Here are my [thoughts](https://friendsandfam.xyz/manifesto) about why this is important, and these are some [projects](https://vedantkhanna.notion.site/Projects-2398828bbc3d809fa5b6eda4ba88b539?source=copy_link).
+
+
 # Hazel
 
 I was cofounder and CEO of Hazel. Raised $2M when I was 19, and hired
@@ -34,10 +40,6 @@ automate the backend tasks. Decided I didn't want to start a
 brokerage at 20, so retreated to the comfort of a Math major at
 Stanford.
 
-# Friends and Family
-
-Built a strong community of builders at Stanford and raised $200k to give out in grants. Here are my [thoughts](https://friendsandfam.xyz/manifesto) about why this is important.
-
 # Martian
 
-Spent a few weeks at Martian on growth and product. Helped close a [channel partnership](https://newsroom.accenture.com/news/2024/accenture-invests-in-martian-to-bring-dynamic-routing-of-large-language-queries-and-more-effective-ai-systems-to-clients) with Accenture.
+Spent a few weeks at Martian, helped close a [channel partnership](https://newsroom.accenture.com/news/2024/accenture-invests-in-martian-to-bring-dynamic-routing-of-large-language-queries-and-more-effective-ai-systems-to-clients) with Accenture.
