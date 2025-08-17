@@ -2,6 +2,7 @@
 title: Learning through gamma radiation
 date: '2025-08-17'
 highlight: yes
+description: Sometimes, gamma radiation can turn you into the Hulk.
 ---
 
 “I’m optimizing for learning.” A lot of young ambitious people say this, and quite a few of them mean it. But that doesn’t make your next steps obvious.

@@ -1,6 +1,7 @@
 ---
 title: What to look for in potential investors
 date: '2025-08-15'
+description: Investors have large networks, but how useful will that network be to you?
 ---
 
 A specific network and the proven ability to leverage it. Why:

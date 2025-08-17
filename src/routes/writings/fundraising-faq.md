@@ -1,7 +1,7 @@
 ---
 title: 25 questions VCs ask (+ thoughts)
 date: '2025-08-15'
-highlight: yes
+description: Tactical thoughts on how to approach common and difficult questions.
 ---
 
 <script>

@@ -11,6 +11,9 @@
 		<div class="post-header">
 			<h2 class="post-title">
 				{post.meta.title}
+				{#if post.meta.draft === 'yes'}
+					<span class="draft-tag">Draft</span>
+				{/if}
 			</h2>
 			<span class="post-date">{post.meta.date}</span>
 		</div>
@@ -107,5 +110,16 @@
 
 	.post-preview:hover .post-description {
 		color: var(--accent-muted, #ffffff);
+	}
+
+	.draft-tag {
+		margin-left: 0.5rem;
+		padding: 0.2rem 0.5rem;
+		background-color: rgba(64, 195, 255, 0.189);
+		border-radius: 4px;
+		color: rgb(64, 195, 255);
+		font-size: 0.9rem;
+		font-weight: bold;
+		vertical-align: middle;
 	}
 </style>

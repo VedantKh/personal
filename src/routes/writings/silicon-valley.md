@@ -1,6 +1,8 @@
 ---
 title: A new silicon valley
 date: '2025-03-20'
+draft: yes
+description: How do you convert a city into a talent magnet?
 ---
 
 People in Silicon Valley think big because they have trillion-dollar tech companies that grew from scratch in their backyard. It makes those immense goals feel possible. It adds a whole new dimension to what kinds of problems are worth working on.

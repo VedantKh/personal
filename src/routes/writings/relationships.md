@@ -1,6 +1,7 @@
 ---
 title: Relationships
 date: '2025-03-19'
+description: Relationship building will grow increasingly important as AI improves.
 ---
 
 Here's an analogy that only someone in Silicon Valley could come up with.

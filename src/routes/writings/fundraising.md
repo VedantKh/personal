@@ -1,6 +1,8 @@
 ---
 title: Fundraising guide
 date: '2025-08-16'
+draft: yes
+description: How to pitch without monologuing. Monologues lead to glazed eyes.
 ---
 
 I've had a few hundred conversations with VCs over the past few years to raise money for my startup and my nonprofit, as well as helping my friends raise money. I've compiled some thoughts I've found useful about fundraising below.

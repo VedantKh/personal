@@ -2,6 +2,7 @@
 title: Leaving social media
 date: '2025-03-19'
 highlight: yes
+description: Social media is sugar water for the brain. Makes your vegetables taste worse.
 ---
 
 I’m not on twitter, or any social media. I’ve cut off Netflix completely. I just keep a linkedin as a resume. This always surprises a lot of people.
