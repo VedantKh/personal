@@ -17,6 +17,25 @@
 	}
 </script>
 
+{#snippet DefaultContent()}
+	<h1 class="!mt-0 !border-b-0 !pb-0 !text-xl">Vedant Khanna</h1>
+	<p>
+		I'm currently finishing my undergrad at Stanford in Math. I think a lot about applications of AI
+		beyond the Silicon Valley bubble.
+	</p>
+
+	<p>
+		I enjoy reading, from books like <a
+			href="https://www.goodreads.com/en/book/show/18667988-the-fourth-revolution"
+			target="_blank">The Fourth Revolution</a
+		>
+		to
+		<a href="https://www.goodreads.com/book/show/30013.Prelude_to_Foundation" target="_blank"
+			>Prelude to Foundation</a
+		>. I also love <a href="https://www.youtube.com/watch?v=YyoKXfBQgXw&ab_channel=Kimer%E2%80%9CRawCut%E2%80%9DLorens" target="_blank">Tron Legacy's aesthetic</a>, and this page is heavily inspired by it.
+	</p>
+{/snippet}
+
 {#snippet MoreInfo()}
 	<div class="bio-extended">
 		<p>
@@ -45,25 +64,6 @@
 	</div>
 {/snippet}
 
-{#snippet DefaultContent()}
-	<h1 class="!mt-0 !border-b-0 !pb-0 !text-xl">Vedant Khanna</h1>
-	<p>
-		I'm currently finishing my undergrad at Stanford in Math. I think a lot about applications of AI
-		beyond the Silicon Valley bubble.
-	</p>
-
-	<p>
-		I read a lot across the board, from books like <a
-			href="https://www.goodreads.com/en/book/show/18667988-the-fourth-revolution"
-			target="_blank">The Fourth Revolution</a
-		>
-		to
-		<a href="https://www.goodreads.com/book/show/30013.Prelude_to_Foundation" target="_blank"
-			>Prelude to Foundation</a
-		>. I get my energy from talking to people who love what they do.
-	</p>
-{/snippet}
-
 <div class="bio-container mt-8">
 	<img
 		src="me.png"
@@ -76,7 +76,7 @@
 
 <div class="mt-4 flex items-start justify-start">
 	{#if !showMore}
-		<button class="more-button" on:click={showMoreInfoToggle}>
+		<button class="more-button" onclick={showMoreInfoToggle}>
 			<span>More about me</span>
 		</button>
 	{/if}
