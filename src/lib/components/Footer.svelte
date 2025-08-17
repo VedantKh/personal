@@ -108,7 +108,19 @@
 	}
 
 	a:hover {
-		color: var(--accent-color, #0066cc);
+		color: rgba(110, 209, 255, 0.891);
+		text-decoration: none;
+		position: relative;
+		background-image: linear-gradient(currentColor, currentColor);
+		background-position: 0% 100%;
+		background-repeat: no-repeat;
+		background-size: 0% 1px;
+		transition: background-size 0.3s ease-in-out;
+
+		&:hover {
+			text-decoration: none;
+			background-size: 100% 1px;
+		}
 	}
 
 	p {
