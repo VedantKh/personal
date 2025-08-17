@@ -1,5 +1,5 @@
 ---
-title: 25 questions VCs ask (+ thoughts)
+title: Part 2 - 25 questions VCs ask (+ thoughts)
 date: '2025-08-15'
 highlight: yes
 ---

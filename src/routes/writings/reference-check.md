@@ -1,5 +1,5 @@
 ---
-title: What to look for in potential investors
+title: Part 3 - What to look for in potential investors
 date: '2025-08-15'
 ---
 
