@@ -17,7 +17,7 @@ The structure of a pitch looks like: <span style="color:rgb(237, 236, 235)">Prob
 For example, TSMC's foundry is a complicated process to describe. You could easily get caught up in the details. The trick is to convey why the tech matters. Everyone can relate to that, especially people trying to make money through investing in tech.
 
 Here's how you can pitch it:
-Shrinking transistors is brutally hard for companies making chips for GPUs and smartphones, but it’s what makes their products faster, cooler, and more power-efficient. We mass-produce chips at the very limits of physics so customers can turn ambitious designs into reliable, high-volume silicon.
+Shrinking transistors is brutally hard for companies making chips for GPUs and smartphones, but it’s what makes their products faster, cooler, and more power-efficient. We mass-produce chips at the very limits of physics so our customers can turn ambitious designs into reliable, high-volume silicon.
 
 Then if someone asks "How do you do it?", you would now have their permission to start talking about the tech. Asking for consent first goes a long way :)
 
