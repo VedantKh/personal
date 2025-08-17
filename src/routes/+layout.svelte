@@ -8,8 +8,16 @@
 	import '$lib/styles/style.scss';
 	import 'prismjs/themes/prism.css';
 	import { onMount } from 'svelte';
+	import { injectAnalytics } from '@vercel/analytics/sveltekit';
+	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import { Contact } from 'lucide-svelte';
+	import { dev } from '$app/environment';
+
 	let { children } = $props();
+
+	// Inject Vercel Analytics and Speed Insights
+	injectAnalytics({ mode: dev ? 'development' : 'production' });
+	injectSpeedInsights();
 
 	// Default values for server rendering
 	let width = $state(1);

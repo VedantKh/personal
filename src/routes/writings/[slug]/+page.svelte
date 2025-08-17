@@ -3,6 +3,9 @@
 	import SEO from '$lib/components/SEO.svelte';
 	import StructuredData from '$lib/components/StructuredData.svelte';
 	import type { PageData } from './$types';
+	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
+	import { initReadingTracker, initScrollTracking } from '$lib/utils/analytics';
 
 	let { data }: { data: PageData } = $props();
 	const { title, date, Content, description, keywords, tags, image, imageAlt, duration } = data;
@@ -19,6 +22,23 @@
 			day: 'numeric'
 		});
 	};
+
+	// Initialize analytics tracking
+	onMount(() => {
+		const slug = $page.params.slug;
+
+		// Initialize reading time tracker
+		const cleanupReading = initReadingTracker(slug, title);
+
+		// Initialize scroll depth tracker
+		const cleanupScroll = initScrollTracking(`/writings/${slug}`);
+
+		// Cleanup on unmount
+		return () => {
+			if (cleanupReading) cleanupReading();
+			if (cleanupScroll) cleanupScroll();
+		};
+	});
 </script>
 
 <SEO

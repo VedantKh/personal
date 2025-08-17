@@ -1,21 +1,30 @@
 <!-- Header.svelte -->
+<script lang="ts">
+	import { page } from '$app/stores';
+	import { analytics } from '$lib/utils/analytics';
+
+	function handleNavClick(to: string) {
+		const from = $page.url.pathname;
+		analytics.trackNavigation(from, to);
+	}
+</script>
 
 <header>
 	<div class="container">
 		<div class="logo">
-			<a href="/">home</a>
+			<a href="/" onclick={() => handleNavClick('/')}>home</a>
 		</div>
 
 		<nav>
 			<ul>
 				<li>
-					<a href="/experience">experience</a>
+					<a href="/experience" onclick={() => handleNavClick('/experience')}>experience</a>
 				</li>
 				<li>
-					<a href="/projects">projects</a>
+					<a href="/projects" onclick={() => handleNavClick('/projects')}>projects</a>
 				</li>
 				<li>
-					<a href="/writings">writings</a>
+					<a href="/writings" onclick={() => handleNavClick('/writings')}>writings</a>
 				</li>
 			</ul>
 		</nav>

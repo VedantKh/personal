@@ -4,9 +4,18 @@
 	import PostList from '$lib/components/PostList.svelte';
 	import SEO from '$lib/components/SEO.svelte';
 	import StructuredData from '$lib/components/StructuredData.svelte';
+	import { onMount } from 'svelte';
+	import { initScrollTracking, analytics } from '$lib/utils/analytics';
 
 	export let data: PageData;
 	const { posts } = data;
+
+	// Track page view and scroll depth
+	onMount(() => {
+		analytics.trackSectionEngagement('writings', 'list_view');
+		const cleanup = initScrollTracking('/writings');
+		return cleanup;
+	});
 </script>
 
 <SEO

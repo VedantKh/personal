@@ -1,13 +1,19 @@
 <script lang="ts">
 	import type { Post } from '$lib/utils/posts';
+	import { analytics } from '$lib/utils/analytics';
 
 	export let posts: Post[];
 	export let showHeading = true;
 	export let headingText = 'Writings';
+
+	function handlePostClick(post: Post) {
+		// Track which posts are being clicked
+		analytics.trackSectionEngagement('writings', `clicked: ${post.meta.title}`);
+	}
 </script>
 
 {#snippet postPreview(post: Post)}
-	<a href={post.path} class="post-preview">
+	<a href={post.path} class="post-preview" onclick={() => handlePostClick(post)}>
 		<div class="post-header">
 			<h2 class="post-title">
 				{post.meta.title}

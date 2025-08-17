@@ -1,7 +1,15 @@
 <!-- Footer.svelte -->
 
 <script lang="ts">
-	// No external imports needed
+	import { analytics } from '$lib/utils/analytics';
+
+	function handleSocialClick(platform: string, url: string) {
+		analytics.trackContactClick(platform, url);
+	}
+
+	function handleSourceClick() {
+		analytics.trackExternalLink('https://github.com/VedantKh/personal', 'Source code', 'resource');
+	}
 </script>
 
 <footer>
@@ -9,7 +17,11 @@
 		<nav>
 			<ul>
 				<li>
-					<a href="mailto:vedantk@stanford.edu" aria-label="Email">
+					<a
+						href="mailto:vedantk@stanford.edu"
+						aria-label="Email"
+						onclick={() => handleSocialClick('email', 'mailto:vedantk@stanford.edu')}
+					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="20"
@@ -27,7 +39,11 @@
 					</a>
 				</li>
 				<li>
-					<a href="https://github.com/VedantKh" aria-label="Github">
+					<a
+						href="https://github.com/VedantKh"
+						aria-label="Github"
+						onclick={() => handleSocialClick('github', 'https://github.com/VedantKh')}
+					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="20"
@@ -47,7 +63,12 @@
 					</a>
 				</li>
 				<li>
-					<a href="https://www.linkedin.com/in/vedant-khanna/" aria-label="LinkedIn">
+					<a
+						href="https://www.linkedin.com/in/vedant-khanna/"
+						aria-label="LinkedIn"
+						onclick={() =>
+							handleSocialClick('linkedin', 'https://www.linkedin.com/in/vedant-khanna/')}
+					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="20"
@@ -68,7 +89,11 @@
 					</a>
 				</li>
 				<li>
-					<a href="https://x.com/vedant__khanna" aria-label="Twitter/X">
+					<a
+						href="https://x.com/vedant__khanna"
+						aria-label="Twitter/X"
+						onclick={() => handleSocialClick('twitter', 'https://x.com/vedant__khanna')}
+					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="20"
@@ -88,7 +113,7 @@
 			</ul>
 		</nav>
 
-		<a href="https://github.com/VedantKh/personal">Source code</a>
+		<a href="https://github.com/VedantKh/personal" onclick={handleSourceClick}>Source code</a>
 	</div>
 </footer>
 
