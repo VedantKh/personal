@@ -1,5 +1,5 @@
 ---
-title: Part 1 - Fundraising guide
+title: Fundraising guide
 date: '2025-08-16'
 ---
 
