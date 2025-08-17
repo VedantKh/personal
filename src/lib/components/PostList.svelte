@@ -8,10 +8,15 @@
 
 {#snippet postPreview(post: Post)}
 	<a href={post.path} class="post-preview">
-		<h2 class="post-title">
-			{post.meta.title}
-		</h2>
-		<span class="post-date">{post.meta.date}</span>
+		<div class="post-header">
+			<h2 class="post-title">
+				{post.meta.title}
+			</h2>
+			<span class="post-date">{post.meta.date}</span>
+		</div>
+		{#if post.meta.description}
+			<p class="post-description">{post.meta.description}</p>
+		{/if}
 	</a>
 {/snippet}
 
@@ -59,11 +64,20 @@
 		width: 100%;
 	}
 
+	.post-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 1rem;
+		margin-bottom: 0.25rem;
+	}
+
 	.post-title {
-		margin: 0 0 0.25rem 0;
+		margin: 0;
 		color: var(--text-color, #eaeaea);
 		font-size: 1.2rem;
 		transition: color 0.3s ease;
+		flex: 1;
 	}
 
 	.post-date {
@@ -71,6 +85,16 @@
 		color: var(--text-muted, #eaeaea);
 		font-weight: 300;
 		transition: color 0.3s ease;
+		flex-shrink: 0;
+	}
+
+	.post-description {
+		margin: 0.5rem 0 0rem 0;
+		font-size: 0.85rem;
+		color: var(--text-muted, #eaeaea);
+		font-weight: 300;
+		transition: color 0.3s ease;
+		line-height: 1.4;
 	}
 
 	.post-preview:hover .post-title {
@@ -78,6 +102,10 @@
 	}
 
 	.post-preview:hover .post-date {
-		color: var(--accent-muted, #cccccc);
+		color: var(--accent-muted, #ffffff);
+	}
+
+	.post-preview:hover .post-description {
+		color: var(--accent-muted, #ffffff);
 	}
 </style>
