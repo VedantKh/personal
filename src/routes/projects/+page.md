@@ -17,7 +17,7 @@
 
 # Projects
 
-### Vmail <span class="coming-soon">coming soon</span><span class="links"><a href="https://www.youtube.com/watch?v=3ePO_Qi2jCg">demo</a></span>
+### Vmail <span class="links"><a href="https://www.youtube.com/watch?v=3ePO_Qi2jCg">demo</a></span>
 
 Talk to your email. Built with <a href="https://www.goodhart.ai/">Ethan</a>.
 
@@ -25,7 +25,7 @@ Talk to your email. Built with <a href="https://www.goodhart.ai/">Ethan</a>.
 
 ### Co-scientist <span class="links"><a href="https://youtu.be/h4_JFms3kIc?si=EQQzfFpUWeooGuux&t=43">demo</a></span>
 
-Get recommended novel research directions instead of spending time on literature review.
+Get recommended novel research directions instead of spending time on literature review. Built with <a href="https://www.igor.fyi/">Igor</a>.
 
 ---
 
@@ -37,7 +37,7 @@ Automated medical transcription system built specifically for a clinic in Abu Dh
 
 ### Voice-based CRM for realtors <span class="links"><a href="https://youtu.be/CKjFMmc5wi8?si=sfs4W27oi-hlZ9Yt&t=14">demo</a></span>
 
-Making data entry feel like a conversation.
+Making data entry feel like a conversation. Built with <a href="https://www.masonjwang.com/">Mason</a>.
 
 <style>
   h3 {
