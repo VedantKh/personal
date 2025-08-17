@@ -11,7 +11,7 @@
 		<h2 class="post-title">
 			{post.meta.title}
 		</h2>
-		<span class="post-date">Written on {post.meta.date}</span>
+		<span class="post-date">{post.meta.date}</span>
 	</a>
 {/snippet}
 

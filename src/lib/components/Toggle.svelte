@@ -32,7 +32,7 @@
 		padding: 1rem 0;
 		cursor: pointer;
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
 		gap: 0.5rem;
 
 		&:hover {
@@ -43,6 +43,8 @@
 	.chevron {
 		font-size: 0.8rem;
 		transition: transform 0.2s ease;
+		margin-top: 0.1rem; // Align with text baseline
+		flex-shrink: 0; // Prevent chevron from shrinking
 
 		&.open {
 			transform: rotate(90deg);
@@ -50,7 +52,12 @@
 	}
 
 	.question-text {
-		font-weight: 600;
+		font-weight: 500;
 		font-size: 1rem;
+	}
+
+	.toggle-content {
+		margin-left: calc(0.8rem + 0.5rem); // chevron width + gap
+		padding-top: 0.5rem;
 	}
 </style>
