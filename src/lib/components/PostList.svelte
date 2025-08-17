@@ -69,7 +69,7 @@
 		justify-content: space-between;
 		align-items: flex-start;
 		gap: 1rem;
-		margin-bottom: 0.25rem;
+		margin-bottom: 0.75rem;
 	}
 
 	.post-title {
@@ -89,7 +89,7 @@
 	}
 
 	.post-description {
-		margin: 0.5rem 0 0rem 0;
+		margin: 0.75rem 0 0rem 0;
 		font-size: 0.85rem;
 		color: var(--text-muted, #eaeaea);
 		font-weight: 300;

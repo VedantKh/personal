@@ -116,7 +116,7 @@
 >
 	<div
 		class="cursor-effect"
-		style:background="radial-gradient(circle 200px at {mouseX}px {mouseY}px, transparent,
+		style:background="radial-gradient(circle 100px at {mouseX}px {mouseY}px, transparent,
 		rgba(0,0,0,0.5))"
 	></div>
 
@@ -168,12 +168,12 @@
 			linear-gradient(90deg, rgba(64, 196, 255, 0.25) 1px, transparent 1px);
 		background-size: 20px 20px;
 		-webkit-mask-image: radial-gradient(
-			circle 100px at var(--mouse-x) var(--mouse-y),
+			circle 75px at var(--mouse-x) var(--mouse-y),
 			black 0%,
 			transparent 100%
 		);
 		mask-image: radial-gradient(
-			circle 100px at var(--mouse-x) var(--mouse-y),
+			circle 75px at var(--mouse-x) var(--mouse-y),
 			black 0%,
 			transparent 100%
 		);

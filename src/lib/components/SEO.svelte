@@ -33,9 +33,7 @@
 	const url = $derived($page.url.href);
 
 	// Format the title with site name
-	const formattedTitle = $derived(
-		title === "Vedant Khanna's space" ? title : `${title}`
-	);
+	const formattedTitle = $derived(title === "Vedant Khanna's space" ? title : `${title}`);
 </script>
 
 <svelte:head>

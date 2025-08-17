@@ -15,10 +15,6 @@
 	keywords="blog, writings, essays, startup advice, fundraising, Silicon Valley, AI, entrepreneurship, Vedant Khanna"
 />
 
-<StructuredData
-	type="WebPage"
-	title="Writings - Vedant Khanna"
-	description="My thoughts :)"
-/>
+<StructuredData type="WebPage" title="Writings - Vedant Khanna" description="My thoughts :)" />
 
 <PostList {posts} />

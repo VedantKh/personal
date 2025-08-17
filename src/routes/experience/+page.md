@@ -34,12 +34,9 @@ automate the backend tasks. Decided I didn't want to start a
 brokerage at 20, so retreated to the comfort of a Math major at
 Stanford.
 
-Internalized that the pain of entrepreneurship is only worth it for
-the right problems.
-
 # Friends and Family
 
-Built a strong community of builders at Stanford and raised $200k to give out in grants. Here are my [thoughts](https://friendsandfam.xyz/builder-fellowships) about why this is important.
+Built a strong community of builders at Stanford and raised $200k to give out in grants. Here are my [thoughts](https://friendsandfam.xyz/manifesto) about why this is important.
 
 # Martian
 
