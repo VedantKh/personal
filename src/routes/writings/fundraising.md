@@ -32,7 +32,7 @@ Once you get comfortable talking about your company, you can start doing some ve
 
 Bingo, now you have a checkpoint where you know you had their attention until. You can talk about further details without monologuing, and also look like you've got answers to all their questions.
 
-You will get some common questions from VCs, some of which aren't that obvious to answer. [Here are 25 I've compiled](/writings/fundraising-faq).
+You will get some common questions from VCs, some of which aren't that obvious to answer. Here are 25 I've [compiled](/writings/fundraising-faq).
 
 You don't need a deck, but it's generally a good exercise to make one since it helps you craft the story in your head. Here an old but good [one](https://drive.google.com/file/d/1u4fi3Z9E7ToHqAxSBEtJitgVPNw_aznW/view?usp=drive_link).
 

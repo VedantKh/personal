@@ -63,13 +63,13 @@
 
 <!-- SEO components for markdown pages -->
 {#if metadata.title}
-	<SEO 
+	<SEO
 		title={metadata.title}
 		description={metadata.description}
 		keywords={metadata.keywords}
 		type="article"
 	/>
-	<StructuredData 
+	<StructuredData
 		type="WebPage"
 		title={`${metadata.title} - Vedant Khanna`}
 		description={metadata.description}

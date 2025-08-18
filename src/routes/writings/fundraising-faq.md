@@ -192,6 +192,8 @@ The investor wants to make sure you're self aware enough to know the real ration
 
 </Toggle>
 
+### Once you've got interest from investors, how do you pick the right one? Here are some [thoughts](/writings/reference-check) on that.
+
 ### Sources
 
 A good bit of what I learned came from writings and talks from [Pear](https://pear.vc/) and [YC](https://www.ycombinator.com/). It only clicked after I made mistakes though, the hard way is sometimes the only way you can learn some things.

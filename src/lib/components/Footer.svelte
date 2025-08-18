@@ -165,6 +165,4 @@
 			background-size: 100% 1px;
 		}
 	}
-
-
 </style>
