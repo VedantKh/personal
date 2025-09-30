@@ -36,3 +36,6 @@ Warning: I often get lost on these walks. But getting lost is a good way to disc
 Finding direction in life is never easy. But I think your instinct to sniff out directions that feel more right becomes more reliable if you add a little bit more boredom in your life. 
 
 It's funny that we call this "dead time." One could argue that without this "dead time," it's hard to really live.
+
+---
+Inspired by a conversation with [Jakub Smékal](https://jakubsmekal.com/).

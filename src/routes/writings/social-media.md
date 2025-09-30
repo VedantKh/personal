@@ -1,7 +1,6 @@
 ---
 title: Leaving social media
 date: '2025-03-19'
-highlight: yes
 description: Social media is sugar water for the brain. Makes your vegetables taste worse.
 ---
 

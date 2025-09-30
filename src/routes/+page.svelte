@@ -43,27 +43,19 @@
 {#snippet MoreInfo()}
 	<div class="bio-extended">
 		<p>
-			I arrived at Stanford determined to be a physicist after I fell in love with the subject as a
-			kid, excited to dive into the big questions.
+			I arrived at Stanford to study physics, but through a series of fortunate events, I ended up leaving for over a year to build an AI
+			real estate agent with my closest friends two weeks after ChatGPT was released. 
+			I introduced LLMs to hundreds of 50-60 year olds through this process which was a blast.
 		</p>
 
 		<p>
-			Serendipity is powerful in the Bay though. Through a series of fortunate events, I ended up
-			starting <a href="/experience">a company</a> with my closest friends when I was 19.
+			I learned that hiring, fundraising, and selling are different flavors of storytelling, and 
+			explored the subtleties of each through many mistakes. Product is closer to the scientific method, 
+			with hypothesis testing and iteration, and then an effort to make a beautiful and simple unifying theory based on the data.
 		</p>
-
 		<p>
-			There's nothing more intoxicating than working with your favourite people on changing the
-			status quo. However, it requires serious sacrifice, so I realized I need equally serious
-			reasoning about where the status quo is worth changing and why.
-		</p>
-
-		<p>
-			The <a
-				href="https://www.lesswrong.com/w/hamming-questions#:~:text=Mathematician%20Richard%20Hamming%20used%20to,people's%20attention%20on%20what%20matters."
-				target="_blank">Hamming questions</a
-			> have been a powerful way to structure this thinking, and I'm running experiments to improve my
-			answer to these.
+			I believe that as capabilities of AI and tech improve, two human skills will also grow in importance:
+			problem selection and relationship building.
 		</p>
 	</div>
 {/snippet}
@@ -89,6 +81,12 @@
 {#if showMore}
 	{@render MoreInfo()}
 {/if}
+
+<h2>Friends and Family</h2>
+<p>
+	I want to reduce the activation energy for people to build what they believe in, so I am working on nurturing a community of builders at Stanford. We have built some awesome <a href="https://vedantkhanna.notion.site/Projects-2398828bbc3d809fa5b6eda4ba88b539?source=copy_link" target="_blank">projects</a> and raised $X00k to give in grants to the right people. 
+	Here are my <a href="https://friendsandfam.xyz/manifesto" target="_blank">thoughts</a> about why this is important.
+</p>
 
 <h2>Highlighted writings</h2>
 

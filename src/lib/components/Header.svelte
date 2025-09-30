@@ -17,9 +17,9 @@
 
 		<nav>
 			<ul>
-				<li>
+				<!-- <li>
 					<a href="/experience" onclick={() => handleNavClick('/experience')}>experience</a>
-				</li>
+				</li> -->
 				<li>
 					<a href="/projects" onclick={() => handleNavClick('/projects')}>projects</a>
 				</li>

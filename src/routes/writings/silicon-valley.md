@@ -17,9 +17,9 @@ It's an overused quote, but summarizes the sentiment quite well.
 
 No one thought running a 4-minute mile was possible. But once someone did it, then everyone started doing it. Because you show people those huge goals are possible, and then people who meet you notice they’re not so different from you.
 
-In the Middle East, the biggest tech companies are Careem, Noon.com, Tabby. Uber for the Middle East, Amazon for the Middle East, Klarna for the Middle East.
+In the Middle East, some of the biggest tech companies are Careem, Noon.com, Tabby. Uber for the Middle East, Amazon for the Middle East, Klarna for the Middle East.
 
-These are copycat ideas that benefitted from regulatory and cultural moats and were therefore limited to that market and prevented from expanding beyond.
+These are ideas that benefitted from regulatory and cultural moats and were therefore limited to that market and prevented from expanding beyond.
 
 The Middle East exports oil but doesn’t export ideas in tech yet.
 

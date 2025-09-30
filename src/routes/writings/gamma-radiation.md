@@ -39,7 +39,7 @@ Sometimes you find an existing pool of people who can help dose you with and sup
 
 Great companies create a lineage of other great companies, because that pool of changemakers survived the gamma radiation to go off on their own and form other pools of changemakers.
 
-So where are those companies today? I'm compiling a subjective list right now, will post soon.
+So where are those companies today? I'm compiling a subjective list right now, can send it to you if you're interested.
 
 ---
 
