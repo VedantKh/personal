@@ -84,7 +84,7 @@
 
 <h2>Friends and Family</h2>
 <p>
-	I want to reduce the activation energy for people to build what they believe in, so I am working on nurturing a community of builders at Stanford. We have built some awesome <a href="https://vedantkhanna.notion.site/Projects-2398828bbc3d809fa5b6eda4ba88b539?source=copy_link" target="_blank">projects</a> and raised $X00k to give in grants to the right people. 
+	I want to reduce the activation energy for people to build what they believe in, so I am working on nurturing a community of builders at Stanford. We have built some awesome <a href="https://vedantkhanna.notion.site/Projects-2398828bbc3d809fa5b6eda4ba88b539?source=copy_link" target="_blank">projects</a> and raised a few hundred thousand dollars to give in grants to the right people. 
 	Here are my <a href="https://friendsandfam.xyz/manifesto" target="_blank">thoughts</a> about why this is important.
 </p>
 
