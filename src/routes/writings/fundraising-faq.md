@@ -192,7 +192,7 @@ The investor wants to make sure you're self aware enough to know the real ration
 
 </Toggle>
 
-### Once you've got interest from investors, how do you pick the right one? Here are some [thoughts](/writings/reference-check) on that.
+Once you've got interest from investors, how do you pick the right one? Here are some [thoughts](/writings/reference-check) on that.
 
 ### Sources
 

@@ -3,15 +3,24 @@
 	import SEO from '$lib/components/SEO.svelte';
 	import StructuredData from '$lib/components/StructuredData.svelte';
 	import type { PageData } from './$types';
-	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { initReadingTracker, initScrollTracking } from '$lib/utils/analytics';
 
 	let { data }: { data: PageData } = $props();
-	const { title, date, Content, description, keywords, tags, image, imageAlt, duration } = data;
 
-	// Format date for article:published_time
-	const publishedTime = date ? new Date(date).toISOString() : undefined;
+	// Use $derived to make these reactive to data changes
+	const title = $derived(data.title);
+	const date = $derived(data.date);
+	const Content = $derived(data.Content);
+	const description = $derived(data.description);
+	const keywords = $derived(data.keywords);
+	const tags = $derived(data.tags);
+	const image = $derived(data.image);
+	const imageAlt = $derived(data.imageAlt);
+	const duration = $derived(data.duration);
+
+	// Format date for article:published_time (reactive)
+	const publishedTime = $derived(date ? new Date(date).toISOString() : undefined);
 
 	// Format date for display (e.g., "December 21, 2024")
 	const formatDisplayDate = (dateString: string) => {
@@ -23,8 +32,8 @@
 		});
 	};
 
-	// Initialize analytics tracking
-	onMount(() => {
+	// Track analytics when slug changes
+	$effect(() => {
 		const slug = $page.params.slug;
 
 		// Initialize reading time tracker
@@ -33,7 +42,7 @@
 		// Initialize scroll depth tracker
 		const cleanupScroll = initScrollTracking(`/writings/${slug}`);
 
-		// Cleanup on unmount
+		// Cleanup when slug changes or component unmounts
 		return () => {
 			if (cleanupReading) cleanupReading();
 			if (cleanupScroll) cleanupScroll();

@@ -32,7 +32,11 @@
 		to
 		<a href="https://www.goodreads.com/book/show/30013.Prelude_to_Foundation" target="_blank"
 			>Prelude to Foundation</a
-		>. I also love <a href="https://www.youtube.com/watch?v=YyoKXfBQgXw&ab_channel=Kimer%E2%80%9CRawCut%E2%80%9DLorens" target="_blank">Tron Legacy's aesthetic</a>, and this page is heavily inspired by it.
+		>. I also love
+		<a
+			href="https://www.youtube.com/watch?v=YyoKXfBQgXw&ab_channel=Kimer%E2%80%9CRawCut%E2%80%9DLorens"
+			target="_blank">Tron Legacy's aesthetic</a
+		>, and this page is heavily inspired by it.
 	</p>
 {/snippet}
 
