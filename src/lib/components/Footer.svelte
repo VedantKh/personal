@@ -130,7 +130,7 @@
 		padding: 1rem;
 		justify-content: space-between;
 		align-items: center;
-		max-width: 40rem;
+		max-width: var(--max-content-width);
 		margin: 0 auto;
 		box-sizing: border-box;
 	}

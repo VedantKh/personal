@@ -20,42 +20,31 @@
 {#snippet DefaultContent()}
 	<h1 class="!mt-0 !border-b-0 !pb-0 !text-xl">Vedant Khanna</h1>
 	<p>
-		I'm currently finishing my undergrad at Stanford in Math. I think a lot about applications of AI
+		I'm finishing my undergrad at Stanford in Math. I think a lot about applications of AI
 		beyond the Silicon Valley bubble.
 	</p>
 
 	<p>
-		I enjoy reading, from books like <a
-			href="https://www.goodreads.com/en/book/show/18667988-the-fourth-revolution"
-			target="_blank">The Fourth Revolution</a
-		>
-		to
-		<a href="https://www.goodreads.com/book/show/30013.Prelude_to_Foundation" target="_blank"
-			>Prelude to Foundation</a
-		>. I also love
+		I enjoy reading, currently reading <a href="https://www.goodreads.com/book/show/27220736-shoe-dog" target="_blank">Shoe Dog</a>. I also love
 		<a
 			href="https://www.youtube.com/watch?v=YyoKXfBQgXw&ab_channel=Kimer%E2%80%9CRawCut%E2%80%9DLorens"
-			target="_blank">Tron Legacy's aesthetic</a
-		>, and this page is heavily inspired by it.
+			target="_blank">Tron Legacy's</a
+		> aesthetic, and this page is heavily inspired by it. I occasionally angel invest in friends, and scout for <a href="https://a16z.com/about/" target="_blank">a16z</a> on the side.
 	</p>
 {/snippet}
 
 {#snippet MoreInfo()}
 	<div class="bio-extended">
 		<p>
-			I arrived at Stanford to study physics, but through a series of fortunate events, I ended up leaving for over a year to build an AI
-			real estate agent with my closest friends two weeks after ChatGPT was released. 
-			I introduced LLMs to hundreds of 50-60 year olds through this process which was a blast.
+			I was CEO and cofounder of Hazel (<a href="https://pear.vc/" target="_blank">PearX W23</a>), where I led product, hiring, and sales. Skipped sophomore year to raise a couple million dollars and build an AI real estate agent for Berkshire Hathaway's brokerage.
 		</p>
 
 		<p>
-			I learned that hiring, fundraising, and selling are different flavors of storytelling, and 
-			explored the subtleties of each through many mistakes. Product is closer to the scientific method, 
-			with hypothesis testing and iteration, and then an effort to make a beautiful and simple unifying theory based on the data.
+			I'm currently exploring problems in the Bay and back home in the UAE, while writing my thoughts down here.
 		</p>
 		<p>
-			I believe that as capabilities of AI and tech improve, two human skills will also grow in importance:
-			problem selection and relationship building.
+			I believe that as capabilities of tech improve, two human skills will continue to grow in importance:
+			problem selection and building trust with people.
 		</p>
 	</div>
 {/snippet}
@@ -64,13 +53,13 @@
 	<img
 		src="me.png"
 		alt="Vedant Khanna smiling"
-		style="float: left; border-radius: 85px; width: 170px; margin: 0 1rem 0.5rem 0;"
+		style="float: left; border-radius: 85px; width: 170px; margin: 0.25rem 1rem 0.5rem 0;"
 	/>
 
 	{@render DefaultContent()}
 </div>
 
-<div class="mt-4 flex items-start justify-start">
+<div class="mt-1 flex items-start justify-start">
 	{#if !showMore}
 		<button class="more-button" onclick={showMoreInfoToggle}>
 			<span>More about me</span>
@@ -84,7 +73,7 @@
 
 <h2>Friends and Family</h2>
 <p>
-	I want to reduce the activation energy for people to build what they believe in, so I am working on nurturing a community of builders at Stanford. We have built some awesome <a href="https://vedantkhanna.notion.site/Projects-2398828bbc3d809fa5b6eda4ba88b539?source=copy_link" target="_blank">projects</a> and raised a few hundred thousand dollars to give in grants to the right people. 
+	I want to reduce the activation energy for people to build what they believe in, so I am working on nurturing a community of builders at Stanford. We have built some awesome <a href="https://vedantkhanna.notion.site/Projects-2398828bbc3d809fa5b6eda4ba88b539?source=copy_link" target="_blank">projects</a> including a new type of robotic hand, a Tom and Jerry diffusion model, and an app that allows you to talk to your email. 
 	Here are my <a href="https://friendsandfam.xyz/manifesto" target="_blank">thoughts</a> about why this is important.
 </p>
 

@@ -85,7 +85,7 @@
 
 	.site-content {
 		width: 100%;
-		max-width: 40rem;
+		max-width: var(--max-content-width);
 		display: flex;
 		flex-direction: column;
 		padding: 0 1rem;

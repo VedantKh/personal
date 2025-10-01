@@ -44,7 +44,7 @@
 		padding: 1rem;
 		justify-content: space-between;
 		align-items: center;
-		max-width: 40rem; /* Adjust to match main content width */
+		max-width: var(--max-content-width); /* Adjust to match main content width */
 		margin: 0 auto;
 		box-sizing: border-box;
 		font-weight: 600;

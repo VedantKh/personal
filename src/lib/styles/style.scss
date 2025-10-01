@@ -1,4 +1,10 @@
 /* style.css */
+
+/* Global CSS Variables */
+:root {
+	--max-content-width: 45rem;
+}
+
 body {
 	margin: 0;
 	color: #c2c2c2;
@@ -18,7 +24,7 @@ main {
 	display: flex;
 	flex-direction: column;
 	width: 100%; /* Take full width of parent */
-	max-width: 40rem; /* Cap the maximum width */
+	max-width: var(--max-content-width); /* Cap the maximum width */
 }
 
 h1,
@@ -27,7 +33,7 @@ h3,
 h4,
 h5,
 h6 {
-	margin-top: 1.5em;
+	margin-top: 1em;
 	margin-bottom: 0.5em;
 	font-weight: 600;
 	line-height: 1.25;
@@ -75,16 +81,16 @@ a {
 }
 
 ul {
-    margin-bottom: 1em;
-    margin-left: 1.5em;
-    list-style-type: disc; /* Ensures bullet points show */
+	margin-bottom: 1em;
+	margin-left: 1.5em;
+	list-style-type: disc; /* Ensures bullet points show */
 }
 
 ol {
-    margin-bottom: 1em;
-    margin-left: 1.5em;
-    list-style-type: decimal; /* Ensures numbers show */
-    padding-left: 0; /* Remove any extra padding */
+	margin-bottom: 1em;
+	margin-left: 1.5em;
+	list-style-type: decimal; /* Ensures numbers show */
+	padding-left: 0; /* Remove any extra padding */
 }
 
 code {
