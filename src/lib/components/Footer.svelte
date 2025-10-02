@@ -114,9 +114,7 @@
 		</nav>
 
 		<p class="inspired">
-			<a
-				href="https://www.youtube.com/watch?v=SqSuRdkglxM&t=6s"
-				target="_blank">Inspired by Tron</a
+			<a href="https://www.youtube.com/watch?v=SqSuRdkglxM&t=6s" target="_blank">Inspired by <span class="tron">Tron</span></a
 			>
 		</p>
 
@@ -160,6 +158,9 @@
 
 		a {
 			display: inline;
+		}
+		.tron {
+			color: #ff8c00;
 		}
 	}
 
