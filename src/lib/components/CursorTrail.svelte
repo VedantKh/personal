@@ -153,7 +153,7 @@
 
 <canvas
 	bind:this={canvas}
-	style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; mix-blend-mode: screen;"
+	style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 0; mix-blend-mode: screen;"
 ></canvas>
 
 <style>
@@ -164,7 +164,7 @@
 		width: 100vw;
 		height: 100vh;
 		pointer-events: none;
-		z-index: 9999;
+		z-index: 0; /* In front of background grid (-10 to -8) but behind content (1+) */
 		mix-blend-mode: screen; /* Makes the glow effect blend better with dark backgrounds */
 	}
 </style>

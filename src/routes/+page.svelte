@@ -26,22 +26,29 @@
 {#snippet DefaultContent()}
 	<h2 class="!mt-0 !border-b-0 !pb-0">Vedant Khanna</h2>
 	<p class="!mb-2">
-		I'm finishing my undergrad at Stanford in Math. I think a lot about applications of AI
-		beyond the Silicon Valley bubble.
+		I'm finishing my undergrad at Stanford in Math. I think a lot about applications of AI beyond
+		the Silicon Valley bubble.
 	</p>
 
 	<p class="!mb-2">
-		I was previously CEO and cofounder of Hazel (PearX W23), where we built an AI real estate agent. I occasionally angel invest in friends, and scout for a16z on the side.
+		I was previously CEO and cofounder of Hazel (PearX W23), where we built an AI real estate agent.
+		I occasionally angel invest in friends, and scout for a16z on the side.
 	</p>
 {/snippet}
 
 {#snippet MoreInfo()}
 	<div class="bio-extended">
 		<p>
-			I spend time curating <a href="https://friendsandfam.xyz/manifesto" target="_blank">Friends and Family</a>, 
-			a community at Stanford that ships. We make <a href="https://www.orcahand.com/" target="_blank">robotic hands</a>, 
-			Tom & Jerry diffusion <a href="https://test-time-training.github.io/video-dit/" target="_blank">models</a>, 
-			Siri for your <a href="https://www.youtube.com/watch?v=3ePO_Qi2jCg" target="_blank">email</a>, and <a href="https://vedantkhanna.notion.site/FAF-Projects-2398828bbc3d809fa5b6eda4ba88b539" target="_blank">more</a>.
+			I spend time curating <a href="https://friendsandfam.xyz/manifesto" target="_blank"
+				>Friends and Family</a
+			>, a community at Stanford that ships. We make
+			<a href="https://www.orcahand.com/" target="_blank">robotic hands</a>, Tom & Jerry diffusion
+			<a href="https://test-time-training.github.io/video-dit/" target="_blank">models</a>, Siri for
+			your <a href="https://www.youtube.com/watch?v=3ePO_Qi2jCg" target="_blank">email</a>, and
+			<a
+				href="https://vedantkhanna.notion.site/FAF-Projects-2398828bbc3d809fa5b6eda4ba88b539"
+				target="_blank">more</a
+			>.
 		</p>
 		<!-- <p>
 			I believe that as capabilities of tech improve, two human skills will continue to grow in importance:
@@ -80,14 +87,14 @@
 
 <h2 class="!mt-12">Highlighted writings</h2>
 
-<PostList posts={highlightedPosts} showHeading={false} />
+<PostList posts={highlightedPosts} showHeading={false} showHighlightedTag={false} />
 
 <!-- All writings button -->
- <div class="mt-4">
+<div class="mt-4">
 	<button class="more-button" onclick={showAllWritings}>
 		<span>All writings</span>
 	</button>
- </div>
+</div>
 
 <style lang="scss">
 	p {
