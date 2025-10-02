@@ -97,9 +97,6 @@
 </div>
 
 <style lang="scss">
-	p {
-		font-size: 0.95rem;
-	}
 	.more-button {
 		position: relative;
 		color: rgba(110, 209, 255, 0.891);
