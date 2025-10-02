@@ -253,4 +253,12 @@
 		background: radial-gradient(circle, rgba(255, 200, 100, 1) 0%, rgba(255, 140, 0, 0.9) 100%);
 		box-shadow: 0 0 8px rgba(255, 180, 50, 0.9);
 	}
+
+	/* Hide cursor trail on mobile devices */
+	@media (max-width: 768px) {
+		canvas,
+		.tron-cursor {
+			display: none;
+		}
+	}
 </style>
