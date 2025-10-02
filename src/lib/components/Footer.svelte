@@ -186,4 +186,28 @@
 			background-size: 100% 1px;
 		}
 	}
+	/* Mobile responsive styles */
+	@media (max-width: 768px) {
+		.container {
+			font-size: 0.85rem;
+			padding: 0.75rem;
+		}
+
+		ul {
+			gap: 0.65rem;
+		}
+
+		svg {
+			width: 16px;
+			height: 16px;
+		}
+
+		.inspired {
+			font-size: 0.8rem;
+		}
+
+		a {
+			font-size: 0.85rem;
+		}
+	}
 </style>
