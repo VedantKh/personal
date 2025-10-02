@@ -18,18 +18,14 @@
 </script>
 
 {#snippet DefaultContent()}
-	<h1 class="!mt-0 !border-b-0 !pb-0 !text-xl">Vedant Khanna</h1>
+	<h2 class="!mt-0 !border-b-0 !pb-0">Vedant Khanna</h2>
 	<p>
 		I'm finishing my undergrad at Stanford in Math. I think a lot about applications of AI
 		beyond the Silicon Valley bubble.
 	</p>
 
 	<p>
-		I enjoy reading, currently reading <a href="https://www.goodreads.com/book/show/27220736-shoe-dog" target="_blank">Shoe Dog</a>. I also love
-		<a
-			href="https://www.youtube.com/watch?v=YyoKXfBQgXw&ab_channel=Kimer%E2%80%9CRawCut%E2%80%9DLorens"
-			target="_blank">Tron Legacy's</a
-		> aesthetic, and this page is heavily inspired by it. I occasionally angel invest in friends, and scout for <a href="https://a16z.com/about/" target="_blank">a16z</a> on the side.
+		I enjoy reading, currently reading <a href="https://www.goodreads.com/book/show/27220736-shoe-dog" target="_blank">Shoe Dog</a>. I occasionally angel invest in friends, and scout for <a href="https://a16z.com/about/" target="_blank">a16z</a> on the side.
 	</p>
 {/snippet}
 
@@ -73,7 +69,7 @@
 
 <h2>Friends and Family</h2>
 <p>
-	I want to reduce the activation energy for people to build what they believe in, which led to FAF, a community of builders at Stanford. We have built some awesome <a href="https://vedantkhanna.notion.site/Projects-2398828bbc3d809fa5b6eda4ba88b539?source=copy_link" target="_blank">projects</a> including a new type of robotic hand, a Tom and Jerry diffusion model, and an app that allows you to talk to your email. 
+	Built a community at Stanford that ships. We built some awesome <a href="https://vedantkhanna.notion.site/Projects-2398828bbc3d809fa5b6eda4ba88b539?source=copy_link" target="_blank">projects</a> including a new type of robotic hand, a Tom and Jerry diffusion model, and an app that allows you to talk to your email. 
 	Here are my <a href="https://friendsandfam.xyz/manifesto" target="_blank">thoughts</a> about why this is important.
 </p>
 

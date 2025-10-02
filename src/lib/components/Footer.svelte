@@ -133,6 +133,8 @@
 		max-width: var(--max-content-width);
 		margin: 0 auto;
 		box-sizing: border-box;
+		font-family: var(--font-body);
+		font-weight: var(--weight-body);
 	}
 
 	ul {

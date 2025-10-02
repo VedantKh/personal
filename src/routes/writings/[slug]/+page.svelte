@@ -64,7 +64,7 @@
 
 <StructuredData type="Article" {title} {description} datePublished={publishedTime} {image} {tags} />
 
-<article>
+<article class="writing-content">
 	<h1 class="post-h1">{title}</h1>
 	<p class="post-description">{description}</p>
 	<div class="post-meta-container">

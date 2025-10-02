@@ -1,14 +1,68 @@
 /* style.css */
 
-/* Global CSS Variables */
+/* ============================================
+   FONT DECLARATIONS
+   ============================================ */
+
+/* Array Regular - For headings and header nav */
+@font-face {
+	font-family: 'Array';
+	src:
+		url('/fonts/Array_Complete/Fonts/WEB/fonts/Array-Regular.woff2') format('woff2'),
+		url('/fonts/Array_Complete/Fonts/WEB/fonts/Array-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* Technor Light - For body text and footer */
+@font-face {
+	font-family: 'Technor';
+	src:
+		url('/fonts/Technor_Complete/Fonts/WEB/fonts/Technor-Light.woff2') format('woff2'),
+		url('/fonts/Technor_Complete/Fonts/WEB/fonts/Technor-Light.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* TildaSans Variable - For writings content */
+@font-face {
+	font-family: 'TildaSans';
+	src:
+		url('/fonts/TildaSans-VF_TTF_Web 2/TildaSans-VF.woff2') format('woff2'),
+		url('/fonts/TildaSans-VF_TTF_Web 2/TildaSans-VF.woff') format('woff');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* ============================================
+   FONT VARIABLES (Easy customization!)
+   Change these to update fonts/weights globally
+   ============================================ */
 :root {
+	/* Font Families */
+	--font-heading: 'Array', 'Geist Mono', monospace;
+	--font-body: 'Technor', 'Geist Mono', sans-serif;
+	--font-writing: 'TildaSans', 'Geist Mono', sans-serif;
+	--font-code: 'Geist Mono', monospace;
+
+	/* Font Weights - Adjust these to change weights */
+	--weight-heading: 400; /* Array Regular */
+	--weight-body: 300; /* Technor Light */
+	--weight-writing: 400; /* TildaSans Regular */
+	--weight-bold: 600;
+
+	/* Other Variables */
 	--max-content-width: 45rem;
 }
 
 body {
 	margin: 0;
 	color: #c2c2c2;
-	font-family: sans-serif;
+	font-family: var(--font-body);
+	font-weight: var(--weight-body);
 	min-height: 100%;
 	scrollbar-width: none; /* Firefox */
 	-ms-overflow-style: none; /* IE and Edge */
@@ -33,35 +87,38 @@ h3,
 h4,
 h5,
 h6 {
-	margin-top: 1em;
+	margin-top: 1.5em;
 	margin-bottom: 0.5em;
-	font-weight: 600;
+	font-family: var(--font-heading);
+	font-weight: var(--weight-heading);
 	line-height: 1.25;
 }
 
 h1 {
-	font-size: 2em;
+	font-size: 3em;
 	border-bottom: 1px solid #4a4a4a;
 	padding-bottom: 0.3em;
 }
 
 h2 {
-	font-size: 1.5em;
+	font-size: 2.25em;
 }
 
 h3 {
-	font-size: 1.25em;
+	font-size: 1.75em;
 	color: #b8b8b8;
 }
 
 h4 {
-	font-size: 1em;
+	font-size: 1.5em;
 	padding-bottom: 0.2em;
 }
 
 p {
-	margin-bottom: 1em;
+	margin-bottom: 1.2em;
 	line-height: 1.6;
+	font-family: var(--font-body);
+	font-weight: var(--weight-body);
 }
 
 a {
@@ -97,7 +154,7 @@ code {
 	background-color: #f7fafc;
 	padding: 0.2em 0.4em;
 	border-radius: 3px;
-	font-family: monospace;
+	font-family: var(--font-code);
 	font-size: 0.9em;
 }
 
@@ -121,6 +178,8 @@ blockquote {
 	font-style: italic;
 	margin-left: 0;
 	margin-right: 0;
+	font-family: var(--font-body);
+	font-weight: var(--weight-body);
 }
 
 img {
@@ -150,6 +209,137 @@ table {
 
 	th {
 		background-color: #f7fafc;
-		font-weight: 600;
+		font-family: var(--font-body);
+		font-weight: var(--weight-body);
 	}
+}
+
+/* ============================================
+   WRITINGS CONTENT
+   Apply TildaSans to writings pages
+   ============================================ */
+.writing-content {
+	font-family: var(--font-writing);
+	font-weight: var(--weight-writing);
+	font-size: 1.2rem;
+
+	p,
+	li,
+	blockquote {
+		font-family: var(--font-writing);
+		font-weight: var(--weight-writing);
+	}
+
+	/* Keep headings as Array in writings */
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: var(--font-heading);
+		font-weight: var(--weight-heading);
+	}
+
+	/* Keep code as monospace in writings */
+	code,
+	pre {
+		font-family: var(--font-code);
+	}
+}
+
+/* ============================================
+   WRITINGS LIST / POST PREVIEW
+   ============================================ */
+.post-preview {
+	display: block;
+	padding: 0.75rem 0;
+	margin-bottom: 1rem;
+	text-decoration: none;
+	border-bottom: 1px solid #eaeaea;
+	opacity: 0.9;
+	transition:
+		opacity 0.2s ease,
+		transform 0.3s ease,
+		padding-left 0.3s ease;
+	position: relative;
+}
+
+.post-preview:hover {
+	opacity: 1;
+}
+
+.post-preview::after {
+	content: '';
+	position: absolute;
+	bottom: -1px;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: var(--text-color, #eaeaea);
+	transition: width 0.3s ease;
+}
+
+.post-preview:hover::after {
+	width: 100%;
+}
+
+.post-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 1rem;
+	margin-bottom: 0.75rem;
+}
+
+.post-title {
+	margin: 0;
+	color: var(--text-color, #eaeaea);
+	font-family: var(--font-heading);
+	font-weight: var(--weight-heading);
+	font-size: 1.5rem;
+	transition: color 0.3s ease;
+	flex: 1;
+}
+
+.post-date {
+	font-size: 1rem;
+	color: var(--text-muted, #eaeaea);
+	font-family: var(--font-body);
+	font-weight: var(--weight-body);
+	transition: color 0.3s ease;
+	flex-shrink: 0;
+}
+
+.post-description {
+	margin: 0.75rem 0 0rem 0;
+	font-size: 1rem;
+	color: var(--text-muted, #eaeaea);
+	font-family: var(--font-body);
+	font-weight: var(--weight-body);
+	transition: color 0.3s ease;
+	line-height: 1.4;
+}
+
+.post-preview:hover .post-title {
+	color: var(--accent-color, #ffffff);
+}
+
+.post-preview:hover .post-date {
+	color: var(--accent-muted, #ffffff);
+}
+
+.post-preview:hover .post-description {
+	color: var(--accent-muted, #ffffff);
+}
+
+.draft-tag {
+	margin-left: 0.5rem;
+	padding: 0.2rem 0.5rem;
+	background-color: rgba(64, 195, 255, 0.189);
+	border-radius: 4px;
+	color: rgb(64, 195, 255);
+	font-size: 0.9rem;
+	font-weight: bold;
+	vertical-align: middle;
 }

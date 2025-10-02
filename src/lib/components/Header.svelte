@@ -47,7 +47,8 @@
 		max-width: var(--max-content-width); /* Adjust to match main content width */
 		margin: 0 auto;
 		box-sizing: border-box;
-		font-weight: 600;
+		font-family: var(--font-heading);
+		font-weight: var(--weight-heading);
 	}
 
 	.logo {
