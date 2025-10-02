@@ -15,10 +15,12 @@
 	let mouseY = 0;
 	let isMouseDown = false; // Track mouse button state
 	let animationFrameId: number;
+	let pulsePhase = 0; // For pulsing effect
 
-	const TRAIL_LENGTH = 25; // Number of points in the trail
-	const TRAIL_WIDTH = 2; // Width of the trail line
-	const FADE_SPEED = 0.92; // How quickly the trail fades (lower = faster fade)
+	const TRAIL_LENGTH = 30; // Number of points in the trail
+	const TRAIL_WIDTH = 3; // Width of the trail line
+	const FADE_SPEED = 0.9; // How quickly the trail fades (lower = faster fade)
+	const CURSOR_DISC_SIZE = 8; // Size of the cursor disc
 
 	function resizeCanvas() {
 		if (canvas) {
@@ -56,6 +58,10 @@
 	function drawTrail() {
 		if (!ctx || !canvas) return;
 
+		// Update pulse phase for animated effects
+		pulsePhase = (pulsePhase + 0.05) % (Math.PI * 2);
+		const pulse = Math.sin(pulsePhase) * 0.3 + 0.7; // Oscillates between 0.4 and 1.0
+
 		// Clear canvas
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -73,7 +79,7 @@
 		// Remove fully faded points
 		trail = trail.filter((point) => point.opacity > 0.01);
 
-		// Draw the trail with glow effect
+		// Draw the trail with intense Tron glow effect
 		for (let i = 0; i < trail.length - 1; i++) {
 			const point = trail[i];
 			const nextPoint = trail[i + 1];
@@ -82,17 +88,17 @@
 			const positionFade = (i / trail.length) * 0.7 + 0.3;
 			const finalOpacity = point.opacity * positionFade;
 
-			// Choose color based on mouse state
+			// Tron-themed colors: electric cyan and vibrant orange
 			const colors = point.isOrange
 				? {
-						outer: `rgba(255, 140, 0, ${finalOpacity * 0.15})`, // Orange outer glow
-						middle: `rgba(255, 150, 0, ${finalOpacity * 0.3})`, // Orange middle glow
-						inner: `rgba(255, 180, 50, ${finalOpacity * 0.8})` // Bright orange core
+						outer: `rgba(255, 100, 0, ${finalOpacity * 0.25})`, // Vibrant orange outer glow
+						middle: `rgba(255, 140, 0, ${finalOpacity * 0.5})`, // Orange middle glow
+						inner: `rgba(255, 200, 100, ${finalOpacity})` // Bright orange-yellow core
 					}
 				: {
-						outer: `rgba(0, 180, 255, ${finalOpacity * 0.15})`, // Blue outer glow
-						middle: `rgba(0, 200, 255, ${finalOpacity * 0.3})`, // Blue middle glow
-						inner: `rgba(100, 230, 255, ${finalOpacity * 0.8})` // Bright blue core
+						outer: `rgba(0, 230, 255, ${finalOpacity * 0.25})`, // Electric cyan outer glow
+						middle: `rgba(0, 255, 255, ${finalOpacity * 0.5})`, // Cyan middle glow
+						inner: `rgba(150, 255, 255, ${finalOpacity})` // Bright cyan-white core
 					};
 
 			// Outer glow (larger, more transparent)
@@ -100,7 +106,7 @@
 			ctx.moveTo(point.x, point.y);
 			ctx.lineTo(nextPoint.x, nextPoint.y);
 			ctx.strokeStyle = colors.outer;
-			ctx.lineWidth = TRAIL_WIDTH * 6;
+			ctx.lineWidth = TRAIL_WIDTH * 8;
 			ctx.lineCap = 'round';
 			ctx.lineJoin = 'round';
 			ctx.stroke();
@@ -110,12 +116,12 @@
 			ctx.moveTo(point.x, point.y);
 			ctx.lineTo(nextPoint.x, nextPoint.y);
 			ctx.strokeStyle = colors.middle;
-			ctx.lineWidth = TRAIL_WIDTH * 3;
+			ctx.lineWidth = TRAIL_WIDTH * 4;
 			ctx.lineCap = 'round';
 			ctx.lineJoin = 'round';
 			ctx.stroke();
 
-			// Inner bright line (Tron cyan/blue or orange)
+			// Inner bright line (Tron electric)
 			ctx.beginPath();
 			ctx.moveTo(point.x, point.y);
 			ctx.lineTo(nextPoint.x, nextPoint.y);
@@ -123,6 +129,46 @@
 			ctx.lineWidth = TRAIL_WIDTH;
 			ctx.lineCap = 'round';
 			ctx.lineJoin = 'round';
+			ctx.stroke();
+		}
+
+		// Draw Tron-style cursor disc at current position
+		if (trail.length > 0) {
+			const discColor = isMouseDown
+				? {
+						outer: `rgba(255, 100, 0, ${0.3 * pulse})`,
+						middle: `rgba(255, 140, 0, ${0.6 * pulse})`,
+						inner: `rgba(255, 200, 100, ${0.9 * pulse})`
+					}
+				: {
+						outer: `rgba(0, 230, 255, ${0.3 * pulse})`,
+						middle: `rgba(0, 255, 255, ${0.6 * pulse})`,
+						inner: `rgba(150, 255, 255, ${0.9 * pulse})`
+					};
+
+			// Outer disc glow
+			ctx.beginPath();
+			ctx.arc(mouseX, mouseY, CURSOR_DISC_SIZE * 2, 0, Math.PI * 2);
+			ctx.fillStyle = discColor.outer;
+			ctx.fill();
+
+			// Middle disc glow
+			ctx.beginPath();
+			ctx.arc(mouseX, mouseY, CURSOR_DISC_SIZE * 1.2, 0, Math.PI * 2);
+			ctx.fillStyle = discColor.middle;
+			ctx.fill();
+
+			// Inner bright disc core
+			ctx.beginPath();
+			ctx.arc(mouseX, mouseY, CURSOR_DISC_SIZE * 0.6, 0, Math.PI * 2);
+			ctx.fillStyle = discColor.inner;
+			ctx.fill();
+
+			// Disc outline
+			ctx.beginPath();
+			ctx.arc(mouseX, mouseY, CURSOR_DISC_SIZE, 0, Math.PI * 2);
+			ctx.strokeStyle = discColor.inner;
+			ctx.lineWidth = 1.5;
 			ctx.stroke();
 		}
 
