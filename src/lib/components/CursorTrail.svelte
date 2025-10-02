@@ -16,6 +16,7 @@
 	let mouseY = 0;
 	let isMouseDown = false; // Track mouse button state
 	let animationFrameId: number;
+	let cursorVisible = false; // Track if cursor has been initialized
 
 	const TRAIL_LENGTH = 25; // Number of points in the trail
 	const TRAIL_WIDTH = 2; // Width of the trail line
@@ -31,6 +32,11 @@
 	function handleMouseMove(e: MouseEvent) {
 		mouseX = e.clientX;
 		mouseY = e.clientY;
+
+		// Make cursor visible on first mouse movement
+		if (!cursorVisible) {
+			cursorVisible = true;
+		}
 
 		// Update cursor position
 		if (cursorElement) {
@@ -164,7 +170,12 @@
 ></canvas>
 
 <!-- Custom Tron cursor -->
-<div bind:this={cursorElement} class="tron-cursor" class:active={isMouseDown}>
+<div
+	bind:this={cursorElement}
+	class="tron-cursor"
+	class:active={isMouseDown}
+	class:visible={cursorVisible}
+>
 	<div class="cursor-outer-ring"></div>
 	<div class="cursor-inner-ring"></div>
 	<div class="cursor-dot"></div>
@@ -190,6 +201,11 @@
 		z-index: 9999;
 		transform: translate(-50%, -50%);
 		transition: transform 0.1s ease-out;
+		opacity: 0;
+	}
+
+	.tron-cursor.visible {
+		opacity: 1;
 	}
 
 	.tron-cursor.active {
