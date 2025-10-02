@@ -113,6 +113,13 @@
 			</ul>
 		</nav>
 
+		<p class="inspired">
+			<a
+				href="https://www.youtube.com/watch?v=YyoKXfBQgXw&ab_channel=Kimer%E2%80%9CRawCut%E2%80%9DLorens"
+				target="_blank">Inspired by Tron</a
+			>
+		</p>
+
 		<a href="https://github.com/VedantKh/personal" onclick={handleSourceClick}>Source code</a>
 	</div>
 </footer>
@@ -142,6 +149,18 @@
 		list-style-type: none;
 		display: flex;
 		gap: 1rem;
+	}
+
+	.inspired {
+		margin: 0;
+		text-align: center;
+		font-family: var(--font-body);
+		font-weight: var(--weight-body);
+		white-space: nowrap;
+
+		a {
+			display: inline;
+		}
 	}
 
 	a {

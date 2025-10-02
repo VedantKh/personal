@@ -2,6 +2,7 @@
 	import type { PageData } from './$types';
 	import PostList from '$lib/components/PostList.svelte';
 	import type { Post } from '$lib/utils/posts';
+	import { goto } from '$app/navigation';
 	const { data } = $props<{ data: PageData }>();
 	const { posts } = data;
 
@@ -10,46 +11,50 @@
 		(post: Post) => post.meta.highlight === 'yes' || post.meta.highlight === true
 	);
 
-	let showMore = $state(false);
+	let showMore = $state(true);
 
 	function showMoreInfoToggle() {
 		showMore = !showMore;
+	}
+
+	function showAllWritings() {
+		// redirect to /writings using sveltekit's navigate
+		goto('/writings');
 	}
 </script>
 
 {#snippet DefaultContent()}
 	<h2 class="!mt-0 !border-b-0 !pb-0">Vedant Khanna</h2>
-	<p>
+	<p class="!mb-2">
 		I'm finishing my undergrad at Stanford in Math. I think a lot about applications of AI
 		beyond the Silicon Valley bubble.
 	</p>
 
-	<p>
-		I enjoy reading, currently reading <a href="https://www.goodreads.com/book/show/27220736-shoe-dog" target="_blank">Shoe Dog</a>. I occasionally angel invest in friends, and scout for <a href="https://a16z.com/about/" target="_blank">a16z</a> on the side.
+	<p class="!mb-2">
+		I was previously CEO and cofounder of Hazel (PearX W23), where we built an AI real estate agent. I occasionally angel invest in friends, and scout for a16z on the side.
 	</p>
 {/snippet}
 
 {#snippet MoreInfo()}
 	<div class="bio-extended">
 		<p>
-			I was CEO and cofounder of Hazel (<a href="https://pear.vc/" target="_blank">PearX W23</a>), where I led product, hiring, and sales. Skipped sophomore year to raise a couple million dollars and build an AI real estate agent for Berkshire Hathaway's brokerage.
+			I spend time curating <a href="https://friendsandfam.xyz/manifesto" target="_blank">Friends and Family</a>, 
+			a community at Stanford that ships. We make <a href="https://www.orcahand.com/" target="_blank">robotic hands</a>, 
+			Tom & Jerry diffusion <a href="https://test-time-training.github.io/video-dit/" target="_blank">models</a>, 
+			Siri for your <a href="https://www.youtube.com/watch?v=3ePO_Qi2jCg" target="_blank">email</a>, and <a href="https://vedantkhanna.notion.site/FAF-Projects-2398828bbc3d809fa5b6eda4ba88b539" target="_blank">more</a>.
 		</p>
-
-		<p>
-			I'm currently exploring problems in the Bay and back home in the UAE, while writing my thoughts down here.
-		</p>
-		<p>
+		<!-- <p>
 			I believe that as capabilities of tech improve, two human skills will continue to grow in importance:
 			problem selection and building trust with people.
-		</p>
+		</p> -->
 	</div>
 {/snippet}
 
-<div class="bio-container mt-8">
+<div class="bio-container mt-4">
 	<img
 		src="me.png"
 		alt="Vedant Khanna smiling"
-		style="float: left; border-radius: 85px; width: 170px; margin: 0.25rem 1rem 0.5rem 0;"
+		style="float: left; border-radius: 85px; width: 170px; margin: 1.25rem 1rem 0.5rem 0;"
 	/>
 
 	{@render DefaultContent()}
@@ -67,15 +72,22 @@
 	{@render MoreInfo()}
 {/if}
 
-<h2>Friends and Family</h2>
+<!-- <h2>Friends and Family</h2>
 <p>
 	Built a community at Stanford that ships. We built some awesome <a href="https://vedantkhanna.notion.site/Projects-2398828bbc3d809fa5b6eda4ba88b539?source=copy_link" target="_blank">projects</a> including a new type of robotic hand, a Tom and Jerry diffusion model, and an app that allows you to talk to your email. 
 	Here are my <a href="https://friendsandfam.xyz/manifesto" target="_blank">thoughts</a> about why this is important.
-</p>
+</p> -->
 
-<h2>Highlighted writings</h2>
+<h2 class="!mt-12">Highlighted writings</h2>
 
 <PostList posts={highlightedPosts} showHeading={false} />
+
+<!-- All writings button -->
+ <div class="mt-4">
+	<button class="more-button" onclick={showAllWritings}>
+		<span>All writings</span>
+	</button>
+ </div>
 
 <style lang="scss">
 	p {
@@ -87,7 +99,7 @@
 		padding: 0.5rem 1rem;
 		font-size: 1rem;
 		background-color: transparent;
-		border: 1px solid rgba(110, 209, 255, 0.2);
+		border: 2px solid rgba(110, 209, 255, 0.2);
 		border-radius: 4px;
 		cursor: pointer;
 		overflow: hidden;

@@ -22,11 +22,11 @@ Get recommended novel research directions instead of spending time on literature
 
 ### Multilingual AI medical scribe <span class="links"><a href="https://www.youtube.com/watch?v=KQSOck-XG5k" data-project="Multilingual AI medical scribe">demo</a></span>
 
-Automated medical transcription system built specifically for a clinic in Abu Dhabi to eliminate the pain of notetaking.
+Built for a clinic in Abu Dhabi to eliminate the pain of notetaking for doctors. Built with <a href="https://medium.com/@asrielhan">Asriel</a>.
 
 ---
 
-### Voice-based CRM for realtors <span class="links"><a href="https://youtu.be/CKjFMmc5wi8?si=sfs4W27oi-hlZ9Yt&t=14" data-project="Voice-based CRM for realtors">demo</a></span>
+### Voice CRM for realtors <span class="links"><a href="https://youtu.be/CKjFMmc5wi8?si=sfs4W27oi-hlZ9Yt&t=14" data-project="Voice-based CRM for realtors">demo</a></span>
 
 Making data entry feel like a conversation. Built with <a href="https://www.masonjwang.com/">Mason</a>.
 

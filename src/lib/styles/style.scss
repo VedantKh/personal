@@ -1,6 +1,19 @@
 /* style.css */
 
 /* ============================================
+   TEXT SELECTION
+   ============================================ */
+   ::selection {
+	background-color: #ff8c00; /* Orange */
+	color: #000000; /* Black text for contrast */
+}
+
+::-moz-selection {
+	background-color: #ff8c00; /* Orange */
+	color: #000000; /* Black text for contrast */
+}
+
+/* ============================================
    FONT DECLARATIONS
    ============================================ */
 
@@ -221,7 +234,7 @@ table {
 .writing-content {
 	font-family: var(--font-writing);
 	font-weight: var(--weight-writing);
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 
 	p,
 	li,

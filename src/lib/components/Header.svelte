@@ -41,6 +41,7 @@
 
 	.container {
 		display: flex;
+		font-size: 1.15rem;
 		padding: 1rem;
 		justify-content: space-between;
 		align-items: center;
