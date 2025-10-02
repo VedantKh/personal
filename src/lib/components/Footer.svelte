@@ -162,6 +162,12 @@
 		.tron {
 			color: #ff8c00;
 		}
+
+		@media (max-width: 768px) {
+			.tron {
+				color: inherit;
+			}
+		}
 	}
 
 	a {
