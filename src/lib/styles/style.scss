@@ -3,7 +3,7 @@
 /* ============================================
    TEXT SELECTION
    ============================================ */
-   ::selection {
+::selection {
 	background-color: #ff8c00; /* Orange */
 	color: #000000; /* Black text for contrast */
 }
@@ -25,7 +25,7 @@
 		url('/fonts/Array_Complete/Fonts/WEB/fonts/Array-Regular.woff') format('woff');
 	font-weight: 400;
 	font-style: normal;
-	font-display: swap;
+	font-display: block;
 }
 
 /* Technor Light - For body text and footer */
@@ -36,7 +36,7 @@
 		url('/fonts/Technor_Complete/Fonts/WEB/fonts/Technor-Light.woff') format('woff');
 	font-weight: 300;
 	font-style: normal;
-	font-display: swap;
+	font-display: block;
 }
 
 /* TildaSans Variable - For writings content */
@@ -47,7 +47,7 @@
 		url('/fonts/TildaSans-VF_TTF_Web 2/TildaSans-VF.woff') format('woff');
 	font-weight: 100 900;
 	font-style: normal;
-	font-display: swap;
+	font-display: block;
 }
 
 /* ============================================
@@ -69,6 +69,11 @@
 
 	/* Other Variables */
 	--max-content-width: 45rem;
+}
+
+/* Hide content until fonts are loaded to prevent jiggle */
+html:not(.fonts-loaded) body {
+	visibility: hidden;
 }
 
 body {
@@ -434,12 +439,15 @@ table {
 		font-size: 1.1em;
 	}
 
-	h5, h6 {
+	h5,
+	h6 {
 		font-size: 1em;
 	}
 
-	ul, 
-	ol, p, a {
+	ul,
+	ol,
+	p,
+	a {
 		font-size: 1.1rem;
 	}
 

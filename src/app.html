@@ -4,6 +4,54 @@
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<!-- Preload critical fonts to prevent FOUT/jiggle -->
+		<link
+			rel="preload"
+			href="%sveltekit.assets%/fonts/Array_Complete/Fonts/WEB/fonts/Array-Regular.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="preload"
+			href="%sveltekit.assets%/fonts/Technor_Complete/Fonts/WEB/fonts/Technor-Light.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="preload"
+			href="%sveltekit.assets%/fonts/TildaSans-VF_TTF_Web 2/TildaSans-VF.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin="anonymous"
+		/>
+		
+		<!-- Inline font loading script to prevent FOUT -->
+		<script>
+			(function() {
+				if ('fonts' in document) {
+					Promise.all([
+						document.fonts.load('400 1em Array'),
+						document.fonts.load('300 1em Technor'),
+						document.fonts.load('400 1em TildaSans')
+					]).then(function() {
+						document.documentElement.classList.add('fonts-loaded');
+					}).catch(function() {
+						document.documentElement.classList.add('fonts-loaded');
+					});
+					
+					// Safety timeout
+					setTimeout(function() {
+						document.documentElement.classList.add('fonts-loaded');
+					}, 3000);
+				} else {
+					document.documentElement.classList.add('fonts-loaded');
+				}
+			})();
+		</script>
+		
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
