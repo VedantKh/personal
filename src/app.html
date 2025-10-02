@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		
+
 		<!-- Preload critical fonts to prevent FOUT/jiggle -->
 		<link
 			rel="preload"
@@ -27,23 +27,25 @@
 			type="font/woff2"
 			crossorigin="anonymous"
 		/>
-		
+
 		<!-- Inline font loading script to prevent FOUT -->
 		<script>
-			(function() {
+			(function () {
 				if ('fonts' in document) {
 					Promise.all([
 						document.fonts.load('400 1em Array'),
 						document.fonts.load('300 1em Technor'),
 						document.fonts.load('400 1em TildaSans')
-					]).then(function() {
-						document.documentElement.classList.add('fonts-loaded');
-					}).catch(function() {
-						document.documentElement.classList.add('fonts-loaded');
-					});
-					
+					])
+						.then(function () {
+							document.documentElement.classList.add('fonts-loaded');
+						})
+						.catch(function () {
+							document.documentElement.classList.add('fonts-loaded');
+						});
+
 					// Safety timeout
-					setTimeout(function() {
+					setTimeout(function () {
 						document.documentElement.classList.add('fonts-loaded');
 					}, 3000);
 				} else {
@@ -51,7 +53,7 @@
 				}
 			})();
 		</script>
-		
+
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

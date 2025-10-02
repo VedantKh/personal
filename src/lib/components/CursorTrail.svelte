@@ -9,18 +9,17 @@
 	}
 
 	let canvas: HTMLCanvasElement;
+	let cursorElement: HTMLDivElement;
 	let ctx: CanvasRenderingContext2D;
 	let trail: TrailPoint[] = [];
 	let mouseX = 0;
 	let mouseY = 0;
 	let isMouseDown = false; // Track mouse button state
 	let animationFrameId: number;
-	let pulsePhase = 0; // For pulsing effect
 
-	const TRAIL_LENGTH = 30; // Number of points in the trail
-	const TRAIL_WIDTH = 3; // Width of the trail line
-	const FADE_SPEED = 0.9; // How quickly the trail fades (lower = faster fade)
-	const CURSOR_DISC_SIZE = 8; // Size of the cursor disc
+	const TRAIL_LENGTH = 25; // Number of points in the trail
+	const TRAIL_WIDTH = 2; // Width of the trail line
+	const FADE_SPEED = 0.92; // How quickly the trail fades (lower = faster fade)
 
 	function resizeCanvas() {
 		if (canvas) {
@@ -32,6 +31,12 @@
 	function handleMouseMove(e: MouseEvent) {
 		mouseX = e.clientX;
 		mouseY = e.clientY;
+
+		// Update cursor position
+		if (cursorElement) {
+			cursorElement.style.left = `${mouseX}px`;
+			cursorElement.style.top = `${mouseY}px`;
+		}
 
 		// Add new point to trail
 		trail.push({
@@ -58,10 +63,6 @@
 	function drawTrail() {
 		if (!ctx || !canvas) return;
 
-		// Update pulse phase for animated effects
-		pulsePhase = (pulsePhase + 0.05) % (Math.PI * 2);
-		const pulse = Math.sin(pulsePhase) * 0.3 + 0.7; // Oscillates between 0.4 and 1.0
-
 		// Clear canvas
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -79,7 +80,7 @@
 		// Remove fully faded points
 		trail = trail.filter((point) => point.opacity > 0.01);
 
-		// Draw the trail with intense Tron glow effect
+		// Draw the trail with glow effect
 		for (let i = 0; i < trail.length - 1; i++) {
 			const point = trail[i];
 			const nextPoint = trail[i + 1];
@@ -88,17 +89,17 @@
 			const positionFade = (i / trail.length) * 0.7 + 0.3;
 			const finalOpacity = point.opacity * positionFade;
 
-			// Tron-themed colors: electric cyan and vibrant orange
+			// Choose color based on mouse state
 			const colors = point.isOrange
 				? {
-						outer: `rgba(255, 100, 0, ${finalOpacity * 0.25})`, // Vibrant orange outer glow
-						middle: `rgba(255, 140, 0, ${finalOpacity * 0.5})`, // Orange middle glow
-						inner: `rgba(255, 200, 100, ${finalOpacity})` // Bright orange-yellow core
+						outer: `rgba(255, 140, 0, ${finalOpacity * 0.15})`, // Orange outer glow
+						middle: `rgba(255, 150, 0, ${finalOpacity * 0.3})`, // Orange middle glow
+						inner: `rgba(255, 180, 50, ${finalOpacity * 0.8})` // Bright orange core
 					}
 				: {
-						outer: `rgba(0, 230, 255, ${finalOpacity * 0.25})`, // Electric cyan outer glow
-						middle: `rgba(0, 255, 255, ${finalOpacity * 0.5})`, // Cyan middle glow
-						inner: `rgba(150, 255, 255, ${finalOpacity})` // Bright cyan-white core
+						outer: `rgba(0, 180, 255, ${finalOpacity * 0.15})`, // Blue outer glow
+						middle: `rgba(0, 200, 255, ${finalOpacity * 0.3})`, // Blue middle glow
+						inner: `rgba(100, 230, 255, ${finalOpacity * 0.8})` // Bright blue core
 					};
 
 			// Outer glow (larger, more transparent)
@@ -106,7 +107,7 @@
 			ctx.moveTo(point.x, point.y);
 			ctx.lineTo(nextPoint.x, nextPoint.y);
 			ctx.strokeStyle = colors.outer;
-			ctx.lineWidth = TRAIL_WIDTH * 8;
+			ctx.lineWidth = TRAIL_WIDTH * 6;
 			ctx.lineCap = 'round';
 			ctx.lineJoin = 'round';
 			ctx.stroke();
@@ -116,12 +117,12 @@
 			ctx.moveTo(point.x, point.y);
 			ctx.lineTo(nextPoint.x, nextPoint.y);
 			ctx.strokeStyle = colors.middle;
-			ctx.lineWidth = TRAIL_WIDTH * 4;
+			ctx.lineWidth = TRAIL_WIDTH * 3;
 			ctx.lineCap = 'round';
 			ctx.lineJoin = 'round';
 			ctx.stroke();
 
-			// Inner bright line (Tron electric)
+			// Inner bright line (Tron cyan/blue or orange)
 			ctx.beginPath();
 			ctx.moveTo(point.x, point.y);
 			ctx.lineTo(nextPoint.x, nextPoint.y);
@@ -129,46 +130,6 @@
 			ctx.lineWidth = TRAIL_WIDTH;
 			ctx.lineCap = 'round';
 			ctx.lineJoin = 'round';
-			ctx.stroke();
-		}
-
-		// Draw Tron-style cursor disc at current position
-		if (trail.length > 0) {
-			const discColor = isMouseDown
-				? {
-						outer: `rgba(255, 100, 0, ${0.3 * pulse})`,
-						middle: `rgba(255, 140, 0, ${0.6 * pulse})`,
-						inner: `rgba(255, 200, 100, ${0.9 * pulse})`
-					}
-				: {
-						outer: `rgba(0, 230, 255, ${0.3 * pulse})`,
-						middle: `rgba(0, 255, 255, ${0.6 * pulse})`,
-						inner: `rgba(150, 255, 255, ${0.9 * pulse})`
-					};
-
-			// Outer disc glow
-			ctx.beginPath();
-			ctx.arc(mouseX, mouseY, CURSOR_DISC_SIZE * 2, 0, Math.PI * 2);
-			ctx.fillStyle = discColor.outer;
-			ctx.fill();
-
-			// Middle disc glow
-			ctx.beginPath();
-			ctx.arc(mouseX, mouseY, CURSOR_DISC_SIZE * 1.2, 0, Math.PI * 2);
-			ctx.fillStyle = discColor.middle;
-			ctx.fill();
-
-			// Inner bright disc core
-			ctx.beginPath();
-			ctx.arc(mouseX, mouseY, CURSOR_DISC_SIZE * 0.6, 0, Math.PI * 2);
-			ctx.fillStyle = discColor.inner;
-			ctx.fill();
-
-			// Disc outline
-			ctx.beginPath();
-			ctx.arc(mouseX, mouseY, CURSOR_DISC_SIZE, 0, Math.PI * 2);
-			ctx.strokeStyle = discColor.inner;
-			ctx.lineWidth = 1.5;
 			ctx.stroke();
 		}
 
@@ -202,6 +163,13 @@
 	style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 0; mix-blend-mode: screen;"
 ></canvas>
 
+<!-- Custom Tron cursor -->
+<div bind:this={cursorElement} class="tron-cursor" class:active={isMouseDown}>
+	<div class="cursor-outer-ring"></div>
+	<div class="cursor-inner-ring"></div>
+	<div class="cursor-dot"></div>
+</div>
+
 <style>
 	canvas {
 		position: fixed;
@@ -212,5 +180,77 @@
 		pointer-events: none;
 		z-index: 0; /* In front of background grid (-10 to -8) but behind content (1+) */
 		mix-blend-mode: screen; /* Makes the glow effect blend better with dark backgrounds */
+	}
+
+	.tron-cursor {
+		position: fixed;
+		width: 32px;
+		height: 32px;
+		pointer-events: none;
+		z-index: 9999;
+		transform: translate(-50%, -50%);
+		transition: transform 0.1s ease-out;
+	}
+
+	.tron-cursor.active {
+		transform: translate(-50%, -50%) scale(0.85);
+	}
+
+	.cursor-outer-ring {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 32px;
+		height: 32px;
+		border: 2px solid rgba(0, 200, 255, 0.3);
+		border-radius: 50%;
+		transform: translate(-50%, -50%);
+		box-shadow:
+			0 0 10px rgba(0, 200, 255, 0.4),
+			inset 0 0 10px rgba(0, 200, 255, 0.2);
+		transition: all 0.15s ease-out;
+	}
+
+	.tron-cursor.active .cursor-outer-ring {
+		border-color: rgba(255, 140, 0, 0.5);
+		box-shadow:
+			0 0 15px rgba(255, 140, 0, 0.6),
+			inset 0 0 10px rgba(255, 140, 0, 0.3);
+	}
+
+	.cursor-inner-ring {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 16px;
+		height: 16px;
+		border: 1.5px solid rgba(100, 230, 255, 0.6);
+		border-radius: 50%;
+		transform: translate(-50%, -50%);
+		box-shadow: 0 0 8px rgba(100, 230, 255, 0.5);
+		transition: all 0.15s ease-out;
+	}
+
+	.tron-cursor.active .cursor-inner-ring {
+		border-color: rgba(255, 180, 50, 0.8);
+		box-shadow: 0 0 12px rgba(255, 180, 50, 0.7);
+	}
+
+	.cursor-dot {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 4px;
+		height: 4px;
+		background: radial-gradient(circle, rgba(100, 230, 255, 1) 0%, rgba(0, 200, 255, 0.8) 100%);
+		border-radius: 50%;
+		transform: translate(-50%, -50%);
+		box-shadow: 0 0 6px rgba(100, 230, 255, 0.8);
+		transition: all 0.15s ease-out;
+	}
+
+	.tron-cursor.active .cursor-dot {
+		background: radial-gradient(circle, rgba(255, 200, 100, 1) 0%, rgba(255, 140, 0, 0.9) 100%);
+		box-shadow: 0 0 8px rgba(255, 180, 50, 0.9);
 	}
 </style>

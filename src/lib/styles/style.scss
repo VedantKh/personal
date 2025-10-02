@@ -1,6 +1,32 @@
 /* style.css */
 
 /* ============================================
+   CUSTOM CURSOR - Hide Default
+   ============================================ */
+* {
+	cursor: none !important;
+}
+
+*::before,
+*::after {
+	cursor: none !important;
+}
+
+html,
+body {
+	cursor: none !important;
+}
+
+a,
+button,
+input,
+textarea,
+select,
+label {
+	cursor: none !important;
+}
+
+/* ============================================
    TEXT SELECTION
    ============================================ */
 ::selection {
