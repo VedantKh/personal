@@ -3,6 +3,7 @@
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import DynamicBackground from '$lib/components/DynamicBackground.svelte';
+	import CursorTrail from '$lib/components/CursorTrail.svelte';
 	import SEO from '$lib/components/SEO.svelte';
 	import StructuredData from '$lib/components/StructuredData.svelte';
 	import '$lib/styles/style.scss';
@@ -39,6 +40,8 @@
 <!-- Default SEO for all pages - can be overridden by child pages -->
 <SEO />
 <StructuredData type="WebSite" />
+
+<CursorTrail />
 
 <div class="page-container">
 	<DynamicBackground />

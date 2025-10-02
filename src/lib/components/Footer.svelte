@@ -115,7 +115,7 @@
 
 		<p class="inspired">
 			<a
-				href="https://www.youtube.com/watch?v=YyoKXfBQgXw&ab_channel=Kimer%E2%80%9CRawCut%E2%80%9DLorens"
+				href="https://www.youtube.com/watch?v=SqSuRdkglxM&t=6s"
 				target="_blank">Inspired by Tron</a
 			>
 		</p>
