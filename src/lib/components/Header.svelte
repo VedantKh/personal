@@ -26,6 +26,9 @@
 				<li>
 					<a href="/writings" onclick={() => handleNavClick('/writings')}>writings</a>
 				</li>
+				<li>
+					<a href="/archive" onclick={() => handleNavClick('/archive')}>archive</a>
+				</li>
 			</ul>
 		</nav>
 	</div>

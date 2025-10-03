@@ -54,13 +54,11 @@ label {
 	font-display: block;
 }
 
-/* Technor Light - For body text and footer */
+/* Monaspace Argon - For body text and footer */
 @font-face {
-	font-family: 'Technor';
-	src:
-		url('/fonts/Technor_Complete/Fonts/WEB/fonts/Technor-Light.woff2') format('woff2'),
-		url('/fonts/Technor_Complete/Fonts/WEB/fonts/Technor-Light.woff') format('woff');
-	font-weight: 300;
+	font-family: 'Monaspace Argon';
+	src: url('/fonts/Monaspace Argon Var.ttf') format('truetype');
+	font-weight: 100 900;
 	font-style: normal;
 	font-display: block;
 }
@@ -83,13 +81,13 @@ label {
 :root {
 	/* Font Families */
 	--font-heading: 'Array', 'Geist Mono', monospace;
-	--font-body: 'Technor', 'Geist Mono', sans-serif;
+	--font-body: 'Monaspace Argon', 'Geist Mono', sans-serif;
 	--font-writing: 'TildaSans', 'Geist Mono', sans-serif;
 	--font-code: 'Geist Mono', monospace;
 
 	/* Font Weights - Adjust these to change weights */
 	--weight-heading: 400; /* Array Regular */
-	--weight-body: 300; /* Technor Light */
+	--weight-body: 300; /* Monaspace Argon */
 	--weight-writing: 400; /* TildaSans Regular */
 	--weight-bold: 600;
 
@@ -136,6 +134,7 @@ h6 {
 	font-family: var(--font-heading);
 	font-weight: var(--weight-heading);
 	line-height: 1.25;
+	letter-spacing: 0.03em;
 }
 
 h1 {
@@ -160,7 +159,7 @@ h4 {
 
 p {
 	margin-bottom: 1.2em;
-	line-height: 1.6;
+	line-height: 1.45;
 	font-family: var(--font-body);
 	font-weight: var(--weight-body);
 }

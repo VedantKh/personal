@@ -15,9 +15,9 @@
 		/>
 		<link
 			rel="preload"
-			href="%sveltekit.assets%/fonts/Technor_Complete/Fonts/WEB/fonts/Technor-Light.woff2"
+			href="%sveltekit.assets%/fonts/Monaspace Argon Var.ttf"
 			as="font"
-			type="font/woff2"
+			type="font/ttf"
 			crossorigin="anonymous"
 		/>
 		<link
@@ -34,7 +34,7 @@
 				if ('fonts' in document) {
 					Promise.all([
 						document.fonts.load('400 1em Array'),
-						document.fonts.load('300 1em Technor'),
+						document.fonts.load('300 1em Monaspace Argon'),
 						document.fonts.load('400 1em TildaSans')
 					])
 						.then(function () {
