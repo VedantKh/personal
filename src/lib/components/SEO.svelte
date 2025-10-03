@@ -80,7 +80,7 @@
 	{/if}
 
 	<!-- Twitter -->
-	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:url" content={url} />
 	<meta name="twitter:title" content={formattedTitle} />
 	<meta name="twitter:description" content={description} />
@@ -96,7 +96,7 @@
 	<meta name="robots" content="index, follow" />
 	<meta
 		name="googlebot"
-		content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+		content="index, follow, max-snippet:-1, max-image-preview:standard, max-video-preview:-1"
 	/>
 
 	<!-- Profile metadata -->
