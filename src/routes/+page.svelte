@@ -26,8 +26,7 @@
 {#snippet DefaultContent()}
 	<h2 class="!mt-0 !border-b-0 !pb-0">Vedant Khanna</h2>
 	<p class="!mb-2">
-		I'm finishing my undergrad at Stanford in Math. I think a lot about applications of AI beyond
-		the Silicon Valley bubble.
+		I'm finishing my undergrad at Stanford in Math. I think a lot about applying AI in other countries.
 	</p>
 
 	<p class="!mb-2">
@@ -85,7 +84,7 @@
 	Here are my <a href="https://friendsandfam.xyz/manifesto" target="_blank">thoughts</a> about why this is important.
 </p> -->
 
-<h2 class="!mt-12">Highlighted writings</h2>
+<h2 class="!mt-4">Highlighted writings</h2>
 
 <PostList posts={highlightedPosts} showHeading={false} showHighlightedTag={false} />
 

@@ -6,8 +6,8 @@
   };
 </script>
 
-#### Snippets of the internet that changed me.
-## Life
+### Snippets of the internet that I really enjoyed.
+#### Life
 
 [You and Your Research](https://www.cs.virginia.edu/~robins/YouAndYourResearch.html) - Richard Hamming speaks straight facts about life.
 
@@ -19,11 +19,11 @@
 
 [The Fable of the Dragon-Tyrant](http://nickbostrom.com/fable/dragon) - Why accepting problems can hurt us.
 
-[Steve Jobs' Stanford Commencement Address](https://www.youtube.com/watch?v=Xo2Q4PQqqWU&ab_channel=EscapingOrdinary%28B.CMarx%29) - Gets me going everytime.
+[Steve Jobs' Stanford Commencement Address](https://www.youtube.com/watch?v=UF8uR6Z6KLc) - Gets me going everytime.
 
 [Mind Traps](https://www.youtube.com/watch?v=nYYkRaU0xh8&t=4s) - Gorgeous animations describing our mental biases.
 
-## Silicon Valley
+#### Silicon Valley
 
 [Hacking](https://paulbuchheit.blogspot.com/2009/10/applied-philosophy-aka-hacking.html?ref=review.firstround.com) - Finding the gap between perceived rules and actual rules.
 
