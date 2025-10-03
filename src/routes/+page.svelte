@@ -26,7 +26,7 @@
 {#snippet DefaultContent()}
 	<h2 class="!mt-0 !border-b-0 !pb-0">Vedant Khanna</h2>
 	<p class="!mb-2">
-		I'm finishing my undergrad at Stanford in Math. I think a lot about applying AI in other countries.
+		I'm finishing my undergrad at Stanford in Math. I think a lot about deploying useful tech beyond Silicon Valley.
 	</p>
 
 	<p class="!mb-2">
