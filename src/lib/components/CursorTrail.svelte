@@ -18,7 +18,7 @@
 	let animationFrameId: number;
 	let cursorVisible = false; // Track if cursor has been initialized
 
-	const TRAIL_LENGTH = 25; // Number of points in the trail
+	const TRAIL_LENGTH = 10; // Number of points in the trail
 	const TRAIL_WIDTH = 2; // Width of the trail line
 	const FADE_SPEED = 0.92; // How quickly the trail fades (lower = faster fade)
 
