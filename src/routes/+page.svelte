@@ -43,7 +43,7 @@
 			>, a community at Stanford that ships. We make
 			<a href="https://www.orcahand.com/" target="_blank">robotic hands</a>, Tom & Jerry diffusion
 			<a href="https://test-time-training.github.io/video-dit/" target="_blank">models</a>, Siri for
-			your <a href="https://www.youtube.com/watch?v=3ePO_Qi2jCg" target="_blank">email</a> (this one's mine), and
+			your <a href="https://www.youtube.com/watch?v=3ePO_Qi2jCg" target="_blank">email</a>, and
 			<a
 				href="https://vedantkhanna.notion.site/FAF-Projects-2398828bbc3d809fa5b6eda4ba88b539"
 				target="_blank">more</a
