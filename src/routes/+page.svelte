@@ -31,7 +31,7 @@
 
 	<p class="!mb-2">
 		I was previously CEO and cofounder of Hazel (PearX W23), where we raised $2M to build an AI real estate agent with Berkshire Hathaway.
-		I occasionally angel invest in friends, and scout for a16z on the side.
+		I occasionally angel invest in friends.
 	</p>
 {/snippet}
 
