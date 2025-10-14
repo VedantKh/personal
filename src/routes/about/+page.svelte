@@ -50,7 +50,7 @@
 			I run a nonprofit builder community at Stanford called <a href="https://friendsandfam.xyz/manifesto" target="_blank">Friends and Family</a>. Raised $200k to give grants for technical projects. We’ve built <a href="https://www.orcahand.com/" target="_blank">robotic hands</a>, Tom & Jerry diffusion <a href="https://test-time-training.github.io/video-dit/" target="_blank">models</a> and <a href="https://www.notion.so/FAF-Projects-2398828bbc3d809fa5b6eda4ba88b539?pvs=21" target="_blank">more</a> in just the last year.
 		</li>
 		<li>
-			Angel invested in my friends, including in <a href="https://mercor.com/" target="_blank">Mercor</a>.
+			I occasionally angel invest in my friends, including in <a href="https://mercor.com/" target="_blank">Mercor</a>.
 		</li>
 	</ul>
 {/snippet}
