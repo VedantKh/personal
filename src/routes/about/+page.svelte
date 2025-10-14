@@ -25,13 +25,16 @@
 
 {#snippet DefaultContent()}
 	<h2 class="!mt-0 !border-b-0 !pb-0">Vedant Khanna</h2>
-	<ol class="list-decimal pl-6 space-y-5">
+	<ul class="list-none pl-0 space-y-5">
+		<li>
+			I'm finishing my undergrad at Stanford in Math. I think a lot about deploying useful tech beyond Silicon Valley.
+		</li>
 		<li>
 			Previously CEO and cofounder of Hazel, raised $2M to build an AI real estate agent with Berkshire Hathaway.
 		</li>
 		<li>
 			I have iterated over many different ideas while in school including
-			<ul class="list-disc pl-4 mt-3 space-y-1">
+			<ul class="list-disc pl-0 mt-3 space-y-1">
 				<li>
 					an AI-native EHR in the UAE with the previous CTO of <a href="https://en.wikipedia.org/wiki/Abu_Dhabi_National_Oil_Company#:~:text=ADNOC%20is%20one%20of%20the,onshore%20and%20offshore%20gas%20fields." target="_blank">ADNOC</a>
 				</li>
@@ -49,7 +52,7 @@
 		<li>
 			Angel invested in my friends, including in Mercor. Overall portfolio has 20x’d in a year (which is very lucky).
 		</li>
-	</ol>
+	</ul>
 {/snippet}
 
 {#snippet MoreInfo()}
@@ -98,6 +101,13 @@
 		font-size: 0.9rem;
 		font-weight: bold;
 		vertical-align: middle;
+	}
+
+	/* Hide bullets only for the top-level list in DefaultContent */
+	:global(.bio-container) .list-none {
+		list-style-type: none;
+		margin-left: 0;
+		padding-left: 0;
 	}
 	.more-button {
 		position: relative;
