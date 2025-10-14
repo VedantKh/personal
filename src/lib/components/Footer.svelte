@@ -159,12 +159,6 @@
 		a {
 			display: inline;
 		}
-
-		@media (max-width: 768px) {
-			.tron {
-				color: inherit;
-			}
-		}
 	}
 
 	a {

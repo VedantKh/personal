@@ -24,7 +24,7 @@
 </script>
 
 {#snippet DefaultContent()}
-	<h2 class="!mt-0 !border-b-0 !pb-0">My background</h2>
+	<h2 class="!mt-0 !border-b-0 !pb-0">Vedant Khanna</h2>
 	<ol class="list-decimal pl-6 space-y-5">
 		<li>
 			Previously CEO and cofounder of Hazel, raised $2M to build an AI real estate agent with Berkshire Hathaway.
