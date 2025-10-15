@@ -30,10 +30,10 @@
 			I'm finishing my undergrad at Stanford in Math. I think a lot about deploying useful tech beyond Silicon Valley.
 		</li>
 		<li>
-			Previously CEO and cofounder of Hazel, raised $2M to build an AI real estate agent with Berkshire Hathaway.
+			Took a year and a half off. I was cofounder and CEO of Hazel, raised $2M to build an AI real estate agent with Berkshire Hathaway. Fell in love with building.
 		</li>
 		<li>
-			I have iterated over many different ideas while in school including
+			Having caught the entrepreneurial bug, I have been iterating over many different ideas while at Stanford including
 			<ul class="list-disc pl-0 mt-3 space-y-1">
 				<li>
 					an AI-native EHR in the UAE with the previous CTO of <a href="https://en.wikipedia.org/wiki/Abu_Dhabi_National_Oil_Company#:~:text=ADNOC%20is%20one%20of%20the,onshore%20and%20offshore%20gas%20fields." target="_blank">ADNOC</a>
@@ -42,12 +42,12 @@
 					Siri for your <a href="https://www.youtube.com/watch?v=3ePO_Qi2jCg" target="_blank">email</a> with my friend Ethan
 				</li>
 				<li>
-					<code>Current</code> An app that detects whether a video is AI generated or not.
+					<code>Current</code> A Sora detector that checks if a video is AI generated
 				</li>
 			</ul>
 		</li>
 		<li>
-			I run a nonprofit builder community at Stanford called <a href="https://friendsandfam.xyz/manifesto" target="_blank">Friends and Family</a>. Raised $200k to give grants for technical projects. We’ve built <a href="https://www.orcahand.com/" target="_blank">robotic hands</a>, Tom & Jerry diffusion <a href="https://test-time-training.github.io/video-dit/" target="_blank">models</a> and <a href="https://www.notion.so/FAF-Projects-2398828bbc3d809fa5b6eda4ba88b539?pvs=21" target="_blank">more</a> in just the last year.
+			I run a nonprofit builder community at Stanford called <a href="https://friendsandfam.xyz/manifesto" target="_blank">Friends and Family</a>. Raised $200k to give grants for technical projects. We’ve built <a href="https://www.orcahand.com/" target="_blank">robotic hands</a>, Tom & Jerry diffusion <a href="https://test-time-training.github.io/video-dit/" target="_blank">models</a> and <a href="https://www.notion.so/FAF-Projects-2398828bbc3d809fa5b6eda4ba88b539?pvs=21" target="_blank">more</a>.
 		</li>
 		<li>
 			I occasionally angel invest in my friends, including in <a href="https://mercor.com/" target="_blank">Mercor</a>.

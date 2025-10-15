@@ -23,9 +23,9 @@
 				<!-- <li>
 					<a href="/about" onclick={() => handleNavClick('/about')}>about</a>
 				</li> -->
-				<li>
+				<!-- <li>
 					<a href="/projects" onclick={() => handleNavClick('/projects')}>projects</a>
-				</li>
+				</li> -->
 				<li>
 					<a href="/writings" onclick={() => handleNavClick('/writings')}>writings</a>
 				</li>
