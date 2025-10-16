@@ -19,6 +19,8 @@
 
 [The Fable of the Dragon-Tyrant](http://nickbostrom.com/fable/dragon) - Why accepting problems can hurt us.
 
+[I am nothing](https://paulbuchheit.blogspot.com/2011/08/i-am-nothing.html) - Putting labels on yourself limits you, so don't.
+
 [Steve Jobs' Stanford Commencement Address](https://www.youtube.com/watch?v=UF8uR6Z6KLc) - Gets me going everytime.
 
 [Mind Traps](https://www.youtube.com/watch?v=nYYkRaU0xh8&t=4s) - Gorgeous animations describing our mental biases.
