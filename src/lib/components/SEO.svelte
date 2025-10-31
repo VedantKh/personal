@@ -20,7 +20,7 @@
 		description = 'Studying Math and Physics.',
 		keywords = 'Vedant Khanna, Vedant, Stanford, Mathematics, AI, Silicon Valley',
 		author = 'Vedant Khanna',
-		image = 'https://www.vedant.space/me.png',
+		image = '',
 		imageAlt = 'Vedant Khanna smiling',
 		type = 'website',
 		publishedTime,
@@ -34,6 +34,9 @@
 
 	// Format the title with site name
 	const formattedTitle = $derived(title === "Vedant Khanna's space" ? title : `${title}`);
+
+	// Temporarily disable social preview images sitewide
+	const effectiveImage = $derived('');
 </script>
 
 <svelte:head>
@@ -53,8 +56,8 @@
 	<meta property="og:site_name" content="Vedant Khanna" />
 	<meta property="og:locale" content="en_US" />
 
-	{#if image}
-		<meta property="og:image" content={image} />
+	{#if effectiveImage}
+		<meta property="og:image" content={effectiveImage} />
 		<meta property="og:image:alt" content={imageAlt} />
 	{/if}
 
@@ -85,8 +88,8 @@
 	<meta name="twitter:site" content="@vedant__khanna" />
 	<meta name="twitter:creator" content="@vedant__khanna" />
 
-	{#if image}
-		<meta name="twitter:image" content={image} />
+	{#if effectiveImage}
+		<meta name="twitter:image" content={effectiveImage} />
 		<meta name="twitter:image:alt" content={imageAlt} />
 	{/if}
 

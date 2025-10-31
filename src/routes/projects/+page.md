@@ -14,12 +14,6 @@ Talk to your email. Built with <a href="https://www.goodhart.ai/">Ethan</a>.
 
 ---
 
-### Co-scientist <span class="links"><a href="https://youtu.be/h4_JFms3kIc?si=EQQzfFpUWeooGuux&t=43" data-project="Co-scientist">demo</a></span>
-
-Get recommended novel research directions instead of spending time on literature review. Built with <a href="https://www.igor.fyi/">Igor</a>.
-
----
-
 ### Multilingual AI medical scribe <span class="links"><a href="https://www.youtube.com/watch?v=KQSOck-XG5k" data-project="Multilingual AI medical scribe">demo</a></span>
 
 Built for a clinic in Abu Dhabi to eliminate the pain of notetaking for doctors. Built with <a href="https://medium.com/@asrielhan">Asriel</a>.
@@ -29,6 +23,13 @@ Built for a clinic in Abu Dhabi to eliminate the pain of notetaking for doctors.
 ### Voice CRM for realtors <span class="links"><a href="https://youtu.be/CKjFMmc5wi8?si=sfs4W27oi-hlZ9Yt&t=14" data-project="Voice-based CRM for realtors">demo</a></span>
 
 Making data entry feel like a conversation. Built with <a href="https://www.masonjwang.com/">Mason</a>.
+
+---
+
+### Co-scientist <span class="links"><a href="https://youtu.be/h4_JFms3kIc?si=EQQzfFpUWeooGuux&t=43" data-project="Co-scientist">demo</a></span>
+
+Get recommended novel research directions instead of spending time on literature review. Built with <a href="https://www.igor.fyi/">Igor</a>.
+
 
 <style>
   h3 {

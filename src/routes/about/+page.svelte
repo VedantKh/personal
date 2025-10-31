@@ -25,44 +25,41 @@
 
 {#snippet DefaultContent()}
 	<h2 class="!mt-0 !border-b-0 !pb-0">Vedant Khanna</h2>
-	<p class="!mb-2">
-		I'm finishing my undergrad at Stanford in Math. I think a lot about deploying useful tech beyond Silicon Valley.
-	</p>
-
-	<p class="!mb-2">
-		I was previously CEO and cofounder of Hazel (PearX W23), where we raised $2M to build an AI real estate agent with Berkshire Hathaway.
-		I occasionally angel invest in friends.
-	</p>
+	<ul class="list-none pl-0 space-y-5">
+		<li>
+			I'm finishing my undergrad at Stanford in Math. I think a lot about deploying useful tech beyond Silicon Valley.
+		</li>
+		<li>
+			Took a year and a half off. I was cofounder and CEO of Hazel, raised $2M to build an AI real estate agent with Berkshire Hathaway. Fell in love with building.
+		</li>
+		<li>
+			Having caught the entrepreneurial bug, I have been iterating over many different ideas while at Stanford including
+			<ul class="list-disc pl-0 mt-3 space-y-1">
+				<li>
+					an AI-native EHR in the UAE with the previous CTO of <a href="https://en.wikipedia.org/wiki/Abu_Dhabi_National_Oil_Company#:~:text=ADNOC%20is%20one%20of%20the,onshore%20and%20offshore%20gas%20fields." target="_blank">ADNOC</a>
+				</li>
+				<li>
+					Siri for your <a href="https://www.youtube.com/watch?v=3ePO_Qi2jCg" target="_blank">email</a> with my friend Ethan
+				</li>
+				<li>
+					<code>Current</code> A Sora detector that checks if a video is AI generated
+				</li>
+			</ul>
+		</li>
+		<li>
+			I run a nonprofit builder community at Stanford called <a href="https://friendsandfam.xyz/manifesto" target="_blank">Friends and Family</a>. Raised $200k to give grants for technical projects. We’ve built <a href="https://www.orcahand.com/" target="_blank">robotic hands</a>, Tom & Jerry diffusion <a href="https://test-time-training.github.io/video-dit/" target="_blank">models</a> and <a href="https://www.notion.so/FAF-Projects-2398828bbc3d809fa5b6eda4ba88b539?pvs=21" target="_blank">more</a>.
+		</li>
+		<li>
+			I occasionally angel invest in my friends, including in <a href="https://mercor.com/" target="_blank">Mercor</a>.
+		</li>
+	</ul>
 {/snippet}
 
 {#snippet MoreInfo()}
-	<div class="bio-extended">
-		<p>
-			I helped build <a href="https://friendsandfam.xyz/manifesto" target="_blank"
-				>Friends and Family</a
-			>, a community at Stanford that ships. We make
-			<a href="https://www.orcahand.com/" target="_blank">robotic hands</a>, Tom & Jerry diffusion
-			<a href="https://test-time-training.github.io/video-dit/" target="_blank">models</a>, Siri for
-			your <a href="https://www.youtube.com/watch?v=3ePO_Qi2jCg" target="_blank">email</a>, and
-			<a
-				href="https://friendsandfam.xyz/projects"
-				target="_blank">more</a
-			>.
-		</p>
-		<!-- <p>
-			I believe that as capabilities of tech improve, two human skills will continue to grow in importance:
-			problem selection and building trust with people.
-		</p> -->
-	</div>
+	<div></div>
 {/snippet}
 
 <div class="bio-container mt-4">
-	<img
-		src="me.png"
-		alt="Vedant Khanna smiling"
-		style="float: left; border-radius: 85px; width: 170px; margin: 1.25rem 1rem 0.5rem 0;"
-	/>
-
 	{@render DefaultContent()}
 </div>
 
@@ -96,6 +93,22 @@
 </div>
 
 <style lang="scss">
+	code {
+		padding: 0.2rem 0.3rem;
+		background-color: rgba(64, 195, 255, 0.189);
+		border-radius: 4px;
+		color: rgb(64, 195, 255);
+		font-size: 0.9rem;
+		font-weight: bold;
+		vertical-align: middle;
+	}
+
+	/* Hide bullets only for the top-level list in DefaultContent */
+	:global(.bio-container) .list-none {
+		list-style-type: none;
+		margin-left: 0;
+		padding-left: 0;
+	}
 	.more-button {
 		position: relative;
 		color: rgba(110, 209, 255, 0.891);
@@ -139,3 +152,4 @@
 		}
 	}
 </style>
+

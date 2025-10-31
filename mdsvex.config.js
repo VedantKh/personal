@@ -1,13 +1,12 @@
+// mdsvex.config.js
 import { defineMDSveXConfig as defineConfig } from 'mdsvex';
+
+const layoutPath = `${process.cwd()}/src/lib/components/MarkdownLayout.svelte`;
 
 const config = defineConfig({
 	extensions: ['.md'],
-	layout: {
-		_: './src/lib/components/MarkdownLayout.svelte'
-	},
-	smartypants: {
-		dashes: 'oldschool'
-	},
+	layout: { _: layoutPath },
+	smartypants: { dashes: 'oldschool' },
 	remarkPlugins: [],
 	rehypePlugins: []
 });

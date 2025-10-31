@@ -18,7 +18,7 @@
 	let animationFrameId: number;
 	let cursorVisible = false; // Track if cursor has been initialized
 
-	const TRAIL_LENGTH = 10; // Number of points in the trail
+	const TRAIL_LENGTH = 7; // Number of points in the trail
 	const TRAIL_WIDTH = 2; // Width of the trail line
 	const FADE_SPEED = 0.92; // How quickly the trail fades (lower = faster fade)
 
@@ -77,14 +77,14 @@
 			return;
 		}
 
-		// Update opacity for all points
-		trail = trail.map((point) => ({
-			...point,
-			opacity: point.opacity * FADE_SPEED
-		}));
-
-		// Remove fully faded points
-		trail = trail.filter((point) => point.opacity > 0.01);
+		// Update opacity for all points and remove faded ones in a single pass
+		for (let i = trail.length - 1; i >= 0; i--) {
+			trail[i].opacity *= FADE_SPEED;
+			if (trail[i].opacity <= 0.01) {
+				trail.splice(i, 1);
+			}
+		}
+		trail = trail;
 
 		// Draw the trail with glow effect
 		for (let i = 0; i < trail.length - 1; i++) {
