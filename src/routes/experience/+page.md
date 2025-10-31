@@ -8,7 +8,7 @@
 
 # Friends and Family
 
-Built a community of builders at Stanford and raised $200k to give out in grants. Here are my [thoughts](https://friendsandfam.xyz/manifesto) about why this is important, and these are some [projects](https://vedantkhanna.notion.site/Projects-2398828bbc3d809fa5b6eda4ba88b539?source=copy_link) we've built.
+Built a community of builders at Stanford and raised $200k to give out in grants. Here are my [thoughts](https://friendsandfam.xyz/manifesto) about why this is important, and these are some [projects](https://friendsandfam.xyz/projects) we've built.
 
 # Hazel
 

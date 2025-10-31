@@ -45,7 +45,7 @@
 			<a href="https://test-time-training.github.io/video-dit/" target="_blank">models</a>, Siri for
 			your <a href="https://www.youtube.com/watch?v=3ePO_Qi2jCg" target="_blank">email</a>, and
 			<a
-				href="https://vedantkhanna.notion.site/FAF-Projects-2398828bbc3d809fa5b6eda4ba88b539"
+				href="https://friendsandfam.xyz/projects"
 				target="_blank">more</a
 			>.
 		</p>
