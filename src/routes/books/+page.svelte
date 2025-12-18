@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { ChevronDown, ChevronUp, BookOpen, Quote, Tag } from 'lucide-svelte';
+	import { ChevronDown, ChevronUp, BookOpen, Quote, Tag, Search, X } from 'lucide-svelte';
+	import Fuse from 'fuse.js';
 
 	const { data } = $props<{ data: PageData }>();
 	const { highlights } = data;
@@ -10,6 +11,69 @@
 
 	// Track selected tag filter (null = show all)
 	let selectedTag = $state<string | null>(null);
+
+	// Search query for fuzzy search
+	let searchQuery = $state('');
+
+	// Build flat list of all highlights with book info for searching
+	let allHighlights = $derived(
+		highlights.books.flatMap((book: any) =>
+			book.highlights.map((h: any, idx: number) => ({
+				...h,
+				bookId: book.id,
+				bookTitle: book.title,
+				bookAuthor: book.author,
+				bookTags: book.tags,
+				highlightIndex: idx
+			}))
+		)
+	);
+
+	// Fuse.js instance for fuzzy search
+	let fuse = $derived(
+		new Fuse(allHighlights, {
+			keys: [
+				{ name: 'quote', weight: 0.4 },
+				{ name: 'note', weight: 0.3 },
+				{ name: 'bookTitle', weight: 0.2 },
+				{ name: 'bookAuthor', weight: 0.1 }
+			],
+			threshold: 0.4,
+			ignoreLocation: true,
+			includeMatches: true
+		})
+	);
+
+	// Search results grouped by book
+	let searchResults = $derived.by(() => {
+		if (!searchQuery.trim()) return null;
+
+		const results = fuse.search(searchQuery);
+		const groupedByBook = new Map<string, { book: any; highlights: any[] }>();
+
+		for (const result of results) {
+			const item = result.item;
+			const book = highlights.books.find((b: any) => b.id === item.bookId);
+			if (!book) continue;
+
+			// Apply tag filter if active
+			if (selectedTag && !book.tags?.includes(selectedTag)) continue;
+
+			if (!groupedByBook.has(item.bookId)) {
+				groupedByBook.set(item.bookId, { book, highlights: [] });
+			}
+			groupedByBook.get(item.bookId)!.highlights.push({
+				...item,
+				matches: result.matches
+			});
+		}
+
+		return Array.from(groupedByBook.values());
+	});
+
+	function clearSearch() {
+		searchQuery = '';
+	}
 
 	function toggleBook(bookId: string) {
 		if (expandedBooks.has(bookId)) {
@@ -37,12 +101,19 @@
 		}
 	}
 
-	// Filter books by selected tag
+	// Filter books by selected tag (only used when not searching)
 	let filteredBooks = $derived(
 		selectedTag
 			? highlights.books.filter((b: any) => b.tags?.includes(selectedTag))
 			: highlights.books
 	);
+
+	// Auto-expand books that have search results
+	$effect(() => {
+		if (searchResults && searchResults.length > 0) {
+			expandedBooks = new Set(searchResults.map((r) => r.book.id));
+		}
+	});
 
 	// Color classes for highlight colors
 	const colorClasses: Record<string, string> = {
@@ -76,6 +147,29 @@
 		</span>
 	</div>
 
+	<div class="search-container">
+		<div class="search-input-wrapper">
+			<Search size={18} />
+			<input
+				type="text"
+				class="search-input"
+				placeholder="Search highlights, notes, books..."
+				bind:value={searchQuery}
+			/>
+			{#if searchQuery}
+				<button class="clear-search" onclick={clearSearch}>
+					<X size={16} />
+				</button>
+			{/if}
+		</div>
+		{#if searchResults}
+			<span class="search-status">
+				Found {searchResults.reduce((acc, r) => acc + r.highlights.length, 0)} highlights in {searchResults.length}
+				books
+			</span>
+		{/if}
+	</div>
+
 	{#if highlights.availableTags?.length > 0}
 		<div class="tag-filters">
 			<Tag size={14} />
@@ -103,61 +197,120 @@
 	</div>
 
 	<div class="books-list">
-		{#each filteredBooks as book (book.id)}
-			<div class="book-card">
-				<button class="book-header" onclick={() => toggleBook(book.id)}>
-					<div class="book-info">
-						<h2 class="book-title">{book.title}</h2>
-						<span class="book-author">by {book.author}</span>
-						<span class="highlight-count">{book.highlights.length} highlights</span>
-					</div>
-					<div class="book-right">
-						{#if book.tags?.length > 0}
-							<div class="book-tags">
-								{#each book.tags as tag}
-									<span class="tag-badge">{tag}</span>
+		{#if searchResults}
+			<!-- Search results view -->
+			{#each searchResults as { book, highlights: matchedHighlights } (book.id)}
+				<div class="book-card">
+					<button class="book-header" onclick={() => toggleBook(book.id)}>
+						<div class="book-info">
+							<h2 class="book-title">{book.title}</h2>
+							<span class="book-author">by {book.author}</span>
+							<span class="highlight-count">{matchedHighlights.length} matching highlights</span>
+						</div>
+						<div class="book-right">
+							{#if book.tags?.length > 0}
+								<div class="book-tags">
+									{#each book.tags as tag}
+										<span class="tag-badge">{tag}</span>
+									{/each}
+								</div>
+							{/if}
+							<div class="expand-icon">
+								{#if expandedBooks.has(book.id)}
+									<ChevronUp size={20} />
+								{:else}
+									<ChevronDown size={20} />
+								{/if}
+							</div>
+						</div>
+					</button>
+
+					{#if expandedBooks.has(book.id)}
+						<div class="book-content">
+							<div class="highlights-list">
+								{#each matchedHighlights as highlight}
+									<div class="highlight-item {colorClasses[highlight.color] || 'highlight-yellow'}">
+										<blockquote class="highlight-quote">
+											"{highlight.quote}"
+										</blockquote>
+										{#if highlight.note}
+											<p class="highlight-note">
+												<strong>Note:</strong>
+												{highlight.note}
+											</p>
+										{/if}
+										{#if highlight.chapter}
+											<span class="highlight-chapter">{highlight.chapter}</span>
+										{/if}
+									</div>
 								{/each}
 							</div>
-						{/if}
-						<div class="expand-icon">
-							{#if expandedBooks.has(book.id)}
-								<ChevronUp size={20} />
-							{:else}
-								<ChevronDown size={20} />
-							{/if}
 						</div>
-					</div>
-				</button>
-
-				{#if expandedBooks.has(book.id)}
-					<div class="book-content">
-						{#if book.summary}
-							<div class="book-summary">
-								<p>{book.summary}</p>
-							</div>
-						{/if}
-						<div class="highlights-list">
-							{#each book.highlights as highlight, i}
-								<div class="highlight-item {colorClasses[highlight.color] || 'highlight-yellow'}">
-									<blockquote class="highlight-quote">
-										"{highlight.quote}"
-									</blockquote>
-									{#if highlight.note}
-										<p class="highlight-note">
-											<strong>Note:</strong>
-											{highlight.note}
-										</p>
-									{/if}
-									{#if highlight.chapter}
-										<span class="highlight-chapter">{highlight.chapter}</span>
-									{/if}
+					{/if}
+				</div>
+			{:else}
+				<div class="no-results">
+					<p>No highlights found for "{searchQuery}"</p>
+				</div>
+			{/each}
+		{:else}
+			<!-- Default book list view -->
+			{#each filteredBooks as book (book.id)}
+				<div class="book-card">
+					<button class="book-header" onclick={() => toggleBook(book.id)}>
+						<div class="book-info">
+							<h2 class="book-title">{book.title}</h2>
+							<span class="book-author">by {book.author}</span>
+							<span class="highlight-count">{book.highlights.length} highlights</span>
+						</div>
+						<div class="book-right">
+							{#if book.tags?.length > 0}
+								<div class="book-tags">
+									{#each book.tags as tag}
+										<span class="tag-badge">{tag}</span>
+									{/each}
 								</div>
-							{/each}
+							{/if}
+							<div class="expand-icon">
+								{#if expandedBooks.has(book.id)}
+									<ChevronUp size={20} />
+								{:else}
+									<ChevronDown size={20} />
+								{/if}
+							</div>
 						</div>
-					</div>
-				{/if}
-			</div>
-		{/each}
+					</button>
+
+					{#if expandedBooks.has(book.id)}
+						<div class="book-content">
+							{#if book.summary}
+								<div class="book-summary">
+									<p>{book.summary}</p>
+								</div>
+							{/if}
+							<div class="highlights-list">
+								{#each book.highlights as highlight, i}
+									<div class="highlight-item {colorClasses[highlight.color] || 'highlight-yellow'}">
+										<blockquote class="highlight-quote">
+											"{highlight.quote}"
+										</blockquote>
+										{#if highlight.note}
+											<p class="highlight-note">
+												<strong>Note:</strong>
+												{highlight.note}
+											</p>
+										{/if}
+										{#if highlight.chapter}
+											<span class="highlight-chapter">{highlight.chapter}</span>
+										{/if}
+									</div>
+								{/each}
+							</div>
+						</div>
+					{/if}
+				</div>
+			{/each}
+		{/if}
 	</div>
 {:else}
 	<div class="empty-state">
@@ -195,6 +348,79 @@
 	.stat-date {
 		color: var(--text-muted);
 		font-size: 0.85rem;
+	}
+
+	.search-container {
+		margin-bottom: 1rem;
+	}
+
+	.search-input-wrapper {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		background: rgba(255, 255, 255, 0.03);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 8px;
+		padding: 0.75rem 1rem;
+		transition: all 0.2s ease;
+
+		&:focus-within {
+			border-color: rgba(110, 209, 255, 0.4);
+			background: rgba(110, 209, 255, 0.05);
+		}
+
+		:global(svg) {
+			color: var(--text-muted);
+			flex-shrink: 0;
+		}
+	}
+
+	.search-input {
+		flex: 1;
+		background: transparent;
+		border: none;
+		color: inherit;
+		font-size: 0.95rem;
+		outline: none;
+
+		&::placeholder {
+			color: var(--text-muted);
+		}
+	}
+
+	.clear-search {
+		background: transparent;
+		border: none;
+		color: var(--text-muted);
+		cursor: pointer;
+		padding: 0.25rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 4px;
+		transition: all 0.2s ease;
+
+		&:hover {
+			color: rgba(255, 100, 100, 0.9);
+			background: rgba(255, 100, 100, 0.1);
+		}
+	}
+
+	.search-status {
+		display: block;
+		margin-top: 0.5rem;
+		color: rgba(110, 209, 255, 0.8);
+		font-size: 0.85rem;
+	}
+
+	.no-results {
+		text-align: center;
+		padding: 2rem 1rem;
+		color: var(--text-muted);
+
+		p {
+			margin: 0;
+		}
 	}
 
 	.tag-filters {
