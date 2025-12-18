@@ -2,6 +2,7 @@
 	import type { PageData } from './$types';
 	import { ChevronDown, ChevronUp, BookOpen, Quote, Tag, Search, X } from 'lucide-svelte';
 	import Fuse from 'fuse.js';
+	import type { FuseResultMatch } from 'fuse.js';
 
 	const { data } = $props<{ data: PageData }>();
 	const { highlights } = data;
@@ -15,6 +16,23 @@
 	// Search query for fuzzy search
 	let searchQuery = $state('');
 
+	type SearchHighlight = {
+		quote?: string;
+		note?: string;
+		color?: string;
+		chapter?: string;
+		bookId: string;
+		bookTitle?: string;
+		bookAuthor?: string;
+		bookTags?: string[];
+		highlightIndex: number;
+		matches?: readonly FuseResultMatch[];
+		useExact?: boolean;
+	};
+
+	type SearchGroup = { book: any; highlights: SearchHighlight[] };
+	type SearchState = { groups: SearchGroup[]; useExact: boolean };
+
 	// Build flat list of all highlights with book info for searching
 	let allHighlights = $derived(
 		highlights.books.flatMap((book: any) =>
@@ -27,28 +45,75 @@
 				highlightIndex: idx
 			}))
 		)
-	);
+	) as SearchHighlight[];
 
 	// Fuse.js instance for fuzzy search
 	let fuse = $derived(
-		new Fuse(allHighlights, {
+		new Fuse<SearchHighlight>(allHighlights, {
 			keys: [
 				{ name: 'quote', weight: 0.4 },
 				{ name: 'note', weight: 0.3 },
 				{ name: 'bookTitle', weight: 0.2 },
 				{ name: 'bookAuthor', weight: 0.1 }
 			],
-			threshold: 0.4,
+			threshold: 0.25,
 			ignoreLocation: true,
+			minMatchCharLength: 3,
 			includeMatches: true
 		})
 	);
 
+	function normalizeForSearch(v: string | null | undefined): string {
+		return (v ?? '').toLowerCase();
+	}
+
+	function escapeHtml(text: string): string {
+		return text
+			.replaceAll('&', '&amp;')
+			.replaceAll('<', '&lt;')
+			.replaceAll('>', '&gt;')
+			.replaceAll('"', '&quot;')
+			.replaceAll("'", '&#39;');
+	}
+
+	// Exact-substring highlighting (case-insensitive)
+	function highlightExact(text: string, query: string): string {
+		if (!text) return text;
+		const q = query.trim();
+		if (!q) return escapeHtml(text);
+
+		const lower = text.toLowerCase();
+		const qLower = q.toLowerCase();
+		let start = 0;
+		let idx = lower.indexOf(qLower, start);
+		if (idx === -1) return escapeHtml(text);
+
+		let out = '';
+		while (idx !== -1) {
+			out += escapeHtml(text.slice(start, idx));
+			out += `<mark class="search-match">${escapeHtml(text.slice(idx, idx + q.length))}</mark>`;
+			start = idx + q.length;
+			idx = lower.indexOf(qLower, start);
+		}
+		out += escapeHtml(text.slice(start));
+		return out;
+	}
+
 	// Search results grouped by book
-	let searchResults = $derived.by(() => {
+	let searchState = $derived.by<SearchState | null>(() => {
 		if (!searchQuery.trim()) return null;
 
-		const results = fuse.search(searchQuery);
+		const qNorm = normalizeForSearch(searchQuery.trim());
+		const fuzzyResults = fuse.search(searchQuery);
+		const exactResults = fuzzyResults.filter((r) => {
+			const item = r.item;
+			const hay = normalizeForSearch(
+				`${item.quote ?? ''} ${item.note ?? ''} ${item.bookTitle ?? ''} ${item.bookAuthor ?? ''}`
+			);
+			return hay.includes(qNorm);
+		});
+
+		const results = exactResults.length > 0 ? exactResults : fuzzyResults;
 		const groupedByBook = new Map<string, { book: any; highlights: any[] }>();
 
 		for (const result of results) {
@@ -64,15 +129,60 @@
 			}
 			groupedByBook.get(item.bookId)!.highlights.push({
 				...item,
-				matches: result.matches
+				matches: result.matches,
+				useExact: exactResults.length > 0
 			});
 		}
 
-		return Array.from(groupedByBook.values());
+		return {
+			groups: Array.from(groupedByBook.values()),
+			useExact: exactResults.length > 0
+		};
 	});
 
 	function clearSearch() {
 		searchQuery = '';
+	}
+
+	// Highlight matching text.
+	// - Prefer exact substring highlighting when exact matches exist.
+	// - Fallback to Fuse indices highlighting for fuzzy-only results.
+	function highlightText(
+		text: string,
+		matches: readonly FuseResultMatch[] | undefined,
+		key: string,
+		useExact: boolean
+	): string {
+		if (!text) return text;
+
+		if (useExact) {
+			return highlightExact(text, searchQuery);
+		}
+
+		if (!matches) return escapeHtml(text);
+
+		const match = matches.find((m) => m.key === key);
+		if (!match || !match.indices || match.indices.length === 0) return escapeHtml(text);
+
+		// Filter to only contiguous matches of at least 3 characters
+		const minMatchLength = 3;
+		const validIndices = match.indices.filter(
+			([start, end]: [number, number]) => end - start + 1 >= minMatchLength
+		);
+		if (validIndices.length === 0) return escapeHtml(text);
+
+		// Highlight via indices against the *raw* text, but ensure HTML escaping.
+		// We build segments and escape them individually.
+		const segments = [...validIndices].sort((a: number[], b: number[]) => a[0] - b[0]);
+		let out = '';
+		let cursor = 0;
+		for (const [start, end] of segments) {
+			out += escapeHtml(text.slice(cursor, start));
+			out += `<mark class="search-match">${escapeHtml(text.slice(start, end + 1))}</mark>`;
+			cursor = end + 1;
+		}
+		out += escapeHtml(text.slice(cursor));
+		return out;
 	}
 
 	function toggleBook(bookId: string) {
@@ -110,8 +220,8 @@
 
 	// Auto-expand books that have search results
 	$effect(() => {
-		if (searchResults && searchResults.length > 0) {
-			expandedBooks = new Set(searchResults.map((r) => r.book.id));
+		if (searchState && searchState.groups.length > 0) {
+			expandedBooks = new Set(searchState.groups.map((r) => r.book.id));
 		}
 	});
 
@@ -162,10 +272,13 @@
 				</button>
 			{/if}
 		</div>
-		{#if searchResults}
+		{#if searchState}
 			<span class="search-status">
-				Found {searchResults.reduce((acc, r) => acc + r.highlights.length, 0)} highlights in {searchResults.length}
-				books
+				Found {searchState.groups.reduce(
+					(acc: number, r: SearchGroup) => acc + r.highlights.length,
+					0
+				)} highlights in
+				{searchState.groups.length} books
 			</span>
 		{/if}
 	</div>
@@ -197,9 +310,9 @@
 	</div>
 
 	<div class="books-list">
-		{#if searchResults}
+		{#if searchState}
 			<!-- Search results view -->
-			{#each searchResults as { book, highlights: matchedHighlights } (book.id)}
+			{#each searchState.groups as { book, highlights: matchedHighlights } (book.id)}
 				<div class="book-card">
 					<button class="book-header" onclick={() => toggleBook(book.id)}>
 						<div class="book-info">
@@ -229,14 +342,27 @@
 						<div class="book-content">
 							<div class="highlights-list">
 								{#each matchedHighlights as highlight}
-									<div class="highlight-item {colorClasses[highlight.color] || 'highlight-yellow'}">
+									<div
+										class="highlight-item {colorClasses[highlight.color ?? 'yellow'] ||
+											'highlight-yellow'}"
+									>
 										<blockquote class="highlight-quote">
-											"{highlight.quote}"
+											"{@html highlightText(
+												highlight.quote ?? '',
+												highlight.matches,
+												'quote',
+												searchState.useExact
+											)}"
 										</blockquote>
 										{#if highlight.note}
 											<p class="highlight-note">
 												<strong>Note:</strong>
-												{highlight.note}
+												{@html highlightText(
+													highlight.note ?? '',
+													highlight.matches,
+													'note',
+													searchState.useExact
+												)}
 											</p>
 										{/if}
 										{#if highlight.chapter}
@@ -421,6 +547,14 @@
 		p {
 			margin: 0;
 		}
+	}
+
+	:global(.search-match) {
+		background: rgba(110, 209, 255, 0.3);
+		color: rgba(110, 209, 255, 1);
+		padding: 0.1rem 0.2rem;
+		border-radius: 3px;
+		font-style: normal;
 	}
 
 	.tag-filters {
