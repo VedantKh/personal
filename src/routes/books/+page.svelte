@@ -220,6 +220,11 @@
 
 	// Auto-expand books that have search results
 	$effect(() => {
+		if (!searchQuery.trim()) {
+			expandedBooks = new Set();
+			return;
+		}
+
 		if (searchState && searchState.groups.length > 0) {
 			expandedBooks = new Set(searchState.groups.map((r) => r.book.id));
 		}
