@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2025-12-18T14:42:16.006Z",
+  "lastUpdated": "2025-12-18T17:42:46.825Z",
   "totalBooks": 31,
   "totalHighlights": 868,
+  "availableTags": [
+    "Biography",
+    "Business",
+    "Fantasy",
+    "Finance",
+    "Management",
+    "Negotiation",
+    "Politics",
+    "Technology"
+  ],
   "books": [
     {
       "id": "EDF16837538A0AF35CE229AF0271CCAD",
@@ -201,6 +211,12 @@
           "createdAt": "2025-12-18",
           "modifiedAt": "2025-12-18"
         }
+      ],
+      "summary": "\"Apple in China\" by Patrick McGee examines how Apple's extensive investments in China—totaling $275 billion over five years from 2016—transformed both the company and China's technological landscape. The book highlights how Apple's reliance on China's manufacturing capabilities inadvertently bolstered the nation's tech industry, leading to increased competition and geopolitical complexities. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Apple_in_China?utm_source=openai))",
+      "tags": [
+        "Business",
+        "Technology",
+        "Politics"
       ]
     },
     {
@@ -377,6 +393,12 @@
           "createdAt": "2025-11-22",
           "modifiedAt": "2025-11-22"
         }
+      ],
+      "summary": "\"Who Is Michael Ovitz?\" is a memoir by Michael Ovitz, co-founder of Creative Artists Agency (CAA), detailing his rise from a middle-class upbringing to becoming one of Hollywood's most influential figures. The book explores themes of ambition, strategic innovation, and the personal costs of power, offering insights into the entertainment industry's inner workings and the complexities of leadership. ([penguinrandomhouse.com](https://www.penguinrandomhouse.com/books/311042/who-is-michael-ovitz-by-michael-ovitz/?utm_source=openai))",
+      "tags": [
+        "Business",
+        "Biography",
+        "Management"
       ]
     },
     {
@@ -393,6 +415,12 @@
           "createdAt": "2025-10-27",
           "modifiedAt": "2025-10-27"
         }
+      ],
+      "summary": "\"Difficult Conversations: How to Discuss What Matters Most\" by Douglas Stone, Bruce Patton, and Sheila Heen offers a framework for navigating challenging discussions by identifying three underlying conversations: the \"What Happened?\" conversation, which addresses differing perceptions and interpretations; the \"Feelings\" conversation, focusing on the emotional aspects; and the \"Identity\" conversation, concerning how the situation affects one's self-image. The authors advocate for shifting from a stance of certainty to curiosity, emphasizing understanding multiple perspectives, separating intent from impact, and moving from blame to exploring each party's contributions to the issue. ([aboutrsi.org](https://www.aboutrsi.org/library/difficult-conversations-how-to-discuss-what-matters-most?utm_source=openai))",
+      "tags": [
+        "Business",
+        "Negotiation",
+        "Management"
       ]
     },
     {
@@ -417,6 +445,10 @@
           "createdAt": "2025-10-07",
           "modifiedAt": "2025-10-07"
         }
+      ],
+      "summary": "\"Murtagh\" by Christopher Paolini is a fantasy novel set one year after the events of the Inheritance Cycle, focusing on Murtagh and his dragon, Thorn, as they confront a new threat in Alagaësia. The story delves into themes of redemption, identity, and the struggle to overcome past traumas, highlighting Murtagh's journey to redefine himself beyond his dark legacy. Through introspection and the challenges posed by a mysterious witch, the novel explores the complexities of moral rebirth and the burdens of freedom. ([gradesaver.com](https://www.gradesaver.com/murtagh/study-guide/analysis?utm_source=openai))",
+      "tags": [
+        "Fantasy"
       ]
     },
     {
@@ -785,6 +817,12 @@
           "createdAt": "2025-10-21",
           "modifiedAt": "2025-10-21"
         }
+      ],
+      "summary": "\"Shoe Dog\" is Phil Knight's memoir detailing the founding and growth of Nike from a small startup to a global powerhouse. The book emphasizes themes of entrepreneurial risk-taking, the importance of assembling a dedicated team, and the relentless pursuit of innovation. Knight candidly shares the challenges and setbacks he faced, offering insights into the perseverance and vision required to build a successful business. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Shoe_Dog?utm_source=openai))",
+      "tags": [
+        "Business",
+        "Biography",
+        "Management"
       ]
     },
     {
@@ -873,6 +911,12 @@
           "createdAt": "2025-09-12",
           "modifiedAt": "2025-09-12"
         }
+      ],
+      "summary": "\"Getting to Yes\" by Roger Fisher and William Ury introduces the concept of principled negotiation, emphasizing four key principles:\n\n1. **Separate the people from the problem**: Address issues without damaging relationships by focusing on the problem, not the individuals involved.\n\n2. **Focus on interests, not positions**: Identify the underlying needs and desires behind stated positions to find common ground.\n\n3. **Invent options for mutual gain**: Brainstorm multiple solutions to satisfy both parties' interests, aiming for win-win outcomes.\n\n4. **Insist on using objective criteria**: Base agreements on fair, independent standards to ensure impartiality and legitimacy.\n\nThese strategies aim to foster collaborative solutions, enhance relationships, and achieve mutually beneficial agreements.",
+      "tags": [
+        "Business",
+        "Negotiation",
+        "Management"
       ]
     },
     {
@@ -2041,6 +2085,12 @@
           "createdAt": "2025-09-07",
           "modifiedAt": "2025-09-07"
         }
+      ],
+      "summary": "\"More Money Than God: Hedge Funds and the Making of a New Elite\" by Sebastian Mallaby offers a comprehensive history of hedge funds, tracing their evolution from the 1950s to their significant role in the 2007–2009 financial crisis. The book delves into the strategies and personalities of key figures in the industry, highlighting how hedge funds have transformed financial markets through innovation and risk-taking. Mallaby also examines the resilience of hedge funds during financial downturns, suggesting that their ability to manage risk without taxpayer bailouts positions them as a model for the future of finance. ([penguinrandomhouse.com](https://www.penguinrandomhouse.com/books/301223/more-money-than-god-by-sebastian-mallaby/?utm_source=openai))",
+      "tags": [
+        "Business",
+        "Finance",
+        "Biography"
       ]
     },
     {
@@ -2113,6 +2163,11 @@
           "createdAt": "2025-07-22",
           "modifiedAt": "2025-07-22"
         }
+      ],
+      "summary": "In \"The Revolt of the Public and the Crisis of Authority in the New Millennium,\" Martin Gurri examines how the digital revolution has shifted the balance of information power from traditional elites to the public, leading to widespread distrust in established institutions. He argues that this transformation has enabled mass movements to challenge authority without offering constructive alternatives, resulting in political instability and a crisis of governance. ([search.worldcat.org](https://search.worldcat.org/title/The-revolt-of-the-public-and-the-crisis-of-authority-in-the-new-millennium/oclc/1081335036?utm_source=openai))",
+      "tags": [
+        "Politics",
+        "Technology"
       ]
     },
     {
@@ -2129,6 +2184,11 @@
           "createdAt": "2025-07-16",
           "modifiedAt": "2025-07-16"
         }
+      ],
+      "summary": "\"A Storm of Swords,\" the third installment in George R.R. Martin's \"A Song of Ice and Fire\" series, delves into the brutal consequences of the ongoing War of the Five Kings, highlighting themes of power, betrayal, and the fragility of honor. The novel's pivotal events, such as the Red Wedding, underscore the treacherous nature of political alliances and the devastating impact of personal ambition on familial bonds. Through the complex journeys of characters like Jon Snow, Daenerys Targaryen, and Tyrion Lannister, Martin explores the moral ambiguities inherent in the pursuit of power and survival.",
+      "tags": [
+        "Fantasy",
+        "Politics"
       ]
     },
     {
@@ -2169,6 +2229,12 @@
           "createdAt": "2025-04-27",
           "modifiedAt": "2025-04-27"
         }
+      ],
+      "summary": "\"Founders at Work: Stories of Startups' Early Days\" by Jessica Livingston is a collection of interviews with the founders of renowned technology companies, offering firsthand accounts of their early challenges and triumphs. The book emphasizes themes such as resilience, adaptability, and the importance of solving real customer problems, highlighting that successful startups often emerge from iterative development and a deep understanding of user needs. ([businessfloss.com](https://www.businessfloss.com/books/founders-at-work?utm_source=openai))",
+      "tags": [
+        "Business",
+        "Technology",
+        "Biography"
       ]
     },
     {
@@ -2201,6 +2267,11 @@
           "createdAt": "2025-05-21",
           "modifiedAt": "2025-05-21"
         }
+      ],
+      "summary": "\"A Clash of Kings,\" the second novel in George R.R. Martin's \"A Song of Ice and Fire\" series, delves into the tumultuous power struggles following King Robert Baratheon's death. The narrative explores themes of political ambition, betrayal, and the devastating consequences of war, as multiple factions vie for control of the Iron Throne. Simultaneously, the story highlights the resilience of individuals amidst chaos, with characters like Jon Snow and Daenerys Targaryen embarking on transformative journeys that challenge their identities and destinies.",
+      "tags": [
+        "Fantasy",
+        "Politics"
       ]
     },
     {
@@ -2281,6 +2352,11 @@
           "createdAt": "2025-03-21",
           "modifiedAt": "2025-03-21"
         }
+      ],
+      "summary": "\"A Game of Thrones\" by George R.R. Martin is a fantasy novel that delves into the brutal power struggles among noble families vying for control of the Iron Throne in the Seven Kingdoms of Westeros. The narrative explores themes such as the corrupting nature of political ambition, the conflict between personal honor and political necessity, and the complex roles of women in a patriarchal society. Through its intricate plot and multifaceted characters, the novel offers a nuanced examination of power dynamics and moral ambiguity. ([litcharts.com](https://www.litcharts.com/lit/a-game-of-thrones/themes?utm_source=openai))",
+      "tags": [
+        "Fantasy",
+        "Politics"
       ]
     },
     {
@@ -3169,6 +3245,12 @@
           "createdAt": "2025-03-06",
           "modifiedAt": "2025-03-06"
         }
+      ],
+      "summary": "\"Never Split the Difference\" by Chris Voss, a former FBI hostage negotiator, offers a comprehensive guide to effective negotiation strategies applicable in both professional and personal contexts. Central to Voss's approach is the concept of \"tactical empathy,\" which involves deeply understanding and acknowledging the emotions and perspectives of the counterpart to build trust and influence outcomes. Key techniques include active listening, mirroring (repeating the last few words spoken by the counterpart), and labeling (identifying and verbalizing the other party's emotions), all aimed at fostering collaboration and uncovering hidden information to achieve mutually beneficial agreements. ([sumizeit.com](https://www.sumizeit.com/books/never-split-the-difference?utm_source=openai))",
+      "tags": [
+        "Business",
+        "Negotiation",
+        "Management"
       ]
     },
     {
@@ -3185,6 +3267,10 @@
           "createdAt": "2025-02-20",
           "modifiedAt": "2025-02-20"
         }
+      ],
+      "summary": "In *The Shock of the Old*, David Edgerton challenges the conventional narrative that technological progress is driven solely by groundbreaking inventions. He emphasizes the significance of everyday, often overlooked technologies—such as corrugated iron and sewing machines—and their enduring impact on society. Edgerton argues that understanding technology's role requires focusing on its practical use and maintenance rather than just its invention, highlighting that older technologies often coexist with, and sometimes outlast, newer innovations. ([the-independent.com](https://www.the-independent.com/arts-entertainment/books/reviews/the-shock-of-the-old-by-david-edgerton-433628.html?utm_source=openai))",
+      "tags": [
+        "Technology"
       ]
     },
     {
@@ -3249,6 +3335,10 @@
           "createdAt": "2025-03-08",
           "modifiedAt": "2025-03-08"
         }
+      ],
+      "summary": "\"Wind and Truth,\" the fifth installment in Brandon Sanderson's Stormlight Archive series, serves as the climactic conclusion to the first story arc. The novel centers on Dalinar Kholin's challenge to the god Odium, initiating a contest of champions that will determine Roshar's fate. As the Knights Radiant and various nations prepare for this pivotal event, characters like Kaladin, Szeth, Shallan, and Adolin embark on critical missions, confronting personal demons and uncovering profound truths. The narrative delves into themes of redemption, the complexities of leadership, and the enduring struggle between honor and ambition. ([us.macmillan.com](https://us.macmillan.com/books/9781250319180/windandtruth?utm_source=openai))",
+      "tags": [
+        "Fantasy"
       ]
     },
     {
@@ -5025,6 +5115,11 @@
           "createdAt": "2025-01-25",
           "modifiedAt": "2025-01-25"
         }
+      ],
+      "summary": "\"The Fourth Revolution\" by John Micklethwait and Adrian Wooldridge examines the evolution of the state through three major transformations: the nation-state, the liberal state, and the welfare state. The authors argue that we are now entering a fourth revolution, characterized by a global race to reinvent government structures in response to modern challenges. They highlight how emerging nations, particularly in Asia, are pioneering innovative governance models that blend state-directed capitalism with authoritarian modernization, potentially outpacing Western democracies. ([penguin.co.uk](https://www.penguin.co.uk/books/188486/the-fourth-revolution-by-wooldridge-john-micklethwait-and-adrian/9780141975252?utm_source=openai))",
+      "tags": [
+        "Politics",
+        "Management"
       ]
     },
     {
@@ -5649,6 +5744,12 @@
           "createdAt": "2025-02-06",
           "modifiedAt": "2025-02-06"
         }
+      ],
+      "summary": "\"The Outsiders: Eight Unconventional CEOs and Their Radically Rational Blueprint for Success\" by William N. Thorndike examines the leadership styles of eight CEOs who achieved exceptional shareholder returns by prioritizing rational capital allocation and long-term value creation over conventional corporate practices. These leaders, including Warren Buffett and John Malone, focused on per-share value, decentralized decision-making, and strategic patience, often making bold moves when favorable opportunities arose. Their success underscores the importance of independent thinking, financial discipline, and a commitment to sustained growth, challenging traditional notions of effective corporate leadership. ([capitalreads.com](https://capitalreads.com/books/the-outsiders-eight-unconventional-ceos-and-their-radically-rational-blueprint-for-success?utm_source=openai))",
+      "tags": [
+        "Business",
+        "Management",
+        "Finance"
       ]
     },
     {
@@ -5673,6 +5774,11 @@
           "createdAt": "2024-12-03",
           "modifiedAt": "2024-12-03"
         }
+      ],
+      "summary": "\"Fool's Fate,\" the final installment in Robin Hobb's Tawny Man Trilogy, follows FitzChivalry Farseer and the Fool as they embark on a perilous quest to slay the dragon Icefyre, a mission intertwined with political alliances and personal destinies. The novel delves into themes of loyalty, destiny, and the struggle between duty and personal conviction, culminating in a profound exploration of sacrifice and the transformative power of friendship. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Fool%27s_Fate?utm_source=openai))",
+      "tags": [
+        "Fantasy",
+        "Politics"
       ]
     },
     {
@@ -5697,6 +5803,11 @@
           "createdAt": "2024-11-18",
           "modifiedAt": "2024-11-18"
         }
+      ],
+      "summary": "In \"The Golden Fool,\" the second book of Robin Hobb's Tawny Man Trilogy, FitzChivalry Farseer returns to Buckkeep Castle to train Prince Dutiful in the Skill, a hereditary magical ability. As Fitz grapples with his own grief and the challenges of teaching, he becomes entangled in court intrigues, including Dutiful's politically charged betrothal to the Outislander Narcheska Elliania, which hinges on a perilous quest to slay a dragon. The novel delves into themes of duty, identity, and the complexities of mentorship, highlighting the personal sacrifices required to navigate political alliances and personal relationships. ([en.wikipedia.org](https://en.wikipedia.org/wiki/The_Golden_Fool?utm_source=openai))",
+      "tags": [
+        "Fantasy",
+        "Politics"
       ]
     },
     {
@@ -5745,6 +5856,11 @@
           "createdAt": "2025-05-07",
           "modifiedAt": "2025-05-07"
         }
+      ],
+      "summary": "\"Fool's Errand\" by Robin Hobb, the first book in the Tawny Man Trilogy, revisits FitzChivalry Farseer, who has lived in seclusion for fifteen years following the Red Ship War. His peaceful existence is disrupted when Prince Dutiful, heir to the Farseer throne, goes missing, compelling Fitz to reengage with the political intrigues of the Six Duchies. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Fool%27s_Errand_%28novel%29?utm_source=openai))\n\nThe novel delves into themes of identity, as Fitz grapples with his dual nature as both a royal and a Witted individual, and explores the complexities of loyalty and sacrifice. It also examines the struggle for acceptance faced by the Witted community, drawing parallels to real-world issues of prejudice and the fight for equal rights. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Tawny_Man_trilogy?utm_source=openai))",
+      "tags": [
+        "Fantasy",
+        "Politics"
       ]
     },
     {
@@ -5761,6 +5877,10 @@
           "createdAt": "2024-11-11",
           "modifiedAt": "2024-11-11"
         }
+      ],
+      "summary": null,
+      "tags": [
+        "Negotiation"
       ]
     },
     {
@@ -5785,6 +5905,10 @@
           "createdAt": "2024-10-21",
           "modifiedAt": "2024-10-21"
         }
+      ],
+      "summary": "\"Assassin's Quest\" by Robin Hobb concludes the Farseer Trilogy, following FitzChivalry Farseer's journey to rescue Prince Verity and restore the Six Duchies. The novel delves into themes of destiny, duty, and personal sacrifice, as Fitz grapples with his identity and the moral complexities of loyalty and betrayal. Hobb's narrative explores the burdens of responsibility and the transformative power of self-discovery. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Assassin%27s_Quest?utm_source=openai))",
+      "tags": [
+        "Fantasy"
       ]
     },
     {
@@ -5889,6 +6013,11 @@
           "createdAt": "2024-10-18",
           "modifiedAt": "2024-10-18"
         }
+      ],
+      "summary": "\"Royal Assassin\" by Robin Hobb is the second book in The Farseer Trilogy, continuing the story of FitzChivalry Farseer, a royal bastard trained as an assassin. The novel delves into themes of loyalty, identity, and sacrifice as Fitz navigates court intrigues, external threats from the Red-Ship Raiders, and internal betrayals within the royal family. His struggle to balance personal desires with duty highlights the complexities of power and the personal costs of devotion to a kingdom in turmoil. ([penguinrandomhouse.com](https://www.penguinrandomhouse.com/books/80907/royal-assassin-by-robin-hobb/?utm_source=openai))",
+      "tags": [
+        "Fantasy",
+        "Politics"
       ]
     },
     {
@@ -6001,6 +6130,10 @@
           "createdAt": "2024-09-30",
           "modifiedAt": "2024-09-30"
         }
+      ],
+      "summary": "\"Assassin's Apprentice\" by Robin Hobb is a fantasy novel that follows FitzChivalry Farseer, the illegitimate son of Prince Chivalry, as he is trained in the arts of assassination and diplomacy to serve the royal family. The story delves into themes of identity, loyalty, and the moral complexities of duty, as Fitz grapples with his place in the royal court and the ethical dilemmas of his clandestine role. Additionally, the novel explores the tension between two forms of magic: the Skill, a revered telepathic ability, and the Wit, a stigmatized power that allows communication with animals, highlighting societal prejudices and the struggle for self-acceptance. ([audible.com](https://www.audible.com/blog/summary-the-farseer-assassin-s-apprentice-by-robin-hobb?utm_source=openai))",
+      "tags": [
+        "Fantasy"
       ]
     },
     {
@@ -6033,6 +6166,10 @@
           "createdAt": "2024-08-21",
           "modifiedAt": "2024-08-21"
         }
+      ],
+      "summary": "\"Skulduggery Pleasant\" by Derek Landy is a young adult fantasy novel that follows 12-year-old Stephanie Edgley as she partners with Skulduggery Pleasant, a witty, undead sorcerer-detective, to investigate her uncle's mysterious death. Together, they uncover a hidden magical world and strive to prevent the villainous Nefarian Serpine from unleashing the Scepter of the Ancients, a weapon capable of resurrecting malevolent gods known as the Faceless Ones. The novel blends elements of mystery, adventure, and dark humor, exploring themes of courage, the battle between good and evil, and the discovery of one's true potential. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Skulduggery_Pleasant_%28novel%29?utm_source=openai))\n\nFor a more detailed overview, you might find this video summary helpful:\n\n[Plot summary, \"Skulduggery Pleasant\" by Derek Landy in 5 Minutes - Book Review](https://www.youtube.com/watch?v=P_gxEuIJU8A&utm_source=openai)",
+      "tags": [
+        "Fantasy"
       ]
     },
     {
@@ -6177,6 +6314,11 @@
           "createdAt": "2024-08-27",
           "modifiedAt": "2024-08-27"
         }
+      ],
+      "summary": "\"High Output Management\" by Andrew S. Grove is a seminal guide on effective management, emphasizing that a manager's output is the combined output of their team and the organizations they influence. Grove introduces the concept of managerial leverage, advocating for a focus on high-impact activities like decision-making, training, and delegation to amplify team productivity. He also underscores the importance of clear objectives and key results (OKRs), efficient processes, and regular performance reviews to drive organizational success. ([en.wikipedia.org](https://en.wikipedia.org/wiki/High_Output_Management?utm_source=openai))",
+      "tags": [
+        "Business",
+        "Management"
       ]
     },
     {
@@ -6545,6 +6687,12 @@
           "createdAt": "2025-04-04",
           "modifiedAt": "2025-04-04"
         }
+      ],
+      "summary": "In \"Fall in Love with the Problem, Not the Solution,\" Uri Levine, co-founder of Waze and Moovit, emphasizes the importance of deeply understanding and addressing customer problems rather than becoming attached to specific solutions. Drawing from his experiences building billion-dollar companies, Levine provides practical advice on topics such as hiring, disrupting inefficient markets, securing funding, and achieving product-market fit. The book serves as a mentorship guide, encouraging entrepreneurs to focus on solving significant consumer issues to create impactful and successful businesses. ([simonandschuster.com](https://www.simonandschuster.com/books/Fall-in-Love-with-the-Problem-Not-the-Solution/Uri-Levine/9781637746608?utm_source=openai))",
+      "tags": [
+        "Business",
+        "Management",
+        "Technology"
       ]
     },
     {
@@ -7121,6 +7269,11 @@
           "createdAt": "2024-10-01",
           "modifiedAt": "2024-10-01"
         }
+      ],
+      "summary": "\"Hackers & Painters: Big Ideas from the Computer Age\" is a collection of essays by Paul Graham that explores the intersection of programming, art, and entrepreneurship. Graham draws parallels between hackers and painters, emphasizing that both are creators driven by a desire to build beautiful and functional things. The book delves into topics such as the nature of wealth creation, the dynamics of startups, the importance of good design, and the value of independent thinking in fostering innovation. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Hackers_%26_Painters?utm_source=openai))",
+      "tags": [
+        "Business",
+        "Technology"
       ]
     },
     {
@@ -7153,6 +7306,11 @@
           "createdAt": "2021-12-30",
           "modifiedAt": "2021-12-30"
         }
+      ],
+      "summary": null,
+      "tags": [
+        "Politics",
+        "Business"
       ]
     },
     {
@@ -7169,6 +7327,10 @@
           "createdAt": "2021-03-06",
           "modifiedAt": "2021-03-06"
         }
+      ],
+      "summary": "\"The Way of Kings\" by Brandon Sanderson is the inaugural novel in *The Stormlight Archive* series, set on the storm-ravaged world of Roshar. The narrative follows characters like Kaladin, a former soldier turned slave; Dalinar, a nobleman grappling with visions and the meaning of honor; and Shallan, a scholar with a troubled past. Central themes include the struggle between honor and expedience, the importance of unity and cooperation, personal growth through overcoming past trauma, and the nature of power and leadership. The novel delves into the ethical complexities of war and violence, the pursuit of knowledge, and the discovery and mastery of hidden abilities. ([audible.com](https://www.audible.com/blog/summary-the-way-of-kings-by-brandon-sanderson?utm_source=openai))",
+      "tags": [
+        "Fantasy"
       ]
     },
     {
@@ -7193,6 +7355,12 @@
           "createdAt": "2019-10-08",
           "modifiedAt": "2019-10-08"
         }
+      ],
+      "summary": "\"Chaos Monkeys: Obscene Fortune and Random Failure in Silicon Valley\" is an autobiographical account by Antonio García Martínez that chronicles his journey from Wall Street to the heart of Silicon Valley. The book offers an unfiltered look into the tech industry's inner workings, highlighting the chaotic nature of startups, the intense competition, and the ethical dilemmas faced by entrepreneurs. García Martínez provides insights into the evolution of social media and online marketing, particularly through his experiences at Facebook, shedding light on how these platforms monetize user data and the broader societal implications of their business models. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Chaos_Monkeys?utm_source=openai))",
+      "tags": [
+        "Business",
+        "Technology",
+        "Biography"
       ]
     }
   ]

@@ -23,6 +23,28 @@ import os from 'os';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import OpenAI from 'openai';
+import { config } from 'dotenv';
+
+// Load environment variables
+config();
+
+// Initialize OpenAI client
+const openai = new OpenAI({
+	apiKey: process.env.OPENAI_API_KEY
+});
+
+// Approved tags for categorizing books
+const APPROVED_TAGS = [
+	'Fantasy',
+	'Business',
+	'Negotiation',
+	'Management',
+	'Finance',
+	'Technology',
+	'Politics',
+	'Biography'
+];
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -322,16 +344,73 @@ async function main() {
 		return bLatest.localeCompare(aLatest);
 	});
 
+	// Build lookup of existing summaries and tags from previous data
+	const existingBookData = {};
+	if (currentData?.books) {
+		for (const book of currentData.books) {
+			existingBookData[book.id] = {
+				summary: book.summary || null,
+				tags: book.tags || []
+			};
+		}
+	}
+
+	// Research books and add summaries/tags
+	console.log('');
+	console.log('🤖 Researching books with OpenAI...');
+	let researchedCount = 0;
+	let skippedCount = 0;
+
+	for (const book of output) {
+		const existing = existingBookData[book.id];
+
+		// Skip if book already has a summary (unless it's an unknown title)
+		if (existing?.summary) {
+			book.summary = existing.summary;
+			book.tags = existing.tags || [];
+			skippedCount++;
+			continue;
+		}
+
+		// Preserve existing tags if any
+		if (existing?.tags?.length > 0 && book.title === 'Unknown Title') {
+			book.summary = null;
+			book.tags = existing.tags;
+			skippedCount++;
+			continue;
+		}
+
+		// Research this book
+		const { summary, tags } = await researchBook(book);
+		book.summary = summary;
+		book.tags = tags;
+		researchedCount++;
+
+		// Small delay to avoid rate limiting
+		if (researchedCount < output.length) {
+			await new Promise((resolve) => setTimeout(resolve, 500));
+		}
+	}
+
+	console.log('');
+	console.log(
+		`📖 Researched ${researchedCount} new books, skipped ${skippedCount} with existing summaries`
+	);
+
 	// Save exclusions
 	if (exclusions.size > 0) {
 		saveExclusions(exclusionsPath, exclusions);
 	}
+
+	// Collect all unique tags for filtering
+	const allTags = [...new Set(output.flatMap((b) => b.tags || []))];
 
 	// Write output
 	const outputData = {
 		lastUpdated: new Date().toISOString(),
 		totalBooks: output.length,
 		totalHighlights: includedCount,
+		availableTags: allTags.sort(),
 		books: output
 	};
 
@@ -340,8 +419,107 @@ async function main() {
 	console.log('');
 	console.log(`✅ Exported to ${outputPath}`);
 	console.log(`   ${output.length} books with ${includedCount} highlights`);
+	console.log(`   Tags: ${allTags.join(', ')}`);
 	if (excludedCount > 0) {
 		console.log(`   ${excludedCount} highlights excluded (previously pruned)`);
+	}
+}
+
+// Research a book using OpenAI web search and generate summary + tags
+async function researchBook(book) {
+	const isUnknownTitle = !book.title || book.title === 'Unknown Title';
+
+	// For unknown titles, only assign tags based on highlights
+	if (isUnknownTitle) {
+		console.log(`  ⏭️  Skipping summary for "${book.title}" (unknown title)`);
+		return await assignTagsFromHighlights(book);
+	}
+
+	try {
+		console.log(`  🔍 Researching "${book.title}" by ${book.author}...`);
+
+		// Use OpenAI with web search to get book information
+		const response = await openai.responses.create({
+			model: 'gpt-4.1',
+			tools: [{ type: 'web_search_preview' }],
+			input: `Search for the book "${book.title}" by ${book.author}. Provide a 2-3 sentence summary of what this book is about, focusing on its main themes and key insights. Be concise and informative.`
+		});
+
+		const summary = response.output_text?.trim() || null;
+
+		// Now assign tags based on the summary and book info
+		const tagsResponse = await openai.responses.create({
+			model: 'gpt-4.1',
+			input: `Based on this book information, select the most relevant tags from this list: ${APPROVED_TAGS.join(', ')}
+
+Book: "${book.title}" by ${book.author}
+Summary: ${summary}
+
+Return ONLY a JSON array of matching tag strings, e.g. ["Business", "Technology"]. Select 1-3 tags that best fit.`
+		});
+
+		let tags = [];
+		try {
+			const tagsText = tagsResponse.output_text?.trim() || '[]';
+			// Extract JSON array from response (handle markdown code blocks)
+			const jsonMatch = tagsText.match(/\[.*\]/s);
+			if (jsonMatch) {
+				tags = JSON.parse(jsonMatch[0]);
+				// Filter to only approved tags
+				tags = tags.filter((t) => APPROVED_TAGS.includes(t));
+			}
+		} catch (parseErr) {
+			console.error(`    ⚠️  Failed to parse tags for "${book.title}":`, parseErr.message);
+		}
+
+		console.log(`    ✓ Summary generated, tags: ${tags.join(', ') || 'none'}`);
+		return { summary, tags };
+	} catch (err) {
+		console.error(`    ❌ Failed to research "${book.title}":`, err.message);
+		return { summary: null, tags: [] };
+	}
+}
+
+// Assign tags based on highlights content (for unknown titles)
+async function assignTagsFromHighlights(book) {
+	if (!book.highlights || book.highlights.length === 0) {
+		return { summary: null, tags: [] };
+	}
+
+	try {
+		// Take a sample of highlights
+		const sampleHighlights = book.highlights
+			.slice(0, 5)
+			.map((h) => h.quote)
+			.join('\n---\n');
+
+		const tagsResponse = await openai.responses.create({
+			model: 'gpt-4.1',
+			input: `Based on these book highlights, select the most relevant tags from this list: ${APPROVED_TAGS.join(', ')}
+
+Highlights:
+${sampleHighlights}
+
+Return ONLY a JSON array of matching tag strings, e.g. ["Business", "Technology"]. Select 1-3 tags that best fit.`
+		});
+
+		let tags = [];
+		try {
+			const tagsText = tagsResponse.output_text?.trim() || '[]';
+			const jsonMatch = tagsText.match(/\[.*\]/s);
+			if (jsonMatch) {
+				tags = JSON.parse(jsonMatch[0]);
+				tags = tags.filter((t) => APPROVED_TAGS.includes(t));
+			}
+		} catch (parseErr) {
+			console.error(`    ⚠️  Failed to parse tags:`, parseErr.message);
+		}
+
+		console.log(`    ✓ Tags from highlights: ${tags.join(', ') || 'none'}`);
+		return { summary: null, tags };
+	} catch (err) {
+		console.error(`    ❌ Failed to assign tags:`, err.message);
+		return { summary: null, tags: [] };
 	}
 }
 

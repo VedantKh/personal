@@ -1,12 +1,15 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { ChevronDown, ChevronUp, BookOpen, Quote } from 'lucide-svelte';
+	import { ChevronDown, ChevronUp, BookOpen, Quote, Tag } from 'lucide-svelte';
 
 	const { data } = $props<{ data: PageData }>();
 	const { highlights } = data;
 
 	// Track which books are expanded
 	let expandedBooks = $state<Set<string>>(new Set());
+
+	// Track selected tag filter (null = show all)
+	let selectedTag = $state<string | null>(null);
 
 	function toggleBook(bookId: string) {
 		if (expandedBooks.has(bookId)) {
@@ -19,12 +22,27 @@
 	}
 
 	function expandAll() {
-		expandedBooks = new Set(highlights.books.map((b: any) => b.id));
+		expandedBooks = new Set(filteredBooks.map((b: any) => b.id));
 	}
 
 	function collapseAll() {
 		expandedBooks = new Set();
 	}
+
+	function toggleTagFilter(tag: string) {
+		if (selectedTag === tag) {
+			selectedTag = null;
+		} else {
+			selectedTag = tag;
+		}
+	}
+
+	// Filter books by selected tag
+	let filteredBooks = $derived(
+		selectedTag
+			? highlights.books.filter((b: any) => b.tags?.includes(selectedTag))
+			: highlights.books
+	);
 
 	// Color classes for highlight colors
 	const colorClasses: Record<string, string> = {
@@ -58,13 +76,34 @@
 		</span>
 	</div>
 
+	{#if highlights.availableTags?.length > 0}
+		<div class="tag-filters">
+			<Tag size={14} />
+			{#each highlights.availableTags as tag}
+				<button
+					class="tag-chip"
+					class:active={selectedTag === tag}
+					onclick={() => toggleTagFilter(tag)}
+				>
+					{tag}
+				</button>
+			{/each}
+			{#if selectedTag}
+				<button class="clear-filter" onclick={() => (selectedTag = null)}> Clear filter </button>
+			{/if}
+		</div>
+	{/if}
+
 	<div class="controls">
-		<button class="control-btn" onclick={expandAll}>Expand all</button>
-		<button class="control-btn" onclick={collapseAll}>Collapse all</button>
+		{#if selectedTag}
+			<span class="filter-status"
+				>Showing {filteredBooks.length} of {highlights.totalBooks} books</span
+			>
+		{/if}
 	</div>
 
 	<div class="books-list">
-		{#each highlights.books as book (book.id)}
+		{#each filteredBooks as book (book.id)}
 			<div class="book-card">
 				<button class="book-header" onclick={() => toggleBook(book.id)}>
 					<div class="book-info">
@@ -72,33 +111,49 @@
 						<span class="book-author">by {book.author}</span>
 						<span class="highlight-count">{book.highlights.length} highlights</span>
 					</div>
-					<div class="expand-icon">
-						{#if expandedBooks.has(book.id)}
-							<ChevronUp size={20} />
-						{:else}
-							<ChevronDown size={20} />
+					<div class="book-right">
+						{#if book.tags?.length > 0}
+							<div class="book-tags">
+								{#each book.tags as tag}
+									<span class="tag-badge">{tag}</span>
+								{/each}
+							</div>
 						{/if}
+						<div class="expand-icon">
+							{#if expandedBooks.has(book.id)}
+								<ChevronUp size={20} />
+							{:else}
+								<ChevronDown size={20} />
+							{/if}
+						</div>
 					</div>
 				</button>
 
 				{#if expandedBooks.has(book.id)}
-					<div class="highlights-list">
-						{#each book.highlights as highlight, i}
-							<div class="highlight-item {colorClasses[highlight.color] || 'highlight-yellow'}">
-								<blockquote class="highlight-quote">
-									"{highlight.quote}"
-								</blockquote>
-								{#if highlight.note}
-									<p class="highlight-note">
-										<strong>Note:</strong>
-										{highlight.note}
-									</p>
-								{/if}
-								{#if highlight.chapter}
-									<span class="highlight-chapter">{highlight.chapter}</span>
-								{/if}
+					<div class="book-content">
+						{#if book.summary}
+							<div class="book-summary">
+								<p>{book.summary}</p>
 							</div>
-						{/each}
+						{/if}
+						<div class="highlights-list">
+							{#each book.highlights as highlight, i}
+								<div class="highlight-item {colorClasses[highlight.color] || 'highlight-yellow'}">
+									<blockquote class="highlight-quote">
+										"{highlight.quote}"
+									</blockquote>
+									{#if highlight.note}
+										<p class="highlight-note">
+											<strong>Note:</strong>
+											{highlight.note}
+										</p>
+									{/if}
+									{#if highlight.chapter}
+										<span class="highlight-chapter">{highlight.chapter}</span>
+									{/if}
+								</div>
+							{/each}
+						</div>
 					</div>
 				{/if}
 			</div>
@@ -140,6 +195,62 @@
 	.stat-date {
 		color: var(--text-muted);
 		font-size: 0.85rem;
+	}
+
+	.tag-filters {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+		color: var(--text-muted);
+
+		:global(svg) {
+			opacity: 0.6;
+		}
+	}
+
+	.tag-chip {
+		background: transparent;
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		color: rgba(255, 255, 255, 0.7);
+		padding: 0.3rem 0.7rem;
+		border-radius: 16px;
+		cursor: pointer;
+		font-size: 0.8rem;
+		transition: all 0.2s ease;
+
+		&:hover {
+			background: rgba(110, 209, 255, 0.1);
+			border-color: rgba(110, 209, 255, 0.4);
+			color: rgba(110, 209, 255, 0.9);
+		}
+
+		&.active {
+			background: rgba(110, 209, 255, 0.2);
+			border-color: rgba(110, 209, 255, 0.6);
+			color: rgba(110, 209, 255, 1);
+		}
+	}
+
+	.clear-filter {
+		background: transparent;
+		border: none;
+		color: rgba(255, 100, 100, 0.7);
+		padding: 0.3rem 0.5rem;
+		cursor: pointer;
+		font-size: 0.8rem;
+		transition: color 0.2s ease;
+
+		&:hover {
+			color: rgba(255, 100, 100, 1);
+		}
+	}
+
+	.filter-status {
+		color: var(--text-muted);
+		font-size: 0.85rem;
+		margin-left: auto;
 	}
 
 	.controls {
@@ -219,13 +330,53 @@
 		margin-top: 0.25rem;
 	}
 
+	.book-right {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		flex-shrink: 0;
+	}
+
+	.book-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+	}
+
+	.tag-badge {
+		background: rgba(110, 209, 255, 0.1);
+		border: 1px solid rgba(110, 209, 255, 0.3);
+		color: rgba(110, 209, 255, 0.8);
+		padding: 0.2rem 0.5rem;
+		border-radius: 12px;
+		font-size: 0.7rem;
+	}
+
 	.expand-icon {
 		color: rgba(110, 209, 255, 0.6);
 		flex-shrink: 0;
 	}
 
-	.highlights-list {
+	.book-content {
 		padding: 0 1.25rem 1.25rem;
+	}
+
+	.book-summary {
+		background: rgba(110, 209, 255, 0.05);
+		border-left: 3px solid rgba(110, 209, 255, 0.4);
+		padding: 1rem;
+		margin-bottom: 1rem;
+		border-radius: 0 6px 6px 0;
+
+		p {
+			margin: 0;
+			font-size: 0.95rem;
+			line-height: 1.6;
+			color: rgba(255, 255, 255, 0.85);
+		}
+	}
+
+	.highlights-list {
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
