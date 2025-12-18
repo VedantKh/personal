@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2025-12-18T14:38:52.377Z",
-  "totalBooks": 32,
-  "totalHighlights": 869,
+  "lastUpdated": "2025-12-18T14:42:16.006Z",
+  "totalBooks": 31,
+  "totalHighlights": 868,
   "books": [
     {
       "id": "EDF16837538A0AF35CE229AF0271CCAD",
@@ -5648,22 +5648,6 @@
           "color": "yellow",
           "createdAt": "2025-02-06",
           "modifiedAt": "2025-02-06"
-        }
-      ]
-    },
-    {
-      "id": "0B9F3F4C0853BF0804FB9D1C0B4F3E5C",
-      "title": "The Foundation Novels 7-Book Bundle · Foundation, Foundation and Empire, Second Foundation, Foundation's Edge, Foundation and Earth, Prelude to Foundation, Forward the Foundation",
-      "author": "Asimov, Isaac",
-      "genre": "Epic",
-      "highlights": [
-        {
-          "quote": "All you have to do is take a close look at yourself and you will understand everyone else.",
-          "note": null,
-          "chapter": null,
-          "color": "yellow",
-          "createdAt": "2024-12-29",
-          "modifiedAt": "2024-12-29"
         }
       ]
     },
