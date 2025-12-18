@@ -32,6 +32,9 @@
 				<li>
 					<a href="/snippets" onclick={() => handleNavClick('/snippets')}>snippets</a>
 				</li>
+				<li>
+					<a href="/books" onclick={() => handleNavClick('/books')}>books</a>
+				</li>
 			</ul>
 		</nav>
 	</div>
