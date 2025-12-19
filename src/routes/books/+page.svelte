@@ -1,14 +1,20 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { ChevronDown, ChevronUp, BookOpen, Quote, Tag, Search, X } from 'lucide-svelte';
+	import { ChevronDown, ChevronUp, BookOpen, Quote, Tag, Search, X, Link } from 'lucide-svelte';
 	import Fuse from 'fuse.js';
 	import type { FuseResultMatch } from 'fuse.js';
+	import { page } from '$app/stores';
+	import { goto } from '$app/navigation';
+	import { tick, onMount } from 'svelte';
 
 	const { data } = $props<{ data: PageData }>();
 	const { highlights } = data;
 
 	// Track which books are expanded
 	let expandedBooks = $state<Set<string>>(new Set());
+
+	// Track focused highlight for deep linking
+	let focusedHighlight = $state<{ bookId: string; index: number } | null>(null);
 
 	// Track selected tag filter (null = show all)
 	let selectedTag = $state<string | null>(null);
@@ -239,6 +245,59 @@
 		purple: 'highlight-purple',
 		underline: 'highlight-underline'
 	};
+
+	// Deep linking: copy link to a specific highlight
+	function copyHighlightLink(bookId: string, highlightIndex: number) {
+		const url = new URL(window.location.href);
+		url.searchParams.set('book', bookId);
+		url.searchParams.set('h', String(highlightIndex));
+		navigator.clipboard.writeText(url.toString());
+		// Brief visual feedback via focus state
+		focusedHighlight = { bookId, index: highlightIndex };
+		setTimeout(() => {
+			focusedHighlight = null;
+		}, 1500);
+	}
+
+	// Deep linking: handle URL params on mount
+	onMount(async () => {
+		const bookId = $page.url.searchParams.get('book');
+		const hIndex = $page.url.searchParams.get('h');
+
+		if (bookId) {
+			// Expand the book
+			expandedBooks.add(bookId);
+			expandedBooks = new Set(expandedBooks);
+
+			// Wait for DOM to update
+			await tick();
+
+			if (hIndex !== null) {
+				const index = parseInt(hIndex, 10);
+				focusedHighlight = { bookId, index };
+
+				// Scroll to the highlight
+				await tick();
+				const el = document.querySelector(`[data-highlight-id="${bookId}-${index}"]`);
+				if (el) {
+					el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+				}
+
+				// Clear focus after a delay
+				setTimeout(() => {
+					focusedHighlight = null;
+					// Clean up URL params without reload
+					goto('/books', { replaceState: true, keepFocus: true });
+				}, 3000);
+			} else {
+				// Just scroll to the book
+				const bookEl = document.querySelector(`[data-book-id="${bookId}"]`);
+				if (bookEl) {
+					bookEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				}
+			}
+		}
+	});
 </script>
 
 <h1>Books</h1>
@@ -246,6 +305,32 @@
 <p class="intro">
 	Highlights and notes from books I've read, automatically synced from Apple Books.
 </p>
+
+<div class="search-container">
+	<div class="search-input-wrapper">
+		<Search size={18} />
+		<input
+			type="text"
+			class="search-input"
+			placeholder="Search highlights, notes, books..."
+			bind:value={searchQuery}
+		/>
+		{#if searchQuery}
+			<button class="clear-search" onclick={clearSearch}>
+				<X size={16} />
+			</button>
+		{/if}
+	</div>
+	{#if searchState}
+		<span class="search-status">
+			Found {searchState.groups.reduce(
+				(acc: number, r: SearchGroup) => acc + r.highlights.length,
+				0
+			)} highlights in
+			{searchState.groups.length} books
+		</span>
+	{/if}
+</div>
 
 {#if highlights.totalBooks > 0}
 	<div class="stats">
@@ -260,32 +345,6 @@
 		<span class="stat-date">
 			Last updated: {new Date(highlights.lastUpdated).toLocaleDateString()}
 		</span>
-	</div>
-
-	<div class="search-container">
-		<div class="search-input-wrapper">
-			<Search size={18} />
-			<input
-				type="text"
-				class="search-input"
-				placeholder="Search highlights, notes, books..."
-				bind:value={searchQuery}
-			/>
-			{#if searchQuery}
-				<button class="clear-search" onclick={clearSearch}>
-					<X size={16} />
-				</button>
-			{/if}
-		</div>
-		{#if searchState}
-			<span class="search-status">
-				Found {searchState.groups.reduce(
-					(acc: number, r: SearchGroup) => acc + r.highlights.length,
-					0
-				)} highlights in
-				{searchState.groups.length} books
-			</span>
-		{/if}
 	</div>
 
 	{#if highlights.availableTags?.length > 0}
@@ -350,6 +409,9 @@
 									<div
 										class="highlight-item {colorClasses[highlight.color ?? 'yellow'] ||
 											'highlight-yellow'}"
+										class:highlight-focused={focusedHighlight?.bookId === highlight.bookId &&
+											focusedHighlight?.index === highlight.highlightIndex}
+										data-highlight-id="{highlight.bookId}-{highlight.highlightIndex}"
 									>
 										<blockquote class="highlight-quote">
 											"{@html highlightText(
@@ -370,9 +432,19 @@
 												)}
 											</p>
 										{/if}
-										{#if highlight.chapter}
-											<span class="highlight-chapter">{highlight.chapter}</span>
-										{/if}
+										<div class="highlight-meta">
+											{#if highlight.chapter}
+												<span class="highlight-chapter">{highlight.chapter}</span>
+											{/if}
+											<button
+												class="copy-link-btn"
+												onclick={() =>
+													copyHighlightLink(highlight.bookId, highlight.highlightIndex)}
+												title="Copy link to this highlight"
+											>
+												<Link size={14} />
+											</button>
+										</div>
 									</div>
 								{/each}
 							</div>
@@ -387,7 +459,7 @@
 		{:else}
 			<!-- Default book list view -->
 			{#each filteredBooks as book (book.id)}
-				<div class="book-card">
+				<div class="book-card" data-book-id={book.id}>
 					<button class="book-header" onclick={() => toggleBook(book.id)}>
 						<div class="book-info">
 							<h2 class="book-title">{book.title}</h2>
@@ -421,7 +493,12 @@
 							{/if}
 							<div class="highlights-list">
 								{#each book.highlights as highlight, i}
-									<div class="highlight-item {colorClasses[highlight.color] || 'highlight-yellow'}">
+									<div
+										class="highlight-item {colorClasses[highlight.color] || 'highlight-yellow'}"
+										class:highlight-focused={focusedHighlight?.bookId === book.id &&
+											focusedHighlight?.index === i}
+										data-highlight-id="{book.id}-{i}"
+									>
 										<blockquote class="highlight-quote">
 											"{highlight.quote}"
 										</blockquote>
@@ -431,9 +508,18 @@
 												{highlight.note}
 											</p>
 										{/if}
-										{#if highlight.chapter}
-											<span class="highlight-chapter">{highlight.chapter}</span>
-										{/if}
+										<div class="highlight-meta">
+											{#if highlight.chapter}
+												<span class="highlight-chapter">{highlight.chapter}</span>
+											{/if}
+											<button
+												class="copy-link-btn"
+												onclick={() => copyHighlightLink(book.id, i)}
+												title="Copy link to this highlight"
+											>
+												<Link size={14} />
+											</button>
+										</div>
 									</div>
 								{/each}
 							</div>
@@ -799,10 +885,53 @@
 	}
 
 	.highlight-chapter {
-		display: inline-block;
-		margin-top: 0.5rem;
 		font-size: 0.8rem;
 		color: var(--text-muted);
+	}
+
+	.highlight-meta {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 0.5rem;
+		gap: 0.5rem;
+	}
+
+	.copy-link-btn {
+		background: transparent;
+		border: none;
+		color: var(--text-muted);
+		cursor: pointer;
+		padding: 0.25rem;
+		border-radius: 4px;
+		opacity: 0;
+		transition: all 0.2s ease;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&:hover {
+			color: rgba(110, 209, 255, 0.9);
+			background: rgba(110, 209, 255, 0.1);
+		}
+	}
+
+	.highlight-item:hover .copy-link-btn {
+		opacity: 1;
+	}
+
+	.highlight-focused {
+		animation: highlight-pulse 1.5s ease-out;
+		box-shadow: 0 0 0 2px rgba(110, 209, 255, 0.6);
+	}
+
+	@keyframes highlight-pulse {
+		0% {
+			box-shadow: 0 0 0 4px rgba(110, 209, 255, 0.8);
+		}
+		100% {
+			box-shadow: 0 0 0 2px rgba(110, 209, 255, 0.3);
+		}
 	}
 
 	.empty-state {
