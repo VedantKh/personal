@@ -34,10 +34,10 @@
 
 	// Track analytics when slug changes
 	$effect(() => {
-		const slug = $page.params.slug;
+		const slug = $page.params.slug ?? '';
 
 		// Initialize reading time tracker
-		const cleanupReading = initReadingTracker(slug, title);
+		const cleanupReading = initReadingTracker(slug, title ?? '');
 
 		// Initialize scroll depth tracker
 		const cleanupScroll = initScrollTracking(`/writings/${slug}`);

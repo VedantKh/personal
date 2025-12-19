@@ -22,6 +22,28 @@
 	// Search query for fuzzy search
 	let searchQuery = $state('');
 
+	type BooksContent = {
+		bookId: string;
+		title?: string;
+		author?: string;
+		chapters: { chapterId: string; chapterTitle: string; content: string }[];
+	};
+
+	type ContextMatch = {
+		chapterTitle: string;
+		snippetHtml: string;
+		method: 'exact' | 'case_insensitive' | 'anchor';
+	};
+
+	let booksContent = $state<BooksContent | null>(null);
+	let contextOpen = $state(false);
+	let contextLoading = $state(false);
+	let contextError = $state<string | null>(null);
+	let contextBookTitle = $state<string | null>(null);
+	let contextBookAuthor = $state<string | null>(null);
+	let contextQuote = $state<string | null>(null);
+	let contextMatch = $state<ContextMatch | null>(null);
+
 	type SearchHighlight = {
 		quote?: string;
 		note?: string;
@@ -80,6 +102,235 @@
 			.replaceAll('>', '&gt;')
 			.replaceAll('"', '&quot;')
 			.replaceAll("'", '&#39;');
+	}
+
+	function decodeHtmlEntities(text: string): string {
+		if (typeof document === 'undefined') return text;
+		const el = document.createElement('textarea');
+		el.innerHTML = text;
+		return el.value;
+	}
+
+	function canonicalizeText(text: string): string {
+		return decodeHtmlEntities(text)
+			.replaceAll('\u201C', '"')
+			.replaceAll('\u201D', '"')
+			.replaceAll('\u2018', "'")
+			.replaceAll('\u2019', "'")
+			.replaceAll('\u2013', '-')
+			.replaceAll('\u2014', '-')
+			.replaceAll('…', '...')
+			.replaceAll(/\s+/g, ' ')
+			.trim();
+	}
+
+	function looseCanonicalizeText(text: string): string {
+		return canonicalizeText(text)
+			.toLowerCase()
+			.replaceAll(/[\u2013\u2014]/g, '-')
+			.replaceAll(/[^a-z0-9\s]/g, ' ')
+			.replaceAll(/\s+/g, ' ')
+			.trim();
+	}
+
+	function escapeRegExp(text: string): string {
+		return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	}
+
+	function buildSnippetHtml(
+		content: string,
+		matchStart: number,
+		matchLen: number,
+		windowSize = 450
+	): string {
+		if (matchLen <= 0) {
+			const snippet = content.slice(0, Math.min(content.length, windowSize * 2));
+			const suffix = snippet.length < content.length ? '…' : '';
+			return `${escapeHtml(snippet)}${suffix}`;
+		}
+
+		const start = Math.max(0, matchStart - windowSize);
+		const end = Math.min(content.length, matchStart + matchLen + windowSize);
+		const snippet = content.slice(start, end);
+		const prefix = start > 0 ? '…' : '';
+		const suffix = end < content.length ? '…' : '';
+
+		const relStart = Math.max(0, matchStart - start);
+		const relEnd = Math.min(snippet.length, relStart + matchLen);
+
+		const before = escapeHtml(snippet.slice(0, relStart));
+		const mid = escapeHtml(snippet.slice(relStart, relEnd));
+		const after = escapeHtml(snippet.slice(relEnd));
+		return `${prefix}${before}<mark class="context-match">${mid}</mark>${after}${suffix}`;
+	}
+
+	function findTokenRegexMatch(
+		haystack: string,
+		needle: string
+	): { start: number; length: number } | null {
+		const q = canonicalizeText(needle);
+		if (!q) return null;
+		const tokens = q
+			.split(/\s+/)
+			.map((t) => t.trim())
+			.filter(Boolean)
+			.slice(0, 40);
+		if (tokens.length === 0) return null;
+
+		// Build a tolerant regex: allow punctuation/whitespace between tokens.
+		const pattern = tokens.map((t) => escapeRegExp(t)).join('[\\s\\W]+');
+		const re = new RegExp(pattern, 'i');
+		const m = re.exec(haystack);
+		if (!m || m.index === undefined) return null;
+		return { start: m.index, length: m[0]?.length ?? 0 };
+	}
+
+	function findContextInChapters(
+		quote: string,
+		chapters: BooksContent['chapters']
+	): ContextMatch | null {
+		const q = canonicalizeText(quote);
+		if (!q) return null;
+
+		const anchor = q.length > 80 ? q.slice(0, 80) : q;
+
+		for (const ch of chapters) {
+			const content = canonicalizeText(ch.content);
+			const exactIdx = content.indexOf(q);
+			if (exactIdx !== -1) {
+				return {
+					chapterTitle: ch.chapterTitle,
+					snippetHtml: buildSnippetHtml(content, exactIdx, q.length),
+					method: 'exact'
+				};
+			}
+		}
+
+		for (const ch of chapters) {
+			const content = canonicalizeText(ch.content);
+			const lower = content.toLowerCase();
+			const qLower = q.toLowerCase();
+			const ciIdx = lower.indexOf(qLower);
+			if (ciIdx !== -1) {
+				return {
+					chapterTitle: ch.chapterTitle,
+					snippetHtml: buildSnippetHtml(content, ciIdx, q.length),
+					method: 'case_insensitive'
+				};
+			}
+		}
+
+		for (const ch of chapters) {
+			const content = canonicalizeText(ch.content);
+			const idx = content.indexOf(anchor);
+			if (idx !== -1) {
+				return {
+					chapterTitle: ch.chapterTitle,
+					snippetHtml: buildSnippetHtml(content, idx, anchor.length),
+					method: 'anchor'
+				};
+			}
+		}
+
+		// Fallback: loose (punctuation-insensitive) matching
+		const qLoose = looseCanonicalizeText(q);
+		if (qLoose) {
+			for (const ch of chapters) {
+				const original = canonicalizeText(ch.content);
+				const contentLoose = looseCanonicalizeText(original);
+				if (contentLoose.includes(qLoose)) {
+					// Try token-regex against the full quote first, then against the anchor
+					const m1 = findTokenRegexMatch(original, q);
+					if (m1 && m1.length > 0) {
+						return {
+							chapterTitle: ch.chapterTitle,
+							snippetHtml: buildSnippetHtml(original, m1.start, m1.length),
+							method: 'anchor'
+						};
+					}
+					const m2 = findTokenRegexMatch(original, anchor);
+					if (m2 && m2.length > 0) {
+						return {
+							chapterTitle: ch.chapterTitle,
+							snippetHtml: buildSnippetHtml(original, m2.start, m2.length),
+							method: 'anchor'
+						};
+					}
+					return {
+						chapterTitle: ch.chapterTitle,
+						snippetHtml: buildSnippetHtml(original, 0, 0),
+						method: 'anchor'
+					};
+				}
+			}
+		}
+
+		// Fallback: token-regex match (tolerates punctuation/whitespace)
+		for (const ch of chapters) {
+			const content = canonicalizeText(ch.content);
+			const m = findTokenRegexMatch(content, q);
+			if (m && m.length > 0) {
+				return {
+					chapterTitle: ch.chapterTitle,
+					snippetHtml: buildSnippetHtml(content, m.start, m.length),
+					method: 'anchor'
+				};
+			}
+		}
+
+		return null;
+	}
+
+	async function ensureBooksContentLoaded() {
+		if (booksContent) return;
+		const res = await fetch('/data/books-content.json');
+		if (!res.ok) throw new Error(`Failed to load /data/books-content.json (${res.status})`);
+		booksContent = (await res.json()) as BooksContent;
+	}
+
+	async function openHighlightContext(
+		bookId: string,
+		highlightQuote: string,
+		bookTitle?: string,
+		bookAuthor?: string
+	) {
+		contextOpen = true;
+		contextLoading = true;
+		contextError = null;
+		contextQuote = highlightQuote;
+		contextBookTitle = bookTitle ?? null;
+		contextBookAuthor = bookAuthor ?? null;
+		contextMatch = null;
+
+		try {
+			await ensureBooksContentLoaded();
+			if (!booksContent || booksContent.bookId !== bookId) {
+				contextError = 'No context content available for this book yet.';
+				return;
+			}
+
+			const match = findContextInChapters(highlightQuote, booksContent.chapters);
+			if (!match) {
+				contextError = 'Could not find this highlight in the extracted book text.';
+				return;
+			}
+
+			contextMatch = match;
+		} catch (err) {
+			contextError = err instanceof Error ? err.message : 'Failed to load context.';
+		} finally {
+			contextLoading = false;
+		}
+	}
+
+	function closeHighlightContext() {
+		contextOpen = false;
+		contextLoading = false;
+		contextError = null;
+		contextQuote = null;
+		contextBookTitle = null;
+		contextBookAuthor = null;
+		contextMatch = null;
 	}
 
 	// Exact-substring highlighting (case-insensitive)
@@ -260,43 +511,54 @@
 	}
 
 	// Deep linking: handle URL params on mount
-	onMount(async () => {
-		const bookId = $page.url.searchParams.get('book');
-		const hIndex = $page.url.searchParams.get('h');
+	onMount(() => {
+		const onKeyDown = (e: KeyboardEvent) => {
+			if (e.key === 'Escape' && contextOpen) {
+				closeHighlightContext();
+			}
+		};
+		window.addEventListener('keydown', onKeyDown);
 
-		if (bookId) {
-			// Expand the book
-			expandedBooks.add(bookId);
-			expandedBooks = new Set(expandedBooks);
+		(async () => {
+			const bookId = $page.url.searchParams.get('book');
+			const hIndex = $page.url.searchParams.get('h');
 
-			// Wait for DOM to update
-			await tick();
+			if (bookId) {
+				// Expand the book
+				expandedBooks.add(bookId);
+				expandedBooks = new Set(expandedBooks);
 
-			if (hIndex !== null) {
-				const index = parseInt(hIndex, 10);
-				focusedHighlight = { bookId, index };
-
-				// Scroll to the highlight
+				// Wait for DOM to update
 				await tick();
-				const el = document.querySelector(`[data-highlight-id="${bookId}-${index}"]`);
-				if (el) {
-					el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-				}
 
-				// Clear focus after a delay
-				setTimeout(() => {
-					focusedHighlight = null;
-					// Clean up URL params without reload
-					goto('/books', { replaceState: true, keepFocus: true });
-				}, 3000);
-			} else {
-				// Just scroll to the book
-				const bookEl = document.querySelector(`[data-book-id="${bookId}"]`);
-				if (bookEl) {
-					bookEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				if (hIndex !== null) {
+					const index = parseInt(hIndex, 10);
+					focusedHighlight = { bookId, index };
+
+					// Scroll to the highlight
+					await tick();
+					const el = document.querySelector(`[data-highlight-id="${bookId}-${index}"]`);
+					if (el) {
+						el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+					}
+
+					// Clear focus after a delay
+					setTimeout(() => {
+						focusedHighlight = null;
+						// Clean up URL params without reload
+						goto('/books', { replaceState: true, keepFocus: true });
+					}, 3000);
+				} else {
+					// Just scroll to the book
+					const bookEl = document.querySelector(`[data-book-id="${bookId}"]`);
+					if (bookEl) {
+						bookEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+					}
 				}
 			}
-		}
+		})();
+
+		return () => window.removeEventListener('keydown', onKeyDown);
 	});
 </script>
 
@@ -444,6 +706,19 @@
 											>
 												<Link size={14} />
 											</button>
+											<button
+												class="context-btn"
+												onclick={() =>
+													openHighlightContext(
+														highlight.bookId,
+														highlight.quote ?? '',
+														highlight.bookTitle,
+														highlight.bookAuthor
+													)}
+												title="View highlight in context"
+											>
+												<BookOpen size={14} />
+											</button>
 										</div>
 									</div>
 								{/each}
@@ -519,6 +794,14 @@
 											>
 												<Link size={14} />
 											</button>
+											<button
+												class="context-btn"
+												onclick={() =>
+													openHighlightContext(book.id, highlight.quote, book.title, book.author)}
+												title="View highlight in context"
+											>
+												<BookOpen size={14} />
+											</button>
 										</div>
 									</div>
 								{/each}
@@ -533,6 +816,41 @@
 	<div class="empty-state">
 		<BookOpen size={48} />
 		<p>No highlights yet. Start reading and highlighting in Apple Books!</p>
+	</div>
+{/if}
+
+{#if contextOpen}
+	<div class="context-overlay" onclick={closeHighlightContext} role="presentation">
+		<div class="context-modal" onclick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+			<div class="context-header">
+				<div class="context-heading">
+					<h3 class="context-title">
+						{contextBookTitle ?? 'Highlight context'}
+					</h3>
+					{#if contextBookAuthor}
+						<p class="context-subtitle">by {contextBookAuthor}</p>
+					{/if}
+					{#if contextMatch}
+						<p class="context-subtitle">{contextMatch.chapterTitle}</p>
+					{/if}
+				</div>
+				<button class="context-close" onclick={closeHighlightContext} title="Close">
+					<X size={18} />
+				</button>
+			</div>
+			<div class="context-body">
+				{#if contextLoading}
+					<p class="context-status">Loading…</p>
+				{:else if contextError}
+					<p class="context-status context-error">{contextError}</p>
+					{#if contextQuote}
+						<blockquote class="context-quote">"{contextQuote}"</blockquote>
+					{/if}
+				{:else if contextMatch}
+					<div class="context-snippet">{@html contextMatch.snippetHtml}</div>
+				{/if}
+			</div>
+		</div>
 	</div>
 {/if}
 
@@ -916,7 +1234,27 @@
 		}
 	}
 
-	.highlight-item:hover .copy-link-btn {
+	.context-btn {
+		background: transparent;
+		border: none;
+		color: var(--text-muted);
+		cursor: pointer;
+		padding: 0.25rem;
+		border-radius: 4px;
+		opacity: 0;
+		transition: all 0.2s ease;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&:hover {
+			color: rgba(110, 209, 255, 0.9);
+			background: rgba(110, 209, 255, 0.1);
+		}
+	}
+
+	.highlight-item:hover .copy-link-btn,
+	.highlight-item:hover .context-btn {
 		opacity: 1;
 	}
 
@@ -943,5 +1281,110 @@
 			opacity: 0.4;
 			margin-bottom: 1rem;
 		}
+	}
+
+	.context-overlay {
+		position: fixed;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.65);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1.5rem;
+		z-index: 50;
+	}
+
+	.context-modal {
+		width: min(900px, 100%);
+		max-height: min(80vh, 900px);
+		overflow: hidden;
+		background: rgba(15, 15, 18, 0.95);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		border-radius: 12px;
+		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+		display: flex;
+		flex-direction: column;
+	}
+
+	.context-header {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 1rem 1.25rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.context-heading {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.context-title {
+		margin: 0;
+		font-size: 1rem;
+		color: rgba(255, 255, 255, 0.95);
+	}
+
+	.context-subtitle {
+		margin: 0;
+		color: var(--text-muted);
+		font-size: 0.85rem;
+	}
+
+	.context-close {
+		background: transparent;
+		border: none;
+		color: var(--text-muted);
+		cursor: pointer;
+		padding: 0.35rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 6px;
+		transition: all 0.2s ease;
+
+		&:hover {
+			color: rgba(255, 255, 255, 0.9);
+			background: rgba(255, 255, 255, 0.06);
+		}
+	}
+
+	.context-body {
+		padding: 1rem 1.25rem 1.25rem;
+		overflow: auto;
+		line-height: 1.8;
+		color: rgba(255, 255, 255, 0.85);
+	}
+
+	.context-status {
+		margin: 0;
+		color: var(--text-muted);
+	}
+
+	.context-error {
+		color: rgba(255, 120, 120, 0.9);
+	}
+
+	.context-quote {
+		margin: 0.75rem 0 0;
+		font-style: italic;
+		color: rgba(255, 255, 255, 0.9);
+		padding: 0.75rem 1rem;
+		border-left: 3px solid rgba(255, 255, 255, 0.25);
+		background: rgba(255, 255, 255, 0.03);
+		border-radius: 0 8px 8px 0;
+	}
+
+	.context-snippet {
+		font-size: 0.98rem;
+	}
+
+	:global(.context-match) {
+		background: rgba(255, 235, 59, 0.25);
+		color: rgba(255, 235, 59, 1);
+		padding: 0.1rem 0.15rem;
+		border-radius: 3px;
 	}
 </style>
