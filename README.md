@@ -25,6 +25,13 @@ This will:
 
 - Read Apple Books SQLite databases from `~/Library/Containers/com.apple.iBooksX/Data/Documents/`
 - Write the generated JSON to `static/data/books-highlights.json`
+- **Preserve spotlight highlights**: The sync automatically saves and restores any `spotlight` flags and `spotlightNote` data
+
+If you need to run a raw sync without preserving spotlight data:
+
+```bash
+npm run sync-books-raw
+```
 
 ### Optional: daily cron sync
 

@@ -6,7 +6,8 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"sync-books": "node scripts/extract-apple-books.js",
+		"sync-books": "node scripts/preserve-spotlight-sync.js",
+		"sync-books-raw": "node scripts/extract-apple-books.js",
 		"books-sync": "node scripts/books-sync.js",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
