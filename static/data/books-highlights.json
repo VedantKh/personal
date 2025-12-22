@@ -368,7 +368,8 @@
           "chapter": null,
           "color": "yellow",
           "createdAt": "2025-11-22",
-          "modifiedAt": "2025-11-22"
+          "modifiedAt": "2025-11-22",
+          "spotlight": true
         },
         {
           "quote": "Brian asked, “How did you learn to think so big at CAA?” I reminded him that Airbnb had consistently thought big: it hadn’t been at all content with its original business of renting out air mattresses on floors. Then I added that one way to conceptualize how to think in business is a martial-arts precept: “If you aim at the target, you lose all your power. You have to hit through the target to really smash it.” To get where you want to go, you have to set out to go even further.",

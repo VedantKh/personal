@@ -643,20 +643,13 @@
 		}, 1500);
 	}
 
-	// Deep linking: handle URL params on mount
-	onMount(() => {
-		const onKeyDown = (e: KeyboardEvent) => {
-			if (e.key === 'Escape' && contextOpen) {
-				closeHighlightContext();
-			}
-		};
-		window.addEventListener('keydown', onKeyDown);
+	// Deep linking: handle URL params reactively
+	$effect(() => {
+		const bookId = $page.url.searchParams.get('book');
+		const hIndex = $page.url.searchParams.get('h');
 
-		(async () => {
-			const bookId = $page.url.searchParams.get('book');
-			const hIndex = $page.url.searchParams.get('h');
-
-			if (bookId) {
+		if (bookId) {
+			(async () => {
 				// Expand the book
 				expandedBooks.add(bookId);
 				expandedBooks = new Set(expandedBooks);
@@ -688,8 +681,18 @@
 						bookEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
 					}
 				}
+			})();
+		}
+	});
+
+	// Keyboard shortcuts
+	onMount(() => {
+		const onKeyDown = (e: KeyboardEvent) => {
+			if (e.key === 'Escape' && contextOpen) {
+				closeHighlightContext();
 			}
-		})();
+		};
+		window.addEventListener('keydown', onKeyDown);
 
 		return () => window.removeEventListener('keydown', onKeyDown);
 	});
