@@ -13,6 +13,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { execSync } from 'child_process';
+import crypto from 'crypto';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,6 +22,11 @@ const jsonPath = path.join(__dirname, '../static/data/books-highlights.json');
 const backupPath = path.join(__dirname, '../static/data/books-highlights.backup.json');
 
 console.log('📚 Starting Apple Books sync with spotlight preservation...\n');
+
+// Create a hash of the quote text for stable identification
+function createQuoteHash(quote) {
+	return crypto.createHash('sha256').update(quote.trim()).digest('hex').substring(0, 16);
+}
 
 // Step 1: Extract spotlight data
 console.log('1️⃣  Extracting spotlight data...');
@@ -31,10 +37,10 @@ try {
 		const data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
 
 		for (const book of data.books) {
-			for (let i = 0; i < book.highlights.length; i++) {
-				const highlight = book.highlights[i];
+			for (const highlight of book.highlights) {
 				if (highlight.spotlight === true) {
-					const key = `${book.id}:${i}`;
+					const hash = createQuoteHash(highlight.quote);
+					const key = `${book.id}:${hash}`;
 					spotlightData.set(key, {
 						spotlight: true,
 						spotlightNote: highlight.spotlightNote || null
@@ -81,12 +87,13 @@ try {
 	let reappliedCount = 0;
 
 	for (const book of data.books) {
-		for (let i = 0; i < book.highlights.length; i++) {
-			const key = `${book.id}:${i}`;
+		for (const highlight of book.highlights) {
+			const hash = createQuoteHash(highlight.quote);
+			const key = `${book.id}:${hash}`;
 			if (spotlightData.has(key)) {
 				const spotlightInfo = spotlightData.get(key);
-				book.highlights[i].spotlight = spotlightInfo.spotlight;
-				book.highlights[i].spotlightNote = spotlightInfo.spotlightNote;
+				highlight.spotlight = spotlightInfo.spotlight;
+				highlight.spotlightNote = spotlightInfo.spotlightNote;
 				reappliedCount++;
 			}
 		}

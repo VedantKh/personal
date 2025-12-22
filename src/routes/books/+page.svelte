@@ -896,11 +896,6 @@
 
 					{#if expandedBooks.has(book.id)}
 						<div class="book-content">
-							{#if book.summary}
-								<div class="book-summary">
-									<p>{book.summary}</p>
-								</div>
-							{/if}
 							<div class="highlights-list">
 								{#each book.highlights as highlight, i}
 									<div
@@ -1263,21 +1258,6 @@
 
 	.book-content {
 		padding: 0 1.25rem 1.25rem;
-	}
-
-	.book-summary {
-		background: rgba(110, 209, 255, 0.05);
-		border-left: 3px solid rgba(110, 209, 255, 0.4);
-		padding: 1rem;
-		margin-bottom: 1rem;
-		border-radius: 0 6px 6px 0;
-
-		p {
-			margin: 0;
-			font-size: 0.95rem;
-			line-height: 1.6;
-			color: rgba(255, 255, 255, 0.85);
-		}
 	}
 
 	.highlights-list {
