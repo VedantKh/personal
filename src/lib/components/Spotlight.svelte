@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
+	import { goto } from '$app/navigation';
 	import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-svelte';
 
 	type SpotlightHighlight = {
@@ -81,6 +82,10 @@
 	function getHighlightUrl(bookId: string, highlightIndex: number): string {
 		return `/books?book=${bookId}&h=${highlightIndex}`;
 	}
+
+	function handleSpotlightClick(bookId: string, highlightIndex: number) {
+		goto(`/books?book=${bookId}&h=${highlightIndex}`);
+	}
 </script>
 
 {#if highlights.length > 0}
@@ -99,8 +104,8 @@
 				{#each highlights as highlight, index (index)}
 					{#if index === currentIndex}
 						<div class="spotlight-card">
-							<a
-								href={getHighlightUrl(highlight.bookId, highlight.highlightIndex)}
+							<button
+								onclick={() => handleSpotlightClick(highlight.bookId, highlight.highlightIndex)}
 								class="card-link"
 							>
 								<blockquote class="spotlight-quote">
@@ -118,7 +123,7 @@
 									<span class="book-title">{highlight.bookTitle}</span>
 									<span class="book-author">by {highlight.bookAuthor}</span>
 								</div>
-							</a>
+							</button>
 						</div>
 					{/if}
 				{/each}
@@ -203,8 +208,14 @@
 
 	.card-link {
 		display: block;
+		width: 100%;
+		background: none;
+		border: none;
+		padding: 0;
+		text-align: left;
 		text-decoration: none;
 		color: inherit;
+		cursor: pointer;
 		transition: transform 0.2s ease;
 	}
 

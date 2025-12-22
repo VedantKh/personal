@@ -42,6 +42,9 @@
 	// Track focused highlight for deep linking
 	let focusedHighlight = $state<{ bookId: string; index: number } | null>(null);
 
+	// Track last processed URL to prevent infinite loops
+	let lastProcessedUrl = $state<string>('');
+
 	// Track selected tag filter (null = show all)
 	let selectedTag = $state<string | null>(null);
 
@@ -647,8 +650,16 @@
 	$effect(() => {
 		const bookId = $page.url.searchParams.get('book');
 		const hIndex = $page.url.searchParams.get('h');
+		const currentUrl = $page.url.href;
+
+		// Prevent infinite loop by checking if we've already processed this URL
+		if (currentUrl === lastProcessedUrl) {
+			return;
+		}
 
 		if (bookId) {
+			lastProcessedUrl = currentUrl;
+
 			(async () => {
 				// Expand the book
 				expandedBooks.add(bookId);
@@ -682,6 +693,9 @@
 					}
 				}
 			})();
+		} else {
+			// Reset when there are no params
+			lastProcessedUrl = '';
 		}
 	});
 
