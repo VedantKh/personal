@@ -145,7 +145,7 @@
 <style>
 	.spotlight-container {
 		margin: 2rem 0;
-		padding: 2rem;
+		padding: 1.25rem;
 		background: linear-gradient(
 			135deg,
 			rgba(110, 209, 255, 0.05) 0%,
@@ -257,12 +257,12 @@
 	}
 
 	.nav-button {
-		background: rgba(255, 255, 255, 0.05);
-		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: transparent;
+		border: none;
 		color: rgba(255, 255, 255, 0.7);
 		cursor: pointer;
-		padding: 0.75rem;
-		border-radius: 50%;
+		padding: 1rem;
+		margin: -0.75rem;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -271,8 +271,6 @@
 	}
 
 	.nav-button:hover {
-		background: rgba(110, 209, 255, 0.1);
-		border-color: rgba(110, 209, 255, 0.3);
 		color: rgba(110, 209, 255, 0.9);
 	}
 
