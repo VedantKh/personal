@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2025-12-18T17:42:46.825Z",
+  "lastUpdated": "2025-12-19T08:49:15.138Z",
   "totalBooks": 31,
-  "totalHighlights": 868,
+  "totalHighlights": 857,
   "availableTags": [
     "Biography",
     "Business",
@@ -2111,6 +2111,7 @@
           "quote": "A curious thing happens to sources of information under conditions of scarcity. They become authoritative.",
           "note": null,
           "chapter": null,
+          "spotlight": true,
           "color": "yellow",
           "createdAt": "2025-07-17",
           "modifiedAt": "2025-07-17"
@@ -2159,6 +2160,7 @@
           "quote": "Because human beings aren’t billiard balls, the application of Newtonian mechanics to political events invariably ends in confusion, and often in error.",
           "note": null,
           "chapter": null,
+          "spotlight": true,
           "color": "yellow",
           "createdAt": "2025-07-22",
           "modifiedAt": "2025-07-22"
@@ -2215,9 +2217,10 @@
         },
         {
           "quote": "my two coders and I coded nonstop for 5 days. I think some people slept; I know I didn't sleep at all. It was just this insane marathon where we were like, \"We have to get this thing working.\" It actually wound up working perfectly. The beaming was at 10:00 a.m.; we were done at 9:00 a.m.",
-          "note": null,
+          "spotlightNote": "Max Levchin built Paypal's Palm Pilot version in a 5 day no sleep code sprint. Paul Buchheit completed Gmail in a 3 day no sleep code sprint. There's a pattern here to generational engineers building generational products.",
           "chapter": null,
           "color": "yellow",
+          "spotlight": true,
           "createdAt": "2025-04-27",
           "modifiedAt": "2025-04-27"
         },
@@ -2369,6 +2372,7 @@
           "quote": "After all, kidnappers are just businessmen trying to get the best price.",
           "note": null,
           "chapter": null,
+          "spotlight": true,
           "color": "yellow",
           "createdAt": "2025-02-27",
           "modifiedAt": "2025-02-27"
@@ -3361,7 +3365,9 @@
           "chapter": null,
           "color": "yellow",
           "createdAt": "2025-01-22",
-          "modifiedAt": "2025-01-22"
+          "modifiedAt": "2025-01-22",
+          "spotlight": true,
+          "spotlightNote": null
         },
         {
           "quote": "most notably ­Singapore.\n\t\t\tThe city-state may be tiny, but it has delivered most of the things that the Chinese want from government—world-class schools, ­efficient hospitals, law and order, industrial planning—with a public sector that is proportionately half the size of America’s. For the Chinese, it is the Silicon Valley of government. Even the idea at the heart of CELAP—training an elite civil-service cadre—is based on a Singaporean model, though the Chinese boast that their requirements are more onerous.",
@@ -3369,7 +3375,9 @@
           "chapter": null,
           "color": "yellow",
           "createdAt": "2025-01-22",
-          "modifiedAt": "2025-01-22"
+          "modifiedAt": "2025-01-22",
+          "spotlight": true,
+          "spotlightNote": null
         },
         {
           "quote": "English liberals took a decrepit old system and reformed it from within by stressing efficiency and freedom. They “stole” China’s idea of a professional civil service selected by exam, attacked cronyism, opened up markets, and restricted the state’s rights to subvert liberty. The “night-watchman state,” advanced by the likes of John Stuart Mill, was both smaller and more competent. ",
@@ -3385,18 +3393,12 @@
           "chapter": null,
           "color": "yellow",
           "createdAt": "2025-01-23",
-          "modifiedAt": "2025-01-23"
+          "modifiedAt": "2025-01-23",
+          "spotlight": true,
+          "spotlightNote": "democracy breaks down without education"
         },
         {
           "quote": "third great revolution: the invention of the modern welfare state.",
-          "note": null,
-          "chapter": null,
-          "color": "yellow",
-          "createdAt": "2025-01-23",
-          "modifiedAt": "2025-01-23"
-        },
-        {
-          "quote": "Nobody discussed the fact that Germany’s banks were still standing only because their borrowers in the south had been bailed out.",
           "note": null,
           "chapter": null,
           "color": "yellow",
@@ -3412,31 +3414,7 @@
           "modifiedAt": "2025-01-23"
         },
         {
-          "quote": "China’s princelings realize that further progress now relies on improving the state, not just opening up markets. And, like their peers in India, they are confronted by the consequence of those freer markets—an educated middle class, increasingly fed up with an outdated, often corrupt state",
-          "note": null,
-          "chapter": null,
-          "color": "yellow",
-          "createdAt": "2025-01-23",
-          "modifiedAt": "2025-01-23"
-        },
-        {
           "quote": "Both the Left and the Right have indulged its appetites, the former singing the praises of hospitals and schools, the latter serenading prisons, armies, and police forces, and both creating regulations like confetti. The call that “something must be done,” i.e., that yet another rule or department must be created, comes as often from Fox News or the Daily Mail as it does from the BBC or the New York Times. For all the ­worries about “benefit scroungers” and “welfare queens,” most state spending is sucked up by the middle classes, many of them conservatives.",
-          "note": null,
-          "chapter": null,
-          "color": "yellow",
-          "createdAt": "2025-01-23",
-          "modifiedAt": "2025-01-23"
-        },
-        {
-          "quote": "One in four Brazilians say that they have paid bribes. In Turkey the complaint is high-handedness on the part of a prime minister, Recep Tayyip Erdogan, who acts more like a sultan than a democrat. Gurcharan Das, an astute Indian commentator, points out that, not that long ago, his countrymen were willing to argue that “India grows at night while the government sleeps”: Now they realize that India cannot continue to grow so long as its schools are substandard and its roads are full of holes.7",
-          "note": null,
-          "chapter": null,
-          "color": "yellow",
-          "createdAt": "2025-01-23",
-          "modifiedAt": "2025-01-23"
-        },
-        {
-          "quote": "In 2013, despite their country enduring its worst crisis since the war, one in four Italians could not be bothered to vote—and over half of those who did chose either Beppe Grillo, a former comedian, or Silvio Berlusconi, a congenital clown.",
           "note": null,
           "chapter": null,
           "color": "yellow",
@@ -3449,7 +3427,9 @@
           "chapter": null,
           "color": "yellow",
           "createdAt": "2025-01-23",
-          "modifiedAt": "2025-01-23"
+          "modifiedAt": "2025-01-23",
+          "spotlight": true,
+          "spotlightNote": null
         },
         {
           "quote": "In most successful “fiscal adjustments” in other countries spending cuts have done most of the work, but never all of it. Yet in the last presidential election every single Republican candidate rejected the idea of any tax rises whatsoever. “Not a penny more” was the universal refrain. The Democrats were only a little less deranged in their adamant refusal to consider reducing entitlements.",
@@ -3505,7 +3485,9 @@
           "chapter": null,
           "color": "yellow",
           "createdAt": "2025-01-23",
-          "modifiedAt": "2025-01-23"
+          "modifiedAt": "2025-01-23",
+          "spotlight": true,
+          "spotlightNote": null
         },
         {
           "quote": "But the practice of democracy in the West is diverging ever more from the ideal, with the U.S. Congress polluted by money and partisanship, European parliaments plagued by drift, and the general public increasingly disgruntled. The unedifying truth is that Western democracy got rather flabby and shabby when it was mostly giving things away.",
@@ -3517,22 +3499,6 @@
         },
         {
           "quote": "The example of Japan is a frightening one: For decades it failed to fix its sclerotic political system, even as its economy withered. The European Union seems to be following a similar trajectory.",
-          "note": null,
-          "chapter": null,
-          "color": "yellow",
-          "createdAt": "2025-01-23",
-          "modifiedAt": "2025-01-23"
-        },
-        {
-          "quote": "answer, just as Brazil’s system of conditional cash transfers is part of the future of welfare. But it goes deeper than that. Chinese-oriented Asia offers a new model of government that challenges two of the West’s most cherished values: universal suffrage and top-down generosity. This “Asian alternative” is an odd mixture of authoritarianism and small government, best symbolized by Singapore’s long-term ruler, Lee Kuan Yew. He has been a stern critic of the West’s unfettered democracy but also of the West’s welfare state, which he compares to an all-you-can-eat buffet: Things that should have been targeted at the poor, such as free university tuition and health care for the elderly, have become middle-class rights, bloated and unaffordable. And China is trying to follow Singapore rather than the West when it comes to welfare as well as democracy: It has extended pension coverage to an additional 240 million rural people in the past two years, far more than the total number of people covered by America’s public-pension system, but it also plainly wants to avoid America’s excesses.",
-          "note": null,
-          "chapter": null,
-          "color": "yellow",
-          "createdAt": "2025-01-23",
-          "modifiedAt": "2025-01-23"
-        },
-        {
-          "quote": "If you are looking for the future of health care, then India’s attempt to apply mass-production techniques to hospitals is part of the",
           "note": null,
           "chapter": null,
           "color": "yellow",
@@ -3553,7 +3519,8 @@
           "chapter": null,
           "color": "green",
           "createdAt": "2025-01-23",
-          "modifiedAt": "2025-01-23"
+          "modifiedAt": "2025-01-23",
+          "spotlightNote": null
         },
         {
           "quote": "New technologies offer a chance to improve government dramatically, but so does asking old questions such as the most basic question of all: “What is the state for?” As with the previous revolutions, the threat is plain: bankruptcy, extremism, drift. But so is the opportunity: the chance to modernize an institution that we have overloaded with responsibilities.",
@@ -3633,7 +3600,9 @@
           "chapter": null,
           "color": "green",
           "createdAt": "2025-01-23",
-          "modifiedAt": "2025-01-23"
+          "modifiedAt": "2025-01-23",
+          "spotlight": true,
+          "spotlightNote": null
         },
         {
           "quote": "In general we favor a smaller state.",
@@ -3641,7 +3610,8 @@
           "chapter": null,
           "color": "yellow",
           "createdAt": "2025-01-23",
-          "modifiedAt": "2025-01-23"
+          "modifiedAt": "2025-01-23",
+          "spotlightNote": null
         },
         {
           "quote": "Too little government is more dangerous than too much: You would have to be crazy to prefer to live in a failed state like the Congo, where the absence of Leviathan makes life truly “nasty, brutish, and short,” than in a well-run big state like Denmark.",
@@ -3649,7 +3619,9 @@
           "chapter": null,
           "color": "yellow",
           "createdAt": "2025-01-23",
-          "modifiedAt": "2025-01-23"
+          "modifiedAt": "2025-01-23",
+          "spotlight": true,
+          "spotlightNote": null
         },
         {
           "quote": "America’s supposedly “private” health-care system costs its inhabitants more in taxes and delivers worse health than the Swedes’ public one. One reason why Germany is so much more successful than Greece is that it has a successful state that is capable of gathering taxes, providing services, and commanding respect. The same could be said of Singapore versus Malaysia, China versus Russia, or Chile versus Argentina.",
@@ -3681,7 +3653,8 @@
           "chapter": null,
           "color": "yellow",
           "createdAt": "2025-01-23",
-          "modifiedAt": "2025-01-23"
+          "modifiedAt": "2025-01-23",
+          "spotlightNote": null
         },
         {
           "quote": "These thinkers occupied different positions in the spectrum from theory to practice. Hobbes wanted to produce a philosophy of politics. The Webbs wanted to change the world. Mill and Friedman occupied a position halfway between the two—they produced profound works of political economy but also played an active role in politics, Mill as a member of Parliament and Friedman as an adviser to presidents and prime ministers.",
@@ -3705,7 +3678,8 @@
           "chapter": null,
           "color": "yellow",
           "createdAt": "2025-01-24",
-          "modifiedAt": "2025-01-24"
+          "modifiedAt": "2025-01-24",
+          "spotlightNote": null
         },
         {
           "quote": "They give up their lesser rights in order to secure the most important right, that of self-­preservation.",
@@ -3737,23 +3711,9 @@
           "chapter": null,
           "color": "yellow",
           "createdAt": "2025-01-24",
-          "modifiedAt": "2025-01-24"
-        },
-        {
-          "quote": "The most advanced civilizations were all in the East. Beijing was the largest city in the world, with more than a million inhabitants. Nanjing was a close second. Six more Chinese cities had 500,000 inhabitants or more and a score had 100,000 or more. India had three cities with 400,000 or more and nine with 100,000 or more. Istanbul had 800,000. Only three European cities—London, Naples, and Paris—had 300,000 and only ten had 100,000.11 European visitors were overawed by the huge Ottoman Empire and its dazzling capital on the Bosphorus.",
-          "note": null,
-          "chapter": null,
-          "color": "yellow",
-          "createdAt": "2025-01-24",
-          "modifiedAt": "2025-01-24"
-        },
-        {
-          "quote": "Imperial China was even more advanced. The Middle Kingdom was about the same size as Europe but was unified by a vast system of canals that connected the great rivers to various population centers.",
-          "note": null,
-          "chapter": null,
-          "color": "yellow",
-          "createdAt": "2025-01-24",
-          "modifiedAt": "2025-01-24"
+          "modifiedAt": "2025-01-24",
+          "spotlight": true,
+          "spotlightNote": "life was fucking brutal, those of us who get to live in peace today forget how amazing and unique that is in the history of man."
         },
         {
           "quote": "“We thought learning had dwelled in our part of the world,” ­Joseph Hall wrote in 1608 after a trip to China. “They laugh at us for it, and well may, avouching that they of all the earth are two-eyed men, the Egyptians the one-eyed, and all the world else, stark blind.”",
@@ -5129,30 +5089,6 @@
       "genre": "公众号：古德猫宁李",
       "highlights": [
         {
-          "quote": "CEOs need to do two things well to be successful: run their operations efficiently and deploy the cash generated by those operations.",
-          "note": null,
-          "chapter": null,
-          "color": "yellow",
-          "createdAt": "2025-01-18",
-          "modifiedAt": "2025-01-18"
-        },
-        {
-          "quote": "Basically, CEOs have five essential choices for deploying capital—investing in existing operations, acquiring other businesses, issuing dividends, paying down",
-          "note": null,
-          "chapter": null,
-          "color": "yellow",
-          "createdAt": "2025-01-18",
-          "modifiedAt": "2025-01-18"
-        },
-        {
-          "quote": "debt, or repurchasing stock—and \r\n three alternatives for raising it—tapping internal cash flow, issuing debt, or raising equity.",
-          "note": null,
-          "chapter": null,
-          "color": "yellow",
-          "createdAt": "2025-01-18",
-          "modifiedAt": "2025-01-18"
-        },
-        {
           "quote": "If you think of capital allocation more broadly as resource allocation and include the deployment of human resources, you find again that Singleton had a highly differentiated approach. Specifically, he believed in an extreme form of organizational decentralization with a wafer-thin corporate staff at headquarters and operational responsibility and authority concentrated in the general managers of the business units. This was very different from the approach of his peers, who typically had elaborate headquarters staffs replete with vice presidents and MBAs.",
           "note": null,
           "chapter": null,
@@ -5801,7 +5737,9 @@
           "chapter": null,
           "color": "yellow",
           "createdAt": "2024-11-18",
-          "modifiedAt": "2024-11-18"
+          "modifiedAt": "2024-11-18",
+          "spotlight": true,
+          "spotlightNote": null
         }
       ],
       "summary": "In \"The Golden Fool,\" the second book of Robin Hobb's Tawny Man Trilogy, FitzChivalry Farseer returns to Buckkeep Castle to train Prince Dutiful in the Skill, a hereditary magical ability. As Fitz grapples with his own grief and the challenges of teaching, he becomes entangled in court intrigues, including Dutiful's politically charged betrothal to the Outislander Narcheska Elliania, which hinges on a perilous quest to slay a dragon. The novel delves into themes of duty, identity, and the complexities of mentorship, highlighting the personal sacrifices required to navigate political alliances and personal relationships. ([en.wikipedia.org](https://en.wikipedia.org/wiki/The_Golden_Fool?utm_source=openai))",
@@ -6072,7 +6010,9 @@
           "chapter": null,
           "color": "yellow",
           "createdAt": "2024-09-20",
-          "modifiedAt": "2024-09-20"
+          "modifiedAt": "2024-09-20",
+          "spotlight": true,
+          "spotlightNote": null
         },
         {
           "quote": "There isn't much in a man's head,” he told me, “that can't be cured by working and taking care of something else. The rat dog whelped a few days ago, and there's one pup too weak to compete with the others. See if you can keep him alive today.",
@@ -6096,7 +6036,9 @@
           "chapter": null,
           "color": "yellow",
           "createdAt": "2024-09-20",
-          "modifiedAt": "2024-09-20"
+          "modifiedAt": "2024-09-20",
+          "spotlight": true,
+          "spotlightNote": null
         },
         {
           "quote": "For there is a very strange peace in giving over your judgment to someone else, to saying to them, “You lead and I will follow, and I will trust entirely that you will not lead me to death or harm.",
@@ -6795,7 +6737,9 @@
           "chapter": null,
           "color": "yellow",
           "createdAt": "2024-06-11",
-          "modifiedAt": "2024-06-11"
+          "modifiedAt": "2024-06-11",
+          "spotlight": true,
+          "spotlightNote": null
         },
         {
           "quote": "Today's experimental error is tomorrow's new theory. If you want to discover great new things, then instead of turning a blind eye to the places where conventional wisdom and truth don't quite meet, you should pay particular attention to them.",

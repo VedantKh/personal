@@ -4,7 +4,9 @@ This contains the source code for my website.
 
 ## Apple Books highlights sync
 
-This repo includes a small script that exports your Apple Books highlights into `static/data/books-highlights.json`, which powers the `/books` page.
+/books displays highlights I've enjoyed in the Apple Books I've read so far.
+
+This is done using a small script that exports your Apple Books highlights into `static/data/books-highlights.json`, which powers the `/books` page.
 
 ### Requirements
 

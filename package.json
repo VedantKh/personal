@@ -7,6 +7,7 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"sync-books": "node scripts/extract-apple-books.js",
+		"books-sync": "node scripts/books-sync.js",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",

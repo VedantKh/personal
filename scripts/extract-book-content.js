@@ -299,7 +299,15 @@ async function main() {
 	}
 
 	const outputPath = path.join(outputDir, 'books-content.json');
+	const perBookOutputDir = path.join(outputDir, 'books-content');
+	if (!fs.existsSync(perBookOutputDir)) {
+		fs.mkdirSync(perBookOutputDir, { recursive: true });
+	}
 	const highlightsPath = path.join(outputDir, 'books-highlights.json');
+	const onlyBookIds = (process.env.BOOK_IDS || '')
+		.split(',')
+		.map((s) => s.trim())
+		.filter(Boolean);
 
 	// Get book file paths from Apple Books database
 	const books = await getBookFilePaths();
@@ -313,17 +321,114 @@ async function main() {
 
 	const highlightsData = readJsonIfExists(highlightsPath);
 	const preferredBookIds = highlightsData?.books?.map((b) => b.id).filter(Boolean) ?? [];
+	const preferredBooksFromHighlights = highlightsData?.books ?? [];
 
 	const preferredBooks = preferredBookIds
 		.map((id) => books.find((b) => b.id === id && b.filePath))
 		.filter(Boolean);
 	const fallbackBooks = books.filter((b) => !preferredBookIds.includes(b.id));
-	const candidates = [...preferredBooks, ...fallbackBooks].slice(0, 25);
+	const candidates = [...preferredBooks, ...fallbackBooks];
 
+	// If you have highlights data, extract for those books; otherwise fall back to extracting one demo book.
+	const booksToExtract =
+		preferredBooksFromHighlights.length > 0
+			? onlyBookIds.length > 0
+				? preferredBooksFromHighlights.filter((b) => onlyBookIds.includes(b.id))
+				: preferredBooksFromHighlights
+			: [];
+
+	const extractedBookIds = [];
+	const failedBooks = [];
+
+	if (booksToExtract.length > 0) {
+		console.log(`Extracting content for ${booksToExtract.length} highlighted books...`);
+		console.log('');
+
+		for (let i = 0; i < booksToExtract.length; i++) {
+			const hb = booksToExtract[i];
+			const candidate = books.find((b) => b.id === hb.id && b.filePath);
+			if (!candidate) {
+				failedBooks.push({
+					id: hb.id,
+					title: hb.title,
+					reason: 'No file path found in Apple Books DB'
+				});
+				continue;
+			}
+
+			console.log(`[${i + 1}/${booksToExtract.length}] ${candidate.title} by ${candidate.author}`);
+			console.log(`File: ${candidate.filePath}`);
+			const chapters = await extractBookContent(candidate.filePath);
+			if (!chapters || chapters.length === 0) {
+				failedBooks.push({
+					id: candidate.id,
+					title: candidate.title,
+					reason: 'Could not extract chapters'
+				});
+				console.log('Could not extract content from this book');
+				console.log('');
+				continue;
+			}
+
+			const bookContent = {
+				bookId: candidate.id,
+				title: candidate.title,
+				author: candidate.author,
+				filePath: candidate.filePath,
+				chapters: chapters,
+				extractedAt: new Date().toISOString()
+			};
+
+			const perBookPath = path.join(perBookOutputDir, `${candidate.id}.json`);
+			fs.writeFileSync(perBookPath, JSON.stringify(bookContent, null, 2));
+			extractedBookIds.push(candidate.id);
+			console.log(`✅ Saved: ${perBookPath}`);
+			console.log(`   Chapters: ${chapters.length}`);
+			console.log('');
+		}
+
+		const manifestPath = path.join(perBookOutputDir, 'index.json');
+		fs.writeFileSync(
+			manifestPath,
+			JSON.stringify(
+				{
+					bookIds: extractedBookIds,
+					failed: failedBooks,
+					extractedAt: new Date().toISOString()
+				},
+				null,
+				2
+			)
+		);
+
+		console.log(`📚 Per-book content written under ${perBookOutputDir}`);
+		console.log(`   Extracted: ${extractedBookIds.length}`);
+		console.log(`   Failed: ${failedBooks.length}`);
+		console.log(`   Manifest: ${manifestPath}`);
+
+		// Keep legacy single-file output for backward compatibility (use first extracted book if available)
+		if (extractedBookIds.length > 0) {
+			const legacyId = extractedBookIds[0];
+			const legacyPath = path.join(perBookOutputDir, `${legacyId}.json`);
+			try {
+				const legacyContent = JSON.parse(fs.readFileSync(legacyPath, 'utf8'));
+				fs.writeFileSync(outputPath, JSON.stringify(legacyContent, null, 2));
+				console.log(`   Legacy file updated: ${outputPath}`);
+			} catch (err) {
+				console.log(
+					`   Could not update legacy file: ${err instanceof Error ? err.message : String(err)}`
+				);
+			}
+		}
+
+		return;
+	}
+
+	// No highlights data; process one demo book as before
+	const candidatesForDemo = candidates.slice(0, 25);
 	let demoBook = null;
 	let chapters = null;
-
-	for (const candidate of candidates) {
+	for (const candidate of candidatesForDemo) {
 		console.log(`Processing: ${candidate.title} by ${candidate.author}`);
 		console.log(`File: ${candidate.filePath}`);
 		chapters = await extractBookContent(candidate.filePath);
@@ -340,7 +445,6 @@ async function main() {
 		return;
 	}
 
-	// Save content
 	const bookContent = {
 		bookId: demoBook.id,
 		title: demoBook.title,

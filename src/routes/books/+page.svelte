@@ -6,9 +6,35 @@
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { tick, onMount } from 'svelte';
+	import Spotlight from '$lib/components/Spotlight.svelte';
 
 	const { data } = $props<{ data: PageData }>();
 	const { highlights } = data;
+
+	type SpotlightHighlight = {
+		quote: string;
+		spotlightNote: string | null;
+		bookId: string;
+		bookTitle: string;
+		bookAuthor: string;
+		highlightIndex: number;
+	};
+
+	const spotlightHighlights = $derived(
+		highlights.books.flatMap((book: any) =>
+			book.highlights
+				.map((h: any, idx: number) => ({
+					quote: h.quote,
+					spotlightNote: h.spotlightNote,
+					bookId: book.id,
+					bookTitle: book.title,
+					bookAuthor: book.author,
+					highlightIndex: idx,
+					spotlight: h.spotlight
+				}))
+				.filter((h: any) => h.spotlight === true)
+		)
+	) as SpotlightHighlight[];
 
 	// Track which books are expanded
 	let expandedBooks = $state<Set<string>>(new Set());
@@ -36,6 +62,7 @@
 	};
 
 	let booksContent = $state<BooksContent | null>(null);
+	const booksContentCache = new Map<string, BooksContent>();
 	let contextOpen = $state(false);
 	let contextLoading = $state(false);
 	let contextError = $state<string | null>(null);
@@ -124,6 +151,69 @@
 			.trim();
 	}
 
+	function stripCombiningMarks(text: string): string {
+		return text.replaceAll(/[\u0300-\u036f]/g, '');
+	}
+
+	function toNfkdCanonical(text: string): string {
+		return canonicalizeText(text).normalize('NFKD');
+	}
+
+	function toMatchString(text: string): string {
+		return stripCombiningMarks(toNfkdCanonical(text));
+	}
+
+	function stripCombiningMarksWithMap(textNfkd: string): { stripped: string; map: number[] } {
+		let stripped = '';
+		const map: number[] = [];
+		for (let i = 0; i < textNfkd.length; i++) {
+			const ch = textNfkd[i];
+			if (!ch) continue;
+			if (/[\u0300-\u036f]/.test(ch)) continue;
+			map[stripped.length] = i;
+			stripped += ch;
+		}
+		return { stripped, map };
+	}
+
+	function buildLooseStringWithMap(text: string): { loose: string; map: number[] } {
+		const nfkd = toNfkdCanonical(text);
+		const { stripped } = stripCombiningMarksWithMap(nfkd);
+
+		let loose = '';
+		const map: number[] = [];
+		let lastWasSpace = true;
+
+		for (let i = 0; i < stripped.length; i++) {
+			const ch = stripped[i];
+			if (!ch) continue;
+			const lower = ch.toLowerCase();
+			const isAlnum = /[a-z0-9]/.test(lower);
+			if (isAlnum) {
+				map[loose.length] = i;
+				loose += lower;
+				lastWasSpace = false;
+				continue;
+			}
+
+			if (!lastWasSpace) {
+				map[loose.length] = i;
+				loose += ' ';
+				lastWasSpace = true;
+			}
+		}
+
+		loose = loose.trim();
+		return { loose, map };
+	}
+
+	function mapIndex(map: number[], strippedIndex: number, originalLen: number): number {
+		if (strippedIndex <= 0) return 0;
+		if (strippedIndex >= map.length) return originalLen;
+		const v = map[strippedIndex];
+		return typeof v === 'number' ? v : originalLen;
+	}
+
 	function looseCanonicalizeText(text: string): string {
 		return canonicalizeText(text)
 			.toLowerCase()
@@ -168,11 +258,11 @@
 		haystack: string,
 		needle: string
 	): { start: number; length: number } | null {
-		const q = canonicalizeText(needle);
+		const q = toMatchString(needle);
 		if (!q) return null;
 		const tokens = q
 			.split(/\s+/)
-			.map((t) => t.trim())
+			.map((t) => t.trim().replace(/^[^a-z0-9]+|[^a-z0-9]+$/gi, ''))
 			.filter(Boolean)
 			.slice(0, 40);
 		if (tokens.length === 0) return null;
@@ -189,44 +279,54 @@
 		quote: string,
 		chapters: BooksContent['chapters']
 	): ContextMatch | null {
-		const q = canonicalizeText(quote);
+		const qDisplay = toNfkdCanonical(quote);
+		const q = stripCombiningMarks(qDisplay);
 		if (!q) return null;
 
 		const anchor = q.length > 80 ? q.slice(0, 80) : q;
 
 		for (const ch of chapters) {
-			const content = canonicalizeText(ch.content);
+			const contentDisplay = toNfkdCanonical(ch.content);
+			const { stripped: content, map } = stripCombiningMarksWithMap(contentDisplay);
 			const exactIdx = content.indexOf(q);
 			if (exactIdx !== -1) {
+				const start = mapIndex(map, exactIdx, contentDisplay.length);
+				const end = mapIndex(map, exactIdx + q.length, contentDisplay.length);
 				return {
 					chapterTitle: ch.chapterTitle,
-					snippetHtml: buildSnippetHtml(content, exactIdx, q.length),
+					snippetHtml: buildSnippetHtml(contentDisplay, start, Math.max(1, end - start)),
 					method: 'exact'
 				};
 			}
 		}
 
 		for (const ch of chapters) {
-			const content = canonicalizeText(ch.content);
+			const contentDisplay = toNfkdCanonical(ch.content);
+			const { stripped: content, map } = stripCombiningMarksWithMap(contentDisplay);
 			const lower = content.toLowerCase();
 			const qLower = q.toLowerCase();
 			const ciIdx = lower.indexOf(qLower);
 			if (ciIdx !== -1) {
+				const start = mapIndex(map, ciIdx, contentDisplay.length);
+				const end = mapIndex(map, ciIdx + q.length, contentDisplay.length);
 				return {
 					chapterTitle: ch.chapterTitle,
-					snippetHtml: buildSnippetHtml(content, ciIdx, q.length),
+					snippetHtml: buildSnippetHtml(contentDisplay, start, Math.max(1, end - start)),
 					method: 'case_insensitive'
 				};
 			}
 		}
 
 		for (const ch of chapters) {
-			const content = canonicalizeText(ch.content);
+			const contentDisplay = toNfkdCanonical(ch.content);
+			const { stripped: content, map } = stripCombiningMarksWithMap(contentDisplay);
 			const idx = content.indexOf(anchor);
 			if (idx !== -1) {
+				const start = mapIndex(map, idx, contentDisplay.length);
+				const end = mapIndex(map, idx + anchor.length, contentDisplay.length);
 				return {
 					chapterTitle: ch.chapterTitle,
-					snippetHtml: buildSnippetHtml(content, idx, anchor.length),
+					snippetHtml: buildSnippetHtml(contentDisplay, start, Math.max(1, end - start)),
 					method: 'anchor'
 				};
 			}
@@ -236,29 +336,44 @@
 		const qLoose = looseCanonicalizeText(q);
 		if (qLoose) {
 			for (const ch of chapters) {
-				const original = canonicalizeText(ch.content);
-				const contentLoose = looseCanonicalizeText(original);
-				if (contentLoose.includes(qLoose)) {
-					// Try token-regex against the full quote first, then against the anchor
-					const m1 = findTokenRegexMatch(original, q);
-					if (m1 && m1.length > 0) {
-						return {
-							chapterTitle: ch.chapterTitle,
-							snippetHtml: buildSnippetHtml(original, m1.start, m1.length),
-							method: 'anchor'
-						};
-					}
-					const m2 = findTokenRegexMatch(original, anchor);
-					if (m2 && m2.length > 0) {
-						return {
-							chapterTitle: ch.chapterTitle,
-							snippetHtml: buildSnippetHtml(original, m2.start, m2.length),
-							method: 'anchor'
-						};
-					}
+				const originalDisplay = toNfkdCanonical(ch.content);
+				const { stripped: original, map } = stripCombiningMarksWithMap(originalDisplay);
+
+				// First try token-regex against the combining-mark-stripped text
+				const m1 = findTokenRegexMatch(original, q);
+				if (m1 && m1.length > 0) {
+					const start = mapIndex(map, m1.start, originalDisplay.length);
+					const end = mapIndex(map, m1.start + m1.length, originalDisplay.length);
 					return {
 						chapterTitle: ch.chapterTitle,
-						snippetHtml: buildSnippetHtml(original, 0, 0),
+						snippetHtml: buildSnippetHtml(originalDisplay, start, Math.max(1, end - start)),
+						method: 'anchor'
+					};
+				}
+				const m2 = findTokenRegexMatch(original, anchor);
+				if (m2 && m2.length > 0) {
+					const start = mapIndex(map, m2.start, originalDisplay.length);
+					const end = mapIndex(map, m2.start + m2.length, originalDisplay.length);
+					return {
+						chapterTitle: ch.chapterTitle,
+						snippetHtml: buildSnippetHtml(originalDisplay, start, Math.max(1, end - start)),
+						method: 'anchor'
+					};
+				}
+
+				// Then do a loose (punctuation-stripped) search with index mapping
+				const { loose: contentLoose, map: looseMap } = buildLooseStringWithMap(originalDisplay);
+				const idxLoose = contentLoose.indexOf(qLoose);
+				if (idxLoose !== -1) {
+					const looseStart = mapIndex(looseMap, idxLoose, originalDisplay.length);
+					const looseEnd = mapIndex(looseMap, idxLoose + qLoose.length, originalDisplay.length);
+					return {
+						chapterTitle: ch.chapterTitle,
+						snippetHtml: buildSnippetHtml(
+							originalDisplay,
+							looseStart,
+							Math.max(1, looseEnd - looseStart)
+						),
 						method: 'anchor'
 					};
 				}
@@ -267,12 +382,15 @@
 
 		// Fallback: token-regex match (tolerates punctuation/whitespace)
 		for (const ch of chapters) {
-			const content = canonicalizeText(ch.content);
+			const contentDisplay = toNfkdCanonical(ch.content);
+			const { stripped: content, map } = stripCombiningMarksWithMap(contentDisplay);
 			const m = findTokenRegexMatch(content, q);
 			if (m && m.length > 0) {
+				const start = mapIndex(map, m.start, contentDisplay.length);
+				const end = mapIndex(map, m.start + m.length, contentDisplay.length);
 				return {
 					chapterTitle: ch.chapterTitle,
-					snippetHtml: buildSnippetHtml(content, m.start, m.length),
+					snippetHtml: buildSnippetHtml(contentDisplay, start, Math.max(1, end - start)),
 					method: 'anchor'
 				};
 			}
@@ -281,11 +399,25 @@
 		return null;
 	}
 
-	async function ensureBooksContentLoaded() {
-		if (booksContent) return;
-		const res = await fetch('/data/books-content.json');
-		if (!res.ok) throw new Error(`Failed to load /data/books-content.json (${res.status})`);
-		booksContent = (await res.json()) as BooksContent;
+	async function loadBooksContentForBookId(bookId: string): Promise<BooksContent> {
+		const cached = booksContentCache.get(bookId);
+		if (cached) return cached;
+
+		// Prefer per-book file
+		const perBookUrl = `/data/books-content/${bookId}.json`;
+		let res = await fetch(perBookUrl);
+		if (res.ok) {
+			const data = (await res.json()) as BooksContent;
+			booksContentCache.set(bookId, data);
+			return data;
+		}
+
+		// Backwards-compatible fallback
+		res = await fetch('/data/books-content.json');
+		if (!res.ok) throw new Error(`Failed to load content for this book (${res.status})`);
+		const data = (await res.json()) as BooksContent;
+		booksContentCache.set(data.bookId, data);
+		return data;
 	}
 
 	async function openHighlightContext(
@@ -303,13 +435,14 @@
 		contextMatch = null;
 
 		try {
-			await ensureBooksContentLoaded();
-			if (!booksContent || booksContent.bookId !== bookId) {
+			const content = await loadBooksContentForBookId(bookId);
+			booksContent = content;
+			if (!content || content.bookId !== bookId) {
 				contextError = 'No context content available for this book yet.';
 				return;
 			}
 
-			const match = findContextInChapters(highlightQuote, booksContent.chapters);
+			const match = findContextInChapters(highlightQuote, content.chapters);
 			if (!match) {
 				contextError = 'Could not find this highlight in the extracted book text.';
 				return;
@@ -567,6 +700,8 @@
 <p class="intro">
 	Highlights and notes from books I've read, automatically synced from Apple Books.
 </p>
+
+<Spotlight highlights={spotlightHighlights} />
 
 <div class="search-container">
 	<div class="search-input-wrapper">
