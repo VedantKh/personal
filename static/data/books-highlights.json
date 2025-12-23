@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-22T06:47:06.470Z",
+  "lastUpdated": "2025-12-22T16:12:37.141Z",
   "totalBooks": 31,
   "totalHighlights": 857,
   "availableTags": [],
@@ -9,6 +9,7 @@
       "title": "Apple in China",
       "author": "Patrick McGee",
       "genre": null,
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=Apple%20in%20China",
       "highlights": [
         {
           "quote": "As the Chinese scholar Qin Hui puts it, the country’s competitiveness was based on “low wages, low welfare, and low human rights.”",
@@ -209,6 +210,7 @@
       "title": "Who Is Michael Ovitz?",
       "author": "Michael Ovitz",
       "genre": null,
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=Who%20Is%20Michael%20Ovitz%3F",
       "highlights": [
         {
           "quote": "I was that club. The most persuasive point our agents could make to a stubborn exec was “I don’t have the authority to close the deal at that number, so you’ll have to talk to Michael.” That was the last thing the exec wanted, because he or she knew I’d ask for even more. Better to close at an unpalatable number now than to be upsold into stratospheric realms once I got on the phone.",
@@ -369,7 +371,8 @@
           "color": "yellow",
           "createdAt": "2025-11-22",
           "modifiedAt": "2025-11-22",
-          "spotlight": true
+          "spotlight": true,
+          "spotlightNote": null
         },
         {
           "quote": "Brian asked, “How did you learn to think so big at CAA?” I reminded him that Airbnb had consistently thought big: it hadn’t been at all content with its original business of renting out air mattresses on floors. Then I added that one way to conceptualize how to think in business is a martial-arts precept: “If you aim at the target, you lose all your power. You have to hit through the target to really smash it.” To get where you want to go, you have to set out to go even further.",
@@ -386,6 +389,7 @@
       "title": "Difficult Conversations: How to Discuss What Matters Most",
       "author": "Stone, Douglas",
       "genre": "公众号：古德猫宁李",
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=Difficult%20Conversations%3A%20How%20to%20Discuss%20What%20Matters%20Most",
       "highlights": [
         {
           "quote": "There is no dispute about whether the graph is accurate or not. They both agree it is not. The dispute is over whether the error is worth worrying about and, if so, how to handle it.",
@@ -402,6 +406,7 @@
       "title": "Murtagh",
       "author": "Christopher Paolini",
       "genre": null,
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=Murtagh",
       "highlights": [
         {
           "quote": "A slave armed was a man freed",
@@ -426,6 +431,7 @@
       "title": "Shoe Dog",
       "author": "Phil Knight",
       "genre": null,
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=Shoe%20Dog",
       "highlights": [
         {
           "quote": "The best teacher I ever had, one of the finest men I ever knew, spoke of that trail often. It’s our birthright, he’d growl. Our character, our fate—our DNA. “The cowards never started,” he’d tell me, “and the weak died along the way—that leaves us.”",
@@ -794,6 +800,7 @@
       "title": "Getting to Yes",
       "author": "Roger Fisher",
       "genre": null,
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=Getting%20to%20Yes",
       "highlights": [
         {
           "quote": "After the final no there comes a yes and on that yes the future world depends.",
@@ -882,6 +889,7 @@
       "title": "More Money Than God: Hedge Funds and the Making of a New Elite",
       "author": "Sebastian Mallaby [Sebastian Mallaby]",
       "genre": "公众号：古德猫宁李",
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=More%20Money%20Than%20God%3A%20Hedge%20Funds%20and%20the%20Making%20of%20a%20New%20Elite",
       "highlights": [
         {
           "quote": "T\r\n\r\n he first hedge-fund manager, Alfred Winslow Jones, did not go to business school. He did not possess a PhD in quantitative finance. He did not spend his formative years at Morgan Stanley, Goldman Sachs, or any other incubator for masters of the universe. Instead, he took a job on a tramp steamer, studied at the Marxist Workers School in Berlin, and ran secret missions for a clandestine anti-Nazi group called the Leninist Organization.",
@@ -2050,6 +2058,7 @@
       "title": "The Revolt of the Public and the Crisis of Authority in the New Millennium",
       "author": "Martin Gurri",
       "genre": null,
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=The%20Revolt%20of%20the%20Public%20and%20the%20Crisis%20of%20Authority%20in%20the%20New%20Millennium",
       "highlights": [
         {
           "quote": "And the first significant effect I perceived related to the sources: as the amount of information available to the public increased, the authoritativeness of any one source decreased.",
@@ -2126,6 +2135,7 @@
       "title": "A Storm of Swords",
       "author": "George R. R. Martin",
       "genre": null,
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=A%20Storm%20of%20Swords",
       "highlights": [
         {
           "quote": "Old stories are like old friends, she used to say. You have to visit them from time to time.",
@@ -2142,6 +2152,7 @@
       "title": "Founders at Work: Stories of Startups' Early Days",
       "author": "Jessica Livingston",
       "genre": null,
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=Founders%20at%20Work%3A%20Stories%20of%20Startups'%20Early%20Days",
       "highlights": [
         {
           "quote": "Our first round of financing was actually transferred to us via Palm Pilot. Our VCs showed up with a $4.5 million preloaded Palm Pilot, and they beamed it to us.",
@@ -2184,6 +2195,7 @@
       "title": "A Clash of Kings",
       "author": "George Martin",
       "genre": "sf_epic",
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=A%20Clash%20of%20Kings",
       "highlights": [
         {
           "quote": "Some of the creatures living in her clothes had come all the way from Flea Bottom with her; it didn’t seem right to drown them.",
@@ -2216,6 +2228,7 @@
       "title": "A Game Of Thrones",
       "author": "George R. R. Martin",
       "genre": "Science Fiction/Fantasy",
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=A%20Game%20Of%20Thrones",
       "highlights": [
         {
           "quote": "A ruler who hides behind paid executioners soon forgets what death is.",
@@ -2296,6 +2309,7 @@
       "title": "Never Split the Difference",
       "author": "Chris Voss",
       "genre": "Business & Finance",
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=Never%20Split%20the%20Difference",
       "highlights": [
         {
           "quote": "After all, kidnappers are just businessmen trying to get the best price.",
@@ -3186,6 +3200,7 @@
       "title": "Shock Of The Old",
       "author": "David Edgerton",
       "genre": null,
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=Shock%20Of%20The%20Old",
       "highlights": [
         {
           "quote": "central feature of use-based history, and a new history of invention, is that alternatives exist for nearly all technologies: there are multiple military technologies, means of generating electricity, powering a motor car, storing and manipulating information, cutting metal or roofing a building. Too often histories are written as if no alternative could or did exist.",
@@ -3202,6 +3217,7 @@
       "title": "Wind and Truth: The brand new epic Stormlight Archive novel from the international bestseller",
       "author": "Brandon Sanderson",
       "genre": null,
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=Wind%20and%20Truth%3A%20The%20brand%20new%20epic%20Stormlight%20Archive%20novel%20from%20the%20international%20bestseller",
       "highlights": [
         {
           "quote": "A virtue is something that is valuable even if it gives you nothing. A virtue persists without payment or compensation. Positive thinking is great. Vital. Useful. But it has to remain so even if it gets you nothing. Belief, truth, honor … if these exist only to get you something, you’ve missed the storming point.",
@@ -3266,6 +3282,7 @@
       "title": "The Fourth Revolution",
       "author": "John Micklethwait",
       "genre": null,
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=The%20Fourth%20Revolution",
       "highlights": [
         {
           "quote": "In the 1640s, when a middle-aged royalist on the run called Thomas Hobbes produced his anatomy of the state against the background of the English Civil War there were good reasons to believe that the future lay with China or Turkey.",
@@ -4992,6 +5009,7 @@
       "title": "The Outsiders: Eight Unconventional CEOs and Their Radically Rational Blueprint for Success",
       "author": "Thorndike, William N. [Thorndike, William N.]",
       "genre": "公众号：古德猫宁李",
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=The%20Outsiders%3A%20Eight%20Unconventional%20CEOs%20and%20Their%20Radically%20Rational%20Blueprint%20for%20Success",
       "highlights": [
         {
           "quote": "If you think of capital allocation more broadly as resource allocation and include the deployment of human resources, you find again that Singleton had a highly differentiated approach. Specifically, he believed in an extreme form of organizational decentralization with a wafer-thin corporate staff at headquarters and operational responsibility and authority concentrated in the general managers of the business units. This was very different from the approach of his peers, who typically had elaborate headquarters staffs replete with vice presidents and MBAs.",
@@ -5592,6 +5610,7 @@
       "title": "The Tawny Man 3 - Fool's Fate",
       "author": "Robin Hobb",
       "genre": null,
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=The%20Tawny%20Man%203%20-%20Fool's%20Fate",
       "highlights": [
         {
           "quote": "safe as anything was safe in a barracks where a man's honor was most of what he possessed in the world.",
@@ -5616,6 +5635,7 @@
       "title": "The Tawny Man 2 - Golden Fool",
       "author": "Hobb, Robin",
       "genre": "Speculative",
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=The%20Tawny%20Man%202%20-%20Golden%20Fool",
       "highlights": [
         {
           "quote": "I could set aside my responsibilities to others and live my\nlife as I pleased only when I also severed my ties to them. I could not have it\nboth ways. To be part of a family, or any community, is to have duties and\nresponsibilities, to be bound by the rules of that group.",
@@ -5642,6 +5662,7 @@
       "title": "Fool's errand",
       "author": "Robin Hobb",
       "genre": "Science fiction",
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=Fool's%20errand",
       "highlights": [
         {
           "quote": "Death is always less painful and easier than life! You speak \n        true. And yet we do not, day to day, choose death. Because ultimately, death is not the \n        opposite of life, but the opposite of choice. Death is what you get when there are no \n        choices left to make. Am right?”",
@@ -5690,6 +5711,7 @@
       "title": "Unknown Title",
       "author": "Unknown Author",
       "genre": null,
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=Unknown%20Title",
       "highlights": [
         {
           "quote": "Silence can ask all the questions, where the tongue is prone to ask only the wrong \n        one.",
@@ -5706,6 +5728,7 @@
       "title": "Assassin's Quest",
       "author": "Robin Hobb",
       "genre": "Fantasy",
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=Assassin's%20Quest",
       "highlights": [
         {
           "quote": "There is a dead spot in the night, that coldest, blackest time when the world has forgotten evening and dawn is not yet a promise. A time when it is far too early to arise, but so late that going to bed makes small sense. That was when Burrich came in.",
@@ -5730,6 +5753,7 @@
       "title": "Royal assassin",
       "author": "Robin Hobb",
       "genre": "General",
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=Royal%20assassin",
       "highlights": [
         {
           "quote": " “I had thought to help time pass more pleasantly for you, my queen-in-waiting.”    “Passing time.” She sighed. She cupped her chin in her hand and leaned on her elbow to stare pensively out at the falling snow. The sea wind tangled in her pale hair. “It is an odd language, yours. You speak of passing time as in the Mountains we speak of passing wind. As if it were a thing to be gotten rid of.”",
@@ -5834,6 +5858,7 @@
       "title": "Assassin's Apprentice",
       "author": "Robin Hobb",
       "genre": null,
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=Assassin's%20Apprentice",
       "highlights": [
         {
           "quote": "I don't think I have ever been as brave since as I was then.",
@@ -5950,6 +5975,7 @@
       "title": "Skulduggery Pleasant",
       "author": "Derek Landy",
       "genre": null,
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=Skulduggery%20Pleasant",
       "highlights": [
         {
           "quote": "To be honest with you, it's not even my head.\"\n\n\"What?\"\n\n\"It's not. They ran away with my skull. I won this one in a poker game.\"",
@@ -5982,6 +6008,7 @@
       "title": "High Output Management",
       "author": "Andrew S. Grove",
       "genre": null,
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=High%20Output%20Management",
       "highlights": [
         {
           "quote": "Andy’s intense passion toward training and teaching, because in the end—more than anything else—he is a teacher…in the very best sense of the word.",
@@ -6126,6 +6153,7 @@
       "title": "Fall in Love with the Problem, Not the Solution",
       "author": "Uri Levine",
       "genre": null,
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=Fall%20in%20Love%20with%20the%20Problem%2C%20Not%20the%20Solution",
       "highlights": [
         {
           "quote": "The Apple II computer was the first time that arcade games had color and the first time that they were in software. A nine-year-old could use a simple language, BASIC, to make colors move on the TV screen and could complete a decent working arcade game in one day. That product led to great wealth for Apple, and to eventually change lives for all of us.",
@@ -6494,6 +6522,7 @@
       "title": "Essays",
       "author": "Paul Graham",
       "genre": null,
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=Essays",
       "highlights": [
         {
           "quote": "The trick is to realize that there's no real contradiction here. You want to be optimistic and skeptical about two different things. You have to be optimistic about the possibility of solving the problem, but skeptical about the value of whatever solution you've got so far.",
@@ -7072,6 +7101,7 @@
       "title": "Unknown Title",
       "author": "Unknown Author",
       "genre": null,
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=Unknown%20Title",
       "highlights": [
         {
           "quote": "History is something that very few people have been doing while everyone else was ploughing fields and carrying water buckets.\n",
@@ -7104,6 +7134,7 @@
       "title": "The Way of Kings",
       "author": "Sanderson, Brandon",
       "genre": null,
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=The%20Way%20of%20Kings",
       "highlights": [
         {
           "quote": "But expectations were like fine pottery. The harder you held them, the more likely they were to crack",
@@ -7120,6 +7151,7 @@
       "title": "Chaos Monkeys",
       "author": "Antonio Garcia Martinez",
       "genre": null,
+      "goodnotesUrl": "https://www.goodnotes.com/search?q=Chaos%20Monkeys",
       "highlights": [
         {
           "quote": "Targeting is how that data gets applied to the screen real estate, it’s the alchemy that turns pure data into real-world cash.",

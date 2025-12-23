@@ -1,6 +1,16 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { ChevronDown, ChevronUp, BookOpen, Quote, Tag, Search, X, Link } from 'lucide-svelte';
+	import {
+		ChevronDown,
+		ChevronUp,
+		BookOpen,
+		Quote,
+		Tag,
+		Search,
+		X,
+		Link,
+		ExternalLink
+	} from 'lucide-svelte';
 	import Fuse from 'fuse.js';
 	import type { FuseResultMatch } from 'fuse.js';
 	import { page } from '$app/stores';
@@ -799,6 +809,19 @@
 							<span class="highlight-count">{matchedHighlights.length} matching highlights</span>
 						</div>
 						<div class="book-right">
+							{#if book.goodreadsUrl}
+								<a
+									href={book.goodreadsUrl}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="goodreads-link"
+									onclick={(e) => e.stopPropagation()}
+									title="View on Goodreads"
+								>
+									<ExternalLink size={14} />
+									<span>Goodreads</span>
+								</a>
+							{/if}
 							{#if book.tags?.length > 0}
 								<div class="book-tags">
 									{#each book.tags as tag}
@@ -894,6 +917,19 @@
 							<span class="highlight-count">{book.highlights.length} highlights</span>
 						</div>
 						<div class="book-right">
+							{#if book.goodreadsUrl}
+								<a
+									href={book.goodreadsUrl}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="goodreads-link"
+									onclick={(e) => e.stopPropagation()}
+									title="View on Goodreads"
+								>
+									<ExternalLink size={14} />
+									<span>Goodreads</span>
+								</a>
+							{/if}
 							{#if book.tags?.length > 0}
 								<div class="book-tags">
 									{#each book.tags as tag}
@@ -1251,6 +1287,33 @@
 		align-items: center;
 		gap: 1rem;
 		flex-shrink: 0;
+	}
+
+	.goodreads-link {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0.4rem 0.75rem;
+		background: rgba(110, 209, 255, 0.1);
+		border: 1px solid rgba(110, 209, 255, 0.3);
+		border-radius: 6px;
+		color: rgba(110, 209, 255, 0.9);
+		text-decoration: none;
+		font-size: 0.8rem;
+		font-weight: 500;
+		transition: all 0.2s ease;
+		white-space: nowrap;
+
+		&:hover {
+			background: rgba(110, 209, 255, 0.2);
+			border-color: rgba(110, 209, 255, 0.5);
+			color: rgba(110, 209, 255, 1);
+			transform: translateY(-1px);
+		}
+
+		:global(svg) {
+			flex-shrink: 0;
+		}
 	}
 
 	.book-tags {

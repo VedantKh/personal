@@ -44,6 +44,7 @@ async function main() {
 
 	const extractHighlightsScript = path.join(__dirname, 'extract-apple-books.js');
 	const extractContentScript = path.join(__dirname, 'extract-book-content.js');
+	const fetchGoodreadsScript = path.join(__dirname, 'fetch-goodreads-links.js');
 
 	console.log('🔄 Running highlights export...');
 	const highlightsExit = await runNodeScript(extractHighlightsScript);
@@ -102,6 +103,13 @@ async function main() {
 
 	if (contentExit !== 0) {
 		process.exit(contentExit);
+	}
+
+	console.log('');
+	console.log('🔗 Fetching Goodreads links for new books...');
+	const goodreadsExit = await runNodeScript(fetchGoodreadsScript);
+	if (goodreadsExit !== 0) {
+		console.log('⚠️  Goodreads link fetching failed, but continuing...');
 	}
 }
 

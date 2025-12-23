@@ -89,7 +89,13 @@
 </script>
 
 {#if highlights.length > 0}
-	<div class="spotlight-container" onmouseenter={handleMouseEnter} onmouseleave={handleMouseLeave}>
+	<div
+		class="spotlight-container"
+		role="region"
+		aria-label="Spotlight carousel"
+		onmouseenter={handleMouseEnter}
+		onmouseleave={handleMouseLeave}
+	>
 		<div class="spotlight-header">
 			<Sparkles size={20} />
 			<h2>Spotlight</h2>

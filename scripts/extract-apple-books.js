@@ -198,8 +198,14 @@ async function main() {
 	// Load current highlights to detect newly pruned ones
 	const currentData = loadCurrentHighlights(outputPath);
 	const currentHashes = new Set();
+	const bookMetadata = new Map();
 	if (currentData?.books) {
 		for (const book of currentData.books) {
+			// Preserve metadata like goodreadsUrl
+			bookMetadata.set(book.id, {
+				goodreadsUrl: book.goodreadsUrl || null,
+				tags: book.tags || null
+			});
 			for (const h of book.highlights) {
 				currentHashes.add(hashHighlight(book.id, h.quote));
 			}
@@ -295,11 +301,14 @@ async function main() {
 		const bookAuthor = book?.author || 'Unknown Author';
 
 		if (!highlightsByBook[annotation.assetId]) {
+			const metadata = bookMetadata.get(annotation.assetId) || {};
 			highlightsByBook[annotation.assetId] = {
 				id: annotation.assetId,
 				title: bookTitle,
 				author: bookAuthor,
 				genre: book?.genre || null,
+				goodreadsUrl: metadata.goodreadsUrl || null,
+				tags: metadata.tags || null,
 				highlights: []
 			};
 		}
