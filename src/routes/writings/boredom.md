@@ -38,4 +38,4 @@ Finding direction in life is never easy. But I think your instinct to sniff out 
 It's funny that we call this "dead time." One could argue that without this "dead time," it's hard to really live.
 
 ---
-Inspired by a conversation with [Jakub Smékal](https://jakubsmekal.com/).
+Inspired by a conversation with Jakub Smékal.

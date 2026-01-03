@@ -1,6 +1,7 @@
 ---
 title: Relationships
 date: '2025-03-19'
+hidden: ye
 description: Relationship building will grow increasingly important as AI improves.
 ---
 
