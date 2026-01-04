@@ -1,7 +1,6 @@
 ---
 title: Learning through gamma radiation
 date: '2025-08-17'
-highlight: yes
 description: Sometimes, gamma radiation can turn you into the Hulk.
 ---
 
