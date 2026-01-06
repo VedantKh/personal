@@ -84,7 +84,7 @@
 	}
 
 	function handleSpotlightClick(bookId: string, highlightIndex: number) {
-		goto(`/books?book=${bookId}&h=${highlightIndex}`);
+		goto(getHighlightUrl(bookId, highlightIndex));
 	}
 </script>
 
