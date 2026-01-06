@@ -77,14 +77,11 @@
 			return;
 		}
 
-		// Update opacity for all points and remove faded ones in a single pass
-		for (let i = trail.length - 1; i >= 0; i--) {
-			trail[i].opacity *= FADE_SPEED;
-			if (trail[i].opacity <= 0.01) {
-				trail.splice(i, 1);
-			}
-		}
-		trail = trail;
+		// Update opacity for all points and remove faded ones in a single O(n) pass
+		// Using filter instead of splice-in-loop avoids O(n^2) complexity
+		trail = trail
+			.map((point) => ({ ...point, opacity: point.opacity * FADE_SPEED }))
+			.filter((point) => point.opacity > 0.01);
 
 		// Draw the trail with glow effect
 		for (let i = 0; i < trail.length - 1; i++) {
