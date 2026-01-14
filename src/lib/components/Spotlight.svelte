@@ -84,7 +84,7 @@
 	}
 
 	function handleSpotlightClick(bookId: string, highlightIndex: number) {
-		goto(`/books?book=${bookId}&h=${highlightIndex}`);
+		goto(getHighlightUrl(bookId, highlightIndex));
 	}
 </script>
 
@@ -191,14 +191,24 @@
 
 	.carousel-content {
 		flex: 1;
-		min-height: 200px;
-		display: flex;
-		align-items: center;
+		height: 200px;
+		position: relative;
+		overflow: hidden;
 	}
 
 	.spotlight-card {
+		position: absolute;
 		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		animation: fadeIn 0.5s ease-in-out;
+	}
+
+	.card-link {
+		max-height: 100%;
+		overflow-y: auto;
 	}
 
 	@keyframes fadeIn {
@@ -343,7 +353,7 @@
 		}
 
 		.carousel-content {
-			min-height: 250px;
+			height: 250px;
 		}
 	}
 
