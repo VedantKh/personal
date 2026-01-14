@@ -26,12 +26,12 @@
 {#snippet DefaultContent()}
 	<h2 class="!mt-0 !border-b-0 !pb-0">Vedant Khanna</h2>
 	<p class="!mb-2">
-		I'm finishing my undergrad at Stanford in Math. I think a lot about deploying useful tech beyond Silicon Valley.
+		I'm currently deploying <a href="https://cognition.ai/" target="_blank">Cognition's</a> agents in governments and Fortune 500 companies across MENA & APAC.
 	</p>
 
 	<p class="!mb-2">
 		I was previously CEO and cofounder of Hazel (PearX W23), where we raised $2M to build an AI real estate agent with Berkshire Hathaway.
-		I occasionally angel invest in friends.
+		I studied Math at Stanford, and enjoy angel investing in friends (Mercor, Sable).
 	</p>
 {/snippet}
 
@@ -40,14 +40,8 @@
 		<p>
 			I helped build <a href="https://friendsandfam.xyz/manifesto" target="_blank"
 				>Friends and Family</a
-			>, a community at Stanford that ships. We make
-			<a href="https://www.orcahand.com/" target="_blank">robotic hands</a>, Tom & Jerry diffusion
-			<a href="https://test-time-training.github.io/video-dit/" target="_blank">models</a>, Siri for
-			your <a href="https://www.youtube.com/watch?v=3ePO_Qi2jCg" target="_blank">email</a>, and
-			<a
-				href="https://friendsandfam.xyz/projects"
-				target="_blank">more</a
-			>.
+			>, a community at Stanford that ships. One of my favorite projects was
+			Siri for <a href="https://youtu.be/3ePO_Qi2jCg?si=2rOBKU1k0ZM4ZaJd&t=18" target="_blank">email</a>.
 		</p>
 		<!-- <p>
 			I believe that as capabilities of tech improve, two human skills will continue to grow in importance:
