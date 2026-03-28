@@ -62,6 +62,29 @@ function loadExclusions(exclusionsPath) {
 	return new Set();
 }
 
+// Load sync state (hashes written in the last sync)
+function loadSyncState(syncStatePath) {
+	if (fs.existsSync(syncStatePath)) {
+		try {
+			const data = JSON.parse(fs.readFileSync(syncStatePath, 'utf-8'));
+			return new Set(data.hashes || []);
+		} catch (err) {
+			console.error('Error reading sync state file:', err.message);
+		}
+	}
+	return new Set();
+}
+
+// Save sync state
+function saveSyncState(syncStatePath, hashes) {
+	const data = {
+		lastSynced: new Date().toISOString(),
+		count: hashes.size,
+		hashes: Array.from(hashes)
+	};
+	fs.writeFileSync(syncStatePath, JSON.stringify(data, null, 2));
+}
+
 // Save exclusions file
 function saveExclusions(exclusionsPath, exclusions) {
 	const data = {
@@ -188,6 +211,7 @@ async function main() {
 
 	const outputPath = path.join(outputDir, 'books-highlights.json');
 	const exclusionsPath = path.join(outputDir, 'books-exclusions.json');
+	const syncStatePath = path.join(outputDir, 'books-sync-state.json');
 
 	// Load exclusions (manually pruned highlights)
 	const exclusions = loadExclusions(exclusionsPath);
@@ -195,10 +219,17 @@ async function main() {
 		console.log(`🚫 Loaded ${exclusions.size} excluded highlights`);
 	}
 
+	// Load sync state from last run (tracks what hashes we actually wrote)
+	const lastSyncHashes = loadSyncState(syncStatePath);
+	if (lastSyncHashes.size > 0) {
+		console.log(`📋 Loaded ${lastSyncHashes.size} hashes from last sync`);
+	}
+
 	// Load current highlights to detect newly pruned ones
 	const currentData = loadCurrentHighlights(outputPath);
 	const currentHashes = new Set();
 	const bookMetadata = new Map();
+	const highlightMetadata = new Map();
 	if (currentData?.books) {
 		for (const book of currentData.books) {
 			// Preserve metadata like goodreadsUrl
@@ -207,7 +238,15 @@ async function main() {
 				tags: book.tags || null
 			});
 			for (const h of book.highlights) {
-				currentHashes.add(hashHighlight(book.id, h.quote));
+				const hash = hashHighlight(book.id, h.quote);
+				currentHashes.add(hash);
+				// Preserve manually-added highlight metadata (spotlight, etc.)
+				if (h.spotlight) {
+					highlightMetadata.set(hash, {
+						spotlight: true,
+						spotlightNote: h.spotlightNote || null
+					});
+				}
 			}
 		}
 	}
@@ -236,42 +275,15 @@ async function main() {
 		newHashes.add(hashHighlight(annotation.assetId, annotation.quote));
 	}
 
-	// Detect pruned highlights: in current JSON but not removed from Apple Books
-	// (user manually deleted from JSON, but highlight still exists in Apple Books)
+	// Detect pruned highlights:
+	// A highlight is "pruned" only if it was written in the LAST sync
+	// (i.e. in lastSyncHashes), still exists in Apple Books (newHashes),
+	// but the user removed it from the JSON (not in currentHashes).
+	// Highlights that are new in Apple Books (not in lastSyncHashes) are never pruned.
 	let newlyExcluded = 0;
-	for (const hash of newHashes) {
-		// If this hash was in the previous JSON but is no longer there,
-		// it means user pruned it - add to exclusions
-		if (currentHashes.size > 0 && !currentHashes.has(hash) && currentData) {
-			// This is a new highlight from Apple Books, not a pruned one
-			// Don't exclude it
-		}
-	}
-
-	// Actually detect pruned: highlights that WERE in currentHashes but user removed from JSON
-	// We need to compare what's in the current JSON vs what would be generated
-	if (currentHashes.size > 0) {
-		for (const hash of newHashes) {
-			// If highlight exists in Apple Books AND was in previous sync,
-			// but is NOT in current JSON file, user pruned it
-			if (!currentHashes.has(hash) && !exclusions.has(hash)) {
-				// This is a NEW highlight from Apple Books, not pruned
-				// We want it included
-			}
-		}
-
-		// Build a set of hashes that SHOULD have been in the JSON (from last sync)
-		// by looking at what Apple Books has that isn't excluded
-		const lastSyncHashes = new Set();
-		for (const hash of newHashes) {
-			if (!exclusions.has(hash)) {
-				lastSyncHashes.add(hash);
-			}
-		}
-
-		// Pruned = was expected to be in JSON (lastSyncHashes) but user removed it (not in currentHashes)
+	if (lastSyncHashes.size > 0 && currentHashes.size > 0) {
 		for (const hash of lastSyncHashes) {
-			if (!currentHashes.has(hash)) {
+			if (newHashes.has(hash) && !currentHashes.has(hash) && !exclusions.has(hash)) {
 				exclusions.add(hash);
 				newlyExcluded++;
 			}
@@ -313,14 +325,23 @@ async function main() {
 			};
 		}
 
-		highlightsByBook[annotation.assetId].highlights.push({
+		const highlight = {
 			quote: annotation.quote,
 			note: annotation.note || null,
 			chapter: annotation.chapter || null,
 			color: COLOR_MAP[annotation.colorCode] || 'yellow',
 			createdAt: formatDate(convertAppleTime(annotation.createdAt)),
 			modifiedAt: formatDate(convertAppleTime(annotation.modifiedAt))
-		});
+		};
+
+		// Preserve manually-added metadata (spotlight, etc.)
+		const preserved = highlightMetadata.get(highlightHash);
+		if (preserved) {
+			highlight.spotlight = preserved.spotlight;
+			highlight.spotlightNote = preserved.spotlightNote;
+		}
+
+		highlightsByBook[annotation.assetId].highlights.push(highlight);
 		includedCount++;
 	}
 
@@ -346,6 +367,15 @@ async function main() {
 	};
 
 	fs.writeFileSync(outputPath, JSON.stringify(outputData, null, 2));
+
+	// Save sync state: all hashes that were included in this output
+	const syncedHashes = new Set();
+	for (const book of output) {
+		for (const h of book.highlights) {
+			syncedHashes.add(hashHighlight(book.id, h.quote));
+		}
+	}
+	saveSyncState(syncStatePath, syncedHashes);
 
 	console.log('');
 	console.log(`✅ Exported to ${outputPath}`);
