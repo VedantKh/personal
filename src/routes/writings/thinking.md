@@ -1,7 +1,6 @@
 ---
 title: Framework for thinking
 date: '2024-06-20'
-highlight: yes
 description: Trying to apply techniques to come up with better thoughts.
 ---
 

@@ -3,6 +3,7 @@ title: What is worth working on?
 date: '2026-04-19'
 highlight: yes
 description: A question I continue to grapple with, so here are my thoughts.
+draft: true
 ---
 
 It's worth knowing what you want to leave behind on this Earth after you're gone. Here are my thoughts on a framework to approach learning and impact.
