@@ -13,7 +13,7 @@ imageAlt: Venn diagram of what's worth doing
 
 - When people say they want to build a company, they really want to build _leverage_. Leverage is a force multiplier for your judgement.
 - Leverage decomposes into three assets: **skills, people, and capital**. You could view every career decision as your expected delta growth in these three areas.
-- Picking your North Star first (or your best guess at one), and then reverse-engineering the path, is one way to narrow down what skills and network you want to build.
+- Picking your North Star (or your best guess at one) and reverse-engineering the path to get there is one way to narrow down what skills and network you want to build.
 - [The secretary problem](https://www.youtube.com/watch?v=d6iQrh2TK98) suggests you should explore different roles and skills until roughly **age 29–30** (1/e of adult life, adjusted for how younger people have more energy/risk appetite), then commit to the best thing you've found after.
 
 ![Leverage Framework](/venn_diagram_work.png)
