@@ -13,6 +13,17 @@
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import { Contact } from 'lucide-svelte';
 	import { dev } from '$app/environment';
+	import { afterNavigate } from '$app/navigation';
+
+	afterNavigate(({ from, to, willUnload }) => {
+		if (willUnload) return;
+		// Only reset when the pathname changes (ignore in-page hash/query-only navigations)
+		if (from && to && from.url.pathname === to.url.pathname) return;
+		// body is the scroll container in this layout; reset it along with window
+		document.body?.scrollTo?.(0, 0);
+		document.documentElement?.scrollTo?.(0, 0);
+		window.scrollTo(0, 0);
+	});
 
 	let { children } = $props();
 
