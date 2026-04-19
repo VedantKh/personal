@@ -6,8 +6,5 @@ export default defineConfig({
 	plugins: [tailwindcss(), sveltekit()],
 	server: {
 		port: 3000
-	},
-	optimizeDeps: {
-		exclude: ['@sveltejs/kit', 'svelte', '$app/environment', '$app/navigation', '$app/stores']
 	}
 });

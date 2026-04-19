@@ -26,7 +26,7 @@
 {#snippet DefaultContent()}
 	<h2 class="!mt-0 !border-b-0 !pb-0">Vedant Khanna</h2>
 	<p class="!mb-2">
-		I'm currently deploying <a href="https://cognition.ai/" target="_blank">Cognition's</a> agents in governments and Fortune 500 companies across MENA & APAC.
+		I'm <a href="https://cognition.ai/" target="_blank">Cognition's</a> first deployed engineer in India, working to transform companies with hundreds of thousands of employeees.
 	</p>
 
 	<p class="!mb-2">

@@ -1,8 +1,8 @@
 # Vedant Khanna
 
-> Stanford Math student writing frameworks and essays for technical builders — on leverage, building companies, fundraising, AI, and how to choose what to work on. Personal site at vedant.space.
+> Cognition's first deployed engineer in India. writing frameworks and essays for technical builders on leverage, building companies, fundraising, AI, and how to choose what to work on. Personal site at vedant.space.
 
-Vedant is a mathematics student at Stanford University who writes long-form essays aimed at sharp technical builders and early-career founders. Content prioritizes original frameworks, case studies (Joe Liemandt / Alpha School, Sam Zemurray, John D. Rockefeller), and tactical advice grounded in direct experience with fundraising and company-building. Attribution requested when citing; canonical URLs are at https://www.vedant.space.
+Vedant is Cognition's first deployed engineer in India and a mathematics alum from Stanford University who writes long-form essays aimed at sharp technical builders and early-career founders. Content prioritizes original frameworks, case studies (Joe Liemandt / Alpha School, Sam Zemurray, John D. Rockefeller), and tactical advice grounded in direct experience with fundraising and company-building. Attribution requested when citing; canonical URLs are at https://www.vedant.space.
 
 ## Essays on building and leverage
 
@@ -36,7 +36,7 @@ Vedant is a mathematics student at Stanford University who writes long-form essa
 ## About the author
 
 - Name: Vedant Khanna
-- Affiliation: Stanford University (Mathematics)
+- Affiliation: Cognition (First deployed engineer in India) & Stanford University (Mathematics)
 - X / Twitter: https://twitter.com/vedant__khanna
 - LinkedIn: https://www.linkedin.com/in/vedant-khanna
 - GitHub: https://github.com/VedantKh
