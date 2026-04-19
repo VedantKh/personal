@@ -13,7 +13,8 @@ export const fetchMarkdownPosts = async () => {
 				metadata: {
 					title: string;
 					date: string;
-					hidden?: string;
+					hidden?: string | boolean;
+					draft?: string | boolean;
 					[key: string]: unknown;
 				};
 			}
@@ -32,6 +33,12 @@ export const fetchMarkdownPosts = async () => {
 		})
 	);
 
-	// Filter out any posts that have a truthy hidden property
-	return allPosts.filter((post) => !post.meta.hidden);
+	// Filter out any posts marked hidden or draft. Accepts boolean `true` or string 'yes'/'true'
+	// so either `draft: yes` or `draft: true` in frontmatter hides a post from listings + sitemap.
+	const isTruthyFlag = (v: unknown): boolean =>
+		v === true || v === 'yes' || v === 'true' || v === 'ye';
+
+	return allPosts.filter(
+		(post) => !isTruthyFlag(post.meta.hidden) && !isTruthyFlag(post.meta.draft)
+	);
 };

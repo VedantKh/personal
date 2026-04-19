@@ -1,3 +1,69 @@
+# Default: allow everything to all crawlers
 User-agent: *
 Allow: /
-Sitemap: https://www.vedant.space/sitemap.xml 
+
+# Explicit allows for major AI crawlers (search + indexing bots).
+# These also respect robots.txt, so being explicit prevents accidental blocks
+# from upstream config changes and signals intent to index.
+
+# OpenAI — ChatGPT browsing + indexing
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic — Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google — Search + Gemini / AI Overviews
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Meta — Llama / AI assistants
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# ByteDance / TikTok
+User-agent: Bytespider
+Allow: /
+
+# Apple
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+Sitemap: https://www.vedant.space/sitemap.xml

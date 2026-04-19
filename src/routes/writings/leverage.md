@@ -1,18 +1,28 @@
 ---
 title: What is worth working on?
+description: A question I've been grappling with for a while, here are my thoughts.
 date: '2026-04-19'
 highlight: yes
-description: A question I continue to grapple with, so here are my thoughts.
-draft: true
+keywords: leverage, what is worth working on, career framework, optimal stopping, North Star, purpose, Joe Liemandt, Alpha School, Sam Zemurray, skills people capital, Vedant Khanna
+tags: ['leverage', 'career', 'building', 'purpose', 'founders', 'frameworks']
+image: /venn_diagram_work.png
+imageAlt: Venn diagram of what's worth doing
 ---
+
+**TL;DR.**
+
+- When people say they want to build a company, they really want to build _leverage_ — and building companies is one path, but not the only one.
+- Leverage decomposes into three assets: **skills, people, and capital**. You could view every career decision as your expected delta growth in these three areas.
+- Picking your North Star first (or your best guess at one), and then reverse-engineering the path, is one way to narrow down what skills and network you want to build.
+- [The secretary problem](https://www.youtube.com/watch?v=d6iQrh2TK98) suggests you should explore different roles and skills until roughly **age 29–30** (1/e of adult life, adjusted for subjective time), then commit to the best thing you've found after.
 
 ![Leverage Framework](/venn_diagram_work.png)
 
 <p style="text-align: center;">This image summarizes my main point if you don't have 14 minutes to read this right now.</p>
 
-It's worth knowing what you want to leave behind on this Earth after you're gone. Here are my thoughts on a framework to approach learning and impact.
-
 ### Building leverage
+
+It's worth knowing what you want to leave behind on this Earth after you're gone. Here are my thoughts on a framework to approach learning and impact.
 
 I think when people say they want to build a company, what they mean is they want to build leverage. Leverage is a force multiplier for your judgement. You might want to use your leverage to gain personal freedom, take care of your family, bring something new into the world, or solve a problem you deeply care about.
 
@@ -50,14 +60,14 @@ Some people think about their community beyond that. "Helping people" can then t
 
 "Helping your community," isn't necessarily purely altruistic. I think it is nearly inevitable to have some selfishness wrapped up in there. People who have something to prove, want to leave a legacy, or are guided by religion are less likely to quit when things get hard. People who had comfortable lives and worked on "fixing climate change" as an abstract problem probably didn't get too far.
 
-John D. Rockefeller, who at his peak was singlehandedly worth 1.5% of US GDP, believed God had chosen him to accumulate capital so that it could be distributed more effectively for the "good of mankind." In his mind, the harshness of his business tactics was necessary to bring "the poor man's light" to the world—a goal he viewed as inherently Christian. He tithed 10% of his income to the church from his very first paycheck and later used his massive fortune to fund many Baptist and Christian institutions, including University of Chicago.
+John D. Rockefeller, who at his peak was singlehandedly worth [1.5% of US GDP](https://money.britannica.com/topic/How-Rich-Was-John-D-Rockefeller), believed God had chosen him to accumulate capital so that it could be distributed more effectively for the "good of mankind." In his mind, the harshness of his business tactics was necessary to bring "the poor man's light" to the world—a goal he viewed as inherently Christian. He [tithed 10%](https://www.philanthropyroundtable.org/magazine/the-rockefeller-legacy/#:~:text=%E2%80%9CWhen%20I%20was%20only%20making%20a%20dollar%20a%20day%2C%E2%80%9D%20Rockefeller%20later%20recalled%2C%20%E2%80%9CI%20was%20giving%20%5Baway%5D%20five%2C%20ten%2C%20or%20twenty%2Dfive%20cents.%E2%80%9D) of his income to the church from his very first paycheck and later used his massive fortune to fund many Baptist and Christian institutions, including University of Chicago.
 
-Sam Zemurray was a penniless Russian Jewish immigrant who arrived in America in 1891 at fourteen, not even able to afford shoes, knowing no one. He built a banana empire that eventually swallowed United Fruit—which had more power in Central America than any government there. He started off by buying bananas that were about to rot, and scrambling to get it to end customers as fast as possible. This grew into him building one of the most efficient cross-continental supply chains in the world. As part of this, he
+Sam Zemurray was a penniless Russian Jewish immigrant who arrived in America in 1891 at fourteen, not even able to afford shoes, knowing no one. He built a banana empire that eventually swallowed United Fruit—which had more power in Central America than any government there. He started off by buying bananas that were about to rot, and scrambling to get it to end customers as fast as possible. This grew into him building one of the most efficient cross-continental supply chains in the world. As part of this, he:
 
 - built railroads to get bananas from his plantations to the coast, leading the charge in the mud and heat of the Honduran jungles
-- overthrew the Honduran government with _a few dozen men_ to reduce his taxes (the CIA based Operation PBSUCCESS entirely on Sam's methods)
-- invented pesticides and gave rise to the field of pharma
-- was instrumental in making Israel a state
+- [bankrolled a coup](https://en.wikipedia.org/wiki/Sam_Zemurray#:~:text=Zemurray%20devised%20a%20plan) to overthrow the Honduran government with _a few dozen men_ to lower his taxes (decades later, the CIA would study United Fruit's playbook when planning [Operation PBSUCCESS](https://en.wikipedia.org/wiki/Operation_PBSUCCESS) in Guatemala)
+- [first used pesticides and helped organize the first pharma efforts](https://www.learngala.com/cases/0288a456-cb0a-4c38-b31f-3f2a60348ebf/4#:~:text=Consisting%20of%20copper%20sulphate%2C%20water%2C%20and%20lime%2C%20the%20mixture%20was%20mostly%20used%2C%20because%20the%20President%20of%20United%20Fruit%20Company%20at%20the%20time%2C%20Samuel%20Zemurray%2C%20widely%20endorsed%20the%20application%20of%20the%20mixture)
+- was instrumental in [making Israel a state](https://njjewishnews.timesofisrael.com/unpeeling-the-life-of-jewish-banana-king/#:~:text=%E2%80%9CThere%20were%20actually,influence%2C%E2%80%9D%20said%20Cohen.)
 
 ![Sam Zemurray](/sam_zemurray.png)
 
@@ -94,13 +104,13 @@ But if you care more about the macro goal of education than the actual day to da
 
 Alpha School is a great example of this. Joe Liemandt built Trilogy Software, an early SaaS success, then ESW capital: a PE company buying software companies that have achieved market saturation and making them more efficient. He spent a couple decades on building this enterprise. He repeatedly describes himself as a product guy, and loves thinking about making products better. That was his differentiator which built a valuable cashflow generating business. He is now using that cash flow to invest his leverage towards his macro goal: making education 10x better.
 
-45% of high school students in America don't know algebra (scored below NAEP Basic in 12th-grade math, which means they can't solve for x in 3x + 7 = 22 (2024)). This is a systemic problem, not a student problem.
+[45% of high school students](https://www.nagb.gov/news-and-events/news-releases/2025/declines-in-8th-grade-science-and-12th-grade-math-and-reading.html) in America don't know algebra (scored below NAEP Basic in 12th-grade math, which means they can't solve for x in 3x + 7 = 22 (2024)). This is a systemic problem, not a student problem.
 
 Alpha School operates on a radical premise: the 200-year-old model of a teacher lecturing at the front of a room is obsolete.
 
 When he asked 5th graders what would make them love school, they said "less school." He negotiated a deal: if they engaged with the AI tutors for two hours, he'd give them the rest of their time back for things they loved. This resulted in the **"Time Back"** software.
 
-Time Back is an AI tutor personalized to each kid's understanding and interests. This has measurably help them learn twice as much academic material as a regular 6-8 hour school day in just **two hours**.
+Time Back is an AI tutor personalized to each kid's understanding and interests. This has measurably helped them learn [twice as much academic material](https://alpha.school/the-future-of-education-joe-liemandts-vision-for-alpha-school/#:~:text=Using%20an%20AI%2Dpowered%20platform%20rooted%20in%20learning%20science%2C%20students%20learn%20twice%20as%20much%20academic%20material%20in%20just%20two%20hours%20a%20day) as a regular 6-8 hour school day in just **two hours**.
 
 The remaining four hours of school are dedicated to high-stakes "life skills" like public speaking, grit, and entrepreneurship. Examples include producing live news broadcasts, hosting podcasts, and delivering TEDx-style talks, managing Airbnb rentals, and even orchestrating international programs for refugees.
 
@@ -108,7 +118,7 @@ Liemandt learned that, counterintuitively, kids love it when you raise the stand
 
 He's investing the 3 pillars of his leverage now through:
 
-1. Skills: He's the principal of a physical Alpha School, the flagship campus. He spends all his product skills to rethink education and make it a huge business, which no one has really done before. At this physical campus, they've reduced the time it takes to master an entire grade level of a subject to **roughly 20–30 hours.** Nuts.
+1. Skills: He's the principal of a physical Alpha School, the flagship campus. He spends all his product skills to rethink education and make it a huge business, which no one has really done before. At this physical campus, they've reduced the time it takes to master an entire grade level of a subject to **[roughly 20–30 hours](https://alpha.school/2-hour-learning/).** Nuts.
 2. People: His cofounder Mackenzie Price and him have a 25 year long relationship from working together on Trilogy Software, and Mackenzie's husband is the CFO. The founding team is building for their kid's future, and there is deeply aligned interest and trust which took decades to earn.
 3. Capital: Investors don't invest in edtech because there is bad precedent in the space. Most valuable company there is Duolingo, which is an entertainment business. Liemandt is pouring $1 billion of his own capital into Alpha School and its scaling platform, the Timeback app.
 
@@ -116,13 +126,13 @@ Liemandt's North Star is to make every kid love school more than vacation. Prett
 
 ### There's no ground truth to purpose
 
-After all this yap about decade long planning to gain leverage, I want to raise the core question. What is the right way to live?
+After all this talk about decades-long planning to gain leverage, I want to raise the core question. What is the right way to live?
 
 I've wrestled with this for a long time. I continue to wrestle with this. Is a person who makes more money, does hard things, gains power, and has more "impact", a better person?
 
-As of now, I think "impact" is very subjective. I think a good life is one which you are happy with. This might mean working a 9-5 and spending time with your kids and spouse. Or making pottery and sharing your pieces with a small online community. Or being a leader of a union using shady tactics to benefit your union. Or working 100 hours a week for decades on a mission to gain money, power, and respect because you want to prove your dad wrong. All of these could be candidates for a good life.
+As of now, I think "impact" is very subjective. I think a good life is one which you are happy with. This might mean working a 9-5 and spending time with your kids and spouse. Or making pottery and sharing your pieces with a small online community. Or being a leader of a union using shady tactics to benefit your union. Or working 100 hours a week for decades on a mission to gain money, power, and respect because you want to prove your dad wrong. All of these are candidates for a great life.
 
-In my eyes, the bar to clear is personal: can you look back and honestly say you don't have any big regrets? If any pop up, that's a good direction to start making some changes. The best time to make those changes was in the past. The second best is today.
+In my eyes, the bar to clear is personal: can you look back and honestly say you don't have any big regrets? If any pop up, that's a good direction to start making some changes.
 
 ---
 

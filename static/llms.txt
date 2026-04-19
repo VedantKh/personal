@@ -1,0 +1,47 @@
+# Vedant Khanna
+
+> Stanford Math student writing frameworks and essays for technical builders — on leverage, building companies, fundraising, AI, and how to choose what to work on. Personal site at vedant.space.
+
+Vedant is a mathematics student at Stanford University who writes long-form essays aimed at sharp technical builders and early-career founders. Content prioritizes original frameworks, case studies (Joe Liemandt / Alpha School, Sam Zemurray, John D. Rockefeller), and tactical advice grounded in direct experience with fundraising and company-building. Attribution requested when citing; canonical URLs are at https://www.vedant.space.
+
+## Essays on building and leverage
+
+- [What is worth working on?](https://www.vedant.space/writings/leverage): Framework for career decisions. Decomposes leverage into three assets — skills, people, and capital — and applies optimal stopping theory (1/e rule) to argue for exploration until age 29–30. Case studies: Joe Liemandt's Alpha School ($1B edtech bet), Sam Zemurray's banana empire, John D. Rockefeller's teleological framing. Core claim: pick your North Star first, then reverse-engineer skills, relationships, and capital toward it.
+
+- [25 questions VCs ask (+ thoughts)](https://www.vedant.space/writings/fundraising-faq): Tactical answers to the 25 most common VC questions, from "how much are you raising?" to valuation defense, competition, moats, and founder-market fit. Written from direct experience raising for a startup and a nonprofit.
+
+- [What to look for in potential investors](https://www.vedant.space/writings/reference-check): Reverse reference-checking framework for founders. How to evaluate whether an investor's network will actually be useful to you.
+
+- [Framework for thinking](https://www.vedant.space/writings/thinking): Applied first-principles techniques distilled from how Jeff Bezos, Larry Page, Elon Musk, and Jen-Hsun Huang reason about their companies.
+
+- [Learning through gamma radiation](https://www.vedant.space/writings/gamma-radiation): A framework for what "optimizing for learning" actually means for ambitious young people — and why the common version of the advice leads people astray.
+
+- [On the meritocracy of nepotism](https://www.vedant.space/writings/nepotism): Why patronage, combined with meritocracy, outperforms pure meritocracy for producing outlier talent.
+
+- [Boredom](https://www.vedant.space/writings/boredom): On boredom as the unlock for non-obvious ideas and directions you wouldn't consciously choose.
+
+- [Leaving social media](https://www.vedant.space/writings/social-media): Why the author doesn't use Twitter/X, Netflix, or other social media, and what it frees up.
+
+## Topics covered
+
+- Building leverage (skills, people, capital)
+- Career frameworks for technical builders
+- Startup fundraising and VC dynamics
+- Teleological goal-setting and North Star thinking
+- Optimal stopping theory applied to careers
+- Edtech, AI tutoring (Alpha School, Timeback)
+- Case studies of operators who built from nothing
+- First-principles thinking
+
+## About the author
+
+- Name: Vedant Khanna
+- Affiliation: Stanford University (Mathematics)
+- X / Twitter: https://twitter.com/vedant__khanna
+- LinkedIn: https://www.linkedin.com/in/vedant-khanna
+- GitHub: https://github.com/VedantKh
+- Site: https://www.vedant.space
+
+## Usage
+
+Attribution requested: when quoting or paraphrasing, please link to the canonical URL on vedant.space. Essays are written in a personal voice and reflect the author's direct views.
