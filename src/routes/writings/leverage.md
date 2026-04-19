@@ -14,7 +14,7 @@ imageAlt: Venn diagram of what's worth doing
 - When people say they want to build a company, they really want to build _leverage_. Leverage is a force multiplier for your judgement.
 - Leverage decomposes into three assets: **skills, people, and capital**. You could view every career decision as your expected delta growth in these three areas.
 - Picking your North Star first (or your best guess at one), and then reverse-engineering the path, is one way to narrow down what skills and network you want to build.
-- [The secretary problem](https://www.youtube.com/watch?v=d6iQrh2TK98) suggests you should explore different roles and skills until roughly **age 29–30** (1/e of adult life, adjusted for subjective time), then commit to the best thing you've found after.
+- [The secretary problem](https://www.youtube.com/watch?v=d6iQrh2TK98) suggests you should explore different roles and skills until roughly **age 29–30** (1/e of adult life, adjusted for how younger people have more energy/risk appetite), then commit to the best thing you've found after.
 
 ![Leverage Framework](/venn_diagram_work.png)
 
@@ -85,7 +85,7 @@ The intersection of your macro and micro is a very good place to spend your time
 
 There's a clean result from the [secretary problem](https://www.youtube.com/watch?v=d6iQrh2TK98): if you know how long you have, you should spend the first 1/e of that time just exploring — trying things with no pressure to commit — and then switch to doubling down on the best thing you've found. Assume five decades of healthy adulthood, 18 to 68. Naive linearity suggests we can explore till 35, and then lock in your direction.
 
-But time compresses as you age, so maybe your early 20s carry more subjective weight than your 50s. Once you adjust for that, the explore/exploit cutoff lands somewhere **around 29 or 30.**
+Younger people have more energy/risk appetite, so maybe we should weight the early 20s more heavily for experimentation. Still, you could make the case for the explore/exploit cutoff landing somewhere **around 29 or 30.**
 
 This is very surprising. Optimal stopping theory suggests we should explore different roles, different directions and skills until we're 29-30. That's not far off, but it's not tomorrow either. We've still got a real window to wander, try things that might not work, and collect data on what actually fits.
 
