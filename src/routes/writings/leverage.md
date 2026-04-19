@@ -6,19 +6,23 @@ description: A question I continue to grapple with, so here are my thoughts.
 draft: true
 ---
 
+![Leverage Framework](/venn_diagram_work.png)
+
+<p style="text-align: center;">This image summarizes my main point if you don't have 14 minutes to read this right now.</p>
+
 It's worth knowing what you want to leave behind on this Earth after you're gone. Here are my thoughts on a framework to approach learning and impact.
 
 ### Building leverage
 
-I think when people say they want to build a company, what they mean is they want to build leverage. Stealing from Naval, "leverage is a force multiplier for your judgement". You might want to use your leverage to gain personal freedom, take care of your family, bring something new into the world, or solve a problem you deeply care about.
+I think when people say they want to build a company, what they mean is they want to build leverage. Leverage is a force multiplier for your judgement. You might want to use your leverage to gain personal freedom, take care of your family, bring something new into the world, or solve a problem you deeply care about.
 
 Building a company is one way to build leverage. But contrary to what I originally thought, it is definitely not the only way, especially to start out with.
 
-One way to decompose leverage is into skills, people, and capital.
+One way to decompose leverage is into **skills, people, and capital**.
 
-1. Skills: Are you uniquely good at a core skill useful to others? In tech land, there's building and selling, but there's so much that this can be broken down into. Synthesizing information into bets, taste for important problems, storytelling, teaching, building a community, seeing patterns across qualitative and quantitative data. If you lean into what feels like play, you'll naturally outcompete everyone who treats building that skill like a chore. It is truly worth exploring what feels like play to you. What you want to do when you have free time. Don't settle. Once you find it, then let it consume you.
-2. People: who trusts you, and how much? One way to visualize this is graph theoretic, with people as weighted nodes, with two weights on each edge representing the trust each person has in the other. You can go breadth first in building trust through building a following on a platform, or meeting a lot of new people. You can go depth first by building deep relations with a few people. Being authentic usually takes you further in both respects. It's best to spend your time in a way that fulfills you, but I think for one's sanity, it's important to have at least one deep connection who you can be vulnerable with.
-3. Capital: the universal religion. A stored form of leverage. Everyone believes in the worth of capital, so it can be traded for effectively anything. You can use it to buy assets you can't build yourself, benefit from other people's skills, and motivate people to help you (although this is brittle in solitude). You can use capital to bet on people/assets you believe in. This is cool because it's a powerful alternative to your time. Capital can be grown, while time is quite finite.
+1. **Skills.** Are you uniquely good at a core skill useful to others? In tech land, there's building and selling, but there's so much that this can be broken down into. Synthesizing information into bets, taste for important problems, storytelling, teaching, building a community, seeing patterns across qualitative and quantitative data. If you lean into what feels like play, you'll naturally outcompete everyone who treats building that skill like a chore. It is truly worth exploring what feels like play to you. What you want to do when you have free time. Don't settle. Once you find it, then let it consume you.
+2. **People.** Who trusts you, and how much? One way to visualize this is graph theoretic, with people as weighted nodes, with two weights on each edge representing the trust each person has in the other. You can go breadth first in building trust through building a following on a platform, or meeting a lot of new people. You can go depth first by building deep relations with a few people. Being authentic usually takes you further in both respects. It's best to spend your time in a way that fulfills you, but I think for one's sanity, it's important to have at least one deep connection who you can be vulnerable with.
+3. **Capital.** The universal religion. A stored form of leverage. Everyone believes in the worth of capital, so it can be traded for effectively anything. You can use it to buy assets you can't build yourself, benefit from other people's skills, and motivate people to help you (although this is brittle in solitude since mercenaries are fickle). You can use capital to bet on people/assets you believe in. This is cool because it's a powerful alternative to your time. Capital can be grown, while time is quite finite.
 
 As you can imagine, these are deeply intertwined. You build trust with people based on your skills and values. It is easier to hold good values when you aren't playing zero-sum games, and building skills means you can play positive-sum games: you gain capital/wealth by creating wealth for others. You can combine your skills and your trusted network to get shit done, and raise capital from people who trust you and your skills to accelerate getting that shit done.
 
@@ -55,21 +59,23 @@ Sam Zemurray was a penniless Russian Jewish immigrant who arrived in America in 
 - invented pesticides and gave rise to the field of pharma
 - was instrumental in making Israel a state
 
+![Sam Zemurray](/sam_zemurray.png)
+
+<p style="text-align: center;">Sam the Banana Man</p>
+
 His driving conviction was that the man closest to the dirt deserved to win over the man behind the desk, and he spent his life proving it. Was he a good person? Jury's out. Did he build leverage from nothing? Absolutely.
 
 Once you have some answer to your North Star, then that's your macro-scale direction for where to spend your time building skills and building relationships. Capital is commoditized, so thankfully there's less decision paralysis there.
 
-Another important part is the micro-scale. What gives you energy. Worth writing some of these down in weekly or monthly reviews. When did you feel most alive? What characterized the month for you?
-
-![Venn diagram: what do you want to leave behind on this Earth vs what and who gives you energy](/venn_diagram_work.png)
+Another important part is the micro-scale. What gives you energy? Worth writing some of these down in weekly or monthly reviews. When did you feel most alive? What characterized the month for you?
 
 The intersection of your macro and micro is a very good place to spend your time. Those are the people and learnings that you love spending time on that get you closer to where you want to be.
 
 ### Thinking in decades
 
-There's a clean result from the secretary problem: if you know how long you have, you should spend the first 1/e of that time just exploring — trying things with no pressure to commit — and then switch to doubling down on the best thing you've found. Assume five decades of healthy adulthood, 18 to 68. Naive linearity suggests we can explore till 35, and then lock in your direction.
+There's a clean result from the [secretary problem](https://www.youtube.com/watch?v=d6iQrh2TK98): if you know how long you have, you should spend the first 1/e of that time just exploring — trying things with no pressure to commit — and then switch to doubling down on the best thing you've found. Assume five decades of healthy adulthood, 18 to 68. Naive linearity suggests we can explore till 35, and then lock in your direction.
 
-But time compresses as you age, so your early 20s carry more subjective weight than your 50s. Once you adjust for that, the explore/exploit cutoff lands somewhere **around 29 or 30.**
+But time compresses as you age, so maybe your early 20s carry more subjective weight than your 50s. Once you adjust for that, the explore/exploit cutoff lands somewhere **around 29 or 30.**
 
 This is very surprising. Optimal stopping theory suggests we should explore different roles, different directions and skills until we're 29-30. That's not far off, but it's not tomorrow either. We've still got a real window to wander, try things that might not work, and collect data on what actually fits.
 
@@ -102,7 +108,7 @@ Liemandt learned that, counterintuitively, kids love it when you raise the stand
 
 He's investing the 3 pillars of his leverage now through:
 
-1. Skills: He's the principal of a physical Alpha School, the flagship campus. He spends all his product skills to rethink education and make it a huge business, which no one has really done before. They've reduced the time it takes to master an entire grade level of a subject to roughly 20–30 hours.
+1. Skills: He's the principal of a physical Alpha School, the flagship campus. He spends all his product skills to rethink education and make it a huge business, which no one has really done before. At this physical campus, they've reduced the time it takes to master an entire grade level of a subject to **roughly 20–30 hours.** Nuts.
 2. People: His cofounder Mackenzie Price and him have a 25 year long relationship from working together on Trilogy Software, and Mackenzie's husband is the CFO. The founding team is building for their kid's future, and there is deeply aligned interest and trust which took decades to earn.
 3. Capital: Investors don't invest in edtech because there is bad precedent in the space. Most valuable company there is Duolingo, which is an entertainment business. Liemandt is pouring $1 billion of his own capital into Alpha School and its scaling platform, the Timeback app.
 
