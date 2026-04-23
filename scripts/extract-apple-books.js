@@ -346,10 +346,14 @@ async function main() {
 	}
 
 	// Convert to array and sort by most recently modified
+	const latestModifiedAt = (book) =>
+		book.highlights.reduce((latest, h) => {
+			const d = h.modifiedAt || '';
+			return d > latest ? d : latest;
+		}, '');
+
 	const output = Object.values(highlightsByBook).sort((a, b) => {
-		const aLatest = a.highlights[0]?.modifiedAt || '';
-		const bLatest = b.highlights[0]?.modifiedAt || '';
-		return bLatest.localeCompare(aLatest);
+		return latestModifiedAt(b).localeCompare(latestModifiedAt(a));
 	});
 
 	// Save exclusions

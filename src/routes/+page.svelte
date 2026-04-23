@@ -26,7 +26,7 @@
 {#snippet DefaultContent()}
 	<h2 class="!mt-0 !border-b-0 !pb-0">Vedant Khanna</h2>
 	<p class="!mb-2">
-		I'm <a href="https://cognition.ai/" target="_blank">Cognition's</a> first deployed engineer in India, working to transform companies with hundreds of thousands of employeees.
+		I'm <a href="https://cognition.ai/" target="_blank">Cognition's</a> first deployed engineer in India, working to transform companies with hundreds of thousands of employees.
 	</p>
 
 	<p class="!mb-2">
