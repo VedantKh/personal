@@ -14,11 +14,14 @@
 	import { Contact } from 'lucide-svelte';
 	import { dev } from '$app/environment';
 	import { afterNavigate } from '$app/navigation';
+	import { initPageTimeListeners, startPageTimer } from '$lib/analytics/pageTime';
 
 	afterNavigate(({ from, to, willUnload }) => {
-		if (willUnload) return;
+		if (willUnload || !to) return;
 		// Only reset when the pathname changes (ignore in-page hash/query-only navigations)
-		if (from && to && from.url.pathname === to.url.pathname) return;
+		if (from && from.url.pathname === to.url.pathname) return;
+		// Start a fresh page-time timer for the new path
+		startPageTimer(to.url.pathname);
 		// body is the scroll container in this layout; reset it along with window
 		document.body?.scrollTo?.(0, 0);
 		document.documentElement?.scrollTo?.(0, 0);
@@ -36,6 +39,10 @@
 	let height = $state(1);
 
 	onMount(() => {
+		// Initialize page-time analytics (visibilitychange + pagehide flushes)
+		initPageTimeListeners();
+		startPageTimer(window.location.pathname);
+
 		// window code here safely
 		width = window.innerWidth;
 		height = window.innerHeight;
