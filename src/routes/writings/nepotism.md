@@ -11,7 +11,7 @@ There are many cases where nepotism allows mediocre people with powerful patrons
 
 But nepotism, or patronage, can produce results. I enjoyed reading an article about Nelson, Britain’s weapon against Napoleon, which argues for the utility of nepotism. “What we can learn from the 18th-century Navy is that the best results are often achieved not by meritocracy alone, but by [meritocracy combined with a system of patronage](https://www.notion.so/Reading-list-2ad8828bbc3d805e8e57db53d9a6bf26?pvs=21).”
 
-A [2019 study](https://archive.is/o/ni9ke/https://cepr.org/voxeu/columns/patronage-and-performance-selection-and-success-age-sail) of the Navy between 1690-1849, by Joachim Voth and Guo Xu, examined the effect of patronage on performance. It looked at more than 4,000 promotions to see the difference between captains who had been promoted by a relative or patron versus those promoted by someone with no personal connection. These captains had command of a ship, and were essential to naval performance.
+A [2019 study](https://cepr.org/voxeu/columns/patronage-and-performance-selection-and-success-age-sail#:~:text=In%20recent%20research%2C%20we%20look%20at%20how%20the%20Royal%20Navy%20fought%20its%20way%20into%20the%20history%20books%20(Voth%20and%20Xu%202019).) of the Navy between 1690-1849, by Joachim Voth and Guo Xu, examined the effect of patronage on performance. It looked at more than 4,000 promotions to see the difference between captains who had been promoted by a relative or patron versus those promoted by someone with no personal connection. These captains had command of a ship, and were essential to naval performance.
 
 Their performance is easy to measure: ships sunk. Surprisingly, the connected officers outperformed the unconnected ones. The nepo-babies really were more likely to sink, burn or capture enemy ships, regardless of the ship they were given command of or their position in the battle line. They were also more likely to win one-to-one encounters.
 
@@ -25,7 +25,7 @@ The success of patronage here likely owes a lot to the war. In peacetime, an org
 
 This highlight in the screenshot below also explains the “[lineage of excellence](https://www.benlandautaylor.com/p/looking-beyond-the-veil)”. The edge that some of the top artists, researchers, engineers, warriors, businessmen have comes from a melange of little quirks and nuances. Not all of these make it into books, podcasts, and lectures, and are best gleaned by being **in person** with them for extended periods of time.
 
-The weird quirks are usually the alpha. 
+The weird quirks are usually the alpha.
 
 ![weirdness_of_genius.png](/weirdness_of_genius.png)
 
@@ -34,4 +34,5 @@ When we are looking for qualities that are hard to measure — things like leade
 This whole preamble can be summarized by "talent knows how to spot talent."
 
 ---
+
 Inspired by a conversation with Armaan Dhanda.
