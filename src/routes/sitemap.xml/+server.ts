@@ -32,7 +32,7 @@ ${staticPages
 ${posts
 	.map(
 		(post: { path: string; meta: { date: string } }) => `    <url>
-        <loc>${site}/writings/${post.path.replace('src/routes/writings/', '').replace('.md', '')}</loc>
+        <loc>${site}${post.path}</loc>
         <lastmod>${new Date(post.meta.date).toISOString()}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>

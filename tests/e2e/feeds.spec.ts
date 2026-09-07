@@ -76,5 +76,12 @@ test.describe('Sitemap', () => {
 		expect(xml).toContain(`<loc>${ORIGIN}/books</loc>`);
 		expect(xml).not.toContain('/readings');
 		expect(xml).not.toContain('sveltekit-prerender');
+		expect(xml).not.toContain('//writings');
+		for (const essay of publishedEssays()) {
+			expect(xml).toContain(`<loc>${ORIGIN}/writings/${essay.slug}</loc>`);
+		}
+		for (const essay of unpublishedEssays()) {
+			expect(xml).not.toContain(`/writings/${essay.slug}<`);
+		}
 	});
 });
