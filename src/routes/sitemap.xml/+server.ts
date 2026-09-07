@@ -13,7 +13,8 @@ export const GET: RequestHandler = async ({ url, fetch }) => {
 		{ url: '/experience', changefreq: 'monthly', priority: '0.8' },
 		{ url: '/projects', changefreq: 'monthly', priority: '0.8' },
 		{ url: '/writings', changefreq: 'weekly', priority: '0.9' },
-		{ url: '/readings', changefreq: 'monthly', priority: '0.7' }
+		{ url: '/snippets', changefreq: 'monthly', priority: '0.7' },
+		{ url: '/books', changefreq: 'monthly', priority: '0.7' }
 	];
 
 	// Generate sitemap XML
@@ -31,7 +32,7 @@ ${staticPages
 ${posts
 	.map(
 		(post: { path: string; meta: { date: string } }) => `    <url>
-        <loc>${site}/writings/${post.path.replace('src/routes/writings/', '').replace('.md', '')}</loc>
+        <loc>${site}${post.path}</loc>
         <lastmod>${new Date(post.meta.date).toISOString()}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>

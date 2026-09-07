@@ -3,6 +3,7 @@ title: On the meritocracy of nepotism
 date: '2026-01-03'
 highlight: yes
 description: Combining patronage with meritocracy can work better.
+related: ['reference-check', 'gamma-radiation', 'mentors']
 ---
 
 A lot of people agree that nepotism is something we should mitigate.

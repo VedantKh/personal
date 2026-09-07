@@ -1,9 +1,29 @@
 // src/routes/blog/[slug]/+page.ts
 import type { PageLoad } from './$types';
+import { fetchPosts, type Post } from '$lib/utils/posts';
 
-export const load = (async ({ params }) => {
+export type RelatedPost = { slug: string; title: string; description: string };
+
+export const load = (async ({ params, fetch }) => {
 	const post = await import(`../${params.slug}.md`);
-	const { title, date, description, keywords, tags, image, imageAlt } = post.metadata;
+	const { title, date, description, keywords, tags, image, imageAlt, related } = post.metadata;
+
+	const relatedSlugs: string[] = Array.isArray(related) ? related : [];
+	let relatedPosts: RelatedPost[] = [];
+	if (relatedSlugs.length) {
+		const allPosts: Post[] = await fetchPosts(fetch);
+		const bySlug = new Map(allPosts.map((p) => [p.path.replace('/writings/', ''), p]));
+		relatedPosts = relatedSlugs
+			.filter((slug) => slug !== params.slug && bySlug.has(slug))
+			.map((slug) => {
+				const p = bySlug.get(slug)!;
+				return {
+					slug,
+					title: p.meta.title,
+					description: typeof p.meta.description === 'string' ? p.meta.description : ''
+				};
+			});
+	}
 	const Content = post.default;
 
 	// Calculate reading time from word count (assuming 200 words per minute)
@@ -38,6 +58,7 @@ export const load = (async ({ params }) => {
 		imageAlt: imageAlt || title,
 		Content,
 		duration,
+		relatedPosts,
 		slug: params.slug
 	};
 }) satisfies PageLoad;

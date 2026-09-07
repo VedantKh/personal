@@ -2,6 +2,7 @@
 title: 25 questions VCs ask (+ thoughts)
 date: '2025-08-15'
 description: Tactical thoughts on how to approach common and difficult questions.
+related: ['fundraising', 'reference-check', 'leverage']
 ---
 
 <script>

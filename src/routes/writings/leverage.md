@@ -7,6 +7,7 @@ keywords: leverage, what is worth working on, career framework, optimal stopping
 tags: ['leverage', 'career', 'building', 'purpose', 'founders', 'frameworks']
 image: /venn_diagram_work.png
 imageAlt: Venn diagram of what's worth doing
+related: ['gamma-radiation', 'mentors', 'thinking']
 ---
 
 **TL;DR.**
