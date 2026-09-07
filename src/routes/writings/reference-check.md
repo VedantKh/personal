@@ -2,6 +2,7 @@
 title: What to look for in potential investors
 date: '2025-08-15'
 description: Investors have large networks, but how useful will that network be to you?
+related: ['fundraising-faq', 'nepotism', 'fundraising']
 ---
 
 A specific network and the proven ability to leverage it. Why:

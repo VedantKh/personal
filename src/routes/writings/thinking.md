@@ -2,6 +2,7 @@
 title: Framework for thinking
 date: '2024-06-20'
 description: Trying to apply techniques to come up with better thoughts.
+related: ['leverage', 'boredom']
 ---
 
 <script>

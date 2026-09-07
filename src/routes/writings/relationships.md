@@ -3,6 +3,7 @@ title: Relationships
 date: '2025-03-19'
 hidden: ye
 description: Relationship building will grow increasingly important as AI improves.
+related: ['mentors', 'reference-check', 'silicon-valley']
 ---
 
 Here's an analogy that only someone in Silicon Valley could come up with.

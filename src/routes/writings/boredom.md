@@ -3,6 +3,7 @@ title: Boredom
 date: '2025-09-29'
 highlight: yes
 description: Boredom gets you places you wouldn't have thought of consciously.
+related: ['social-media', 'thinking', 'leverage']
 ---
 
 Boredom is painful for the brain. Evolutionarily, we've been honed to enjoy consuming information. That information, like where the watering hole is, whether the small blue berries are poisonous or sweet, and who you can rely upon in your tribe, would increase your likelihood of survival.
